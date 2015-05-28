@@ -34,6 +34,7 @@
 		3F8D99B21B177B120066504F /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A11B177B120066504F /* Timeline.swift */; };
 		3F8D99B31B177B120066504F /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A21B177B120066504F /* TimelineController.swift */; };
 		3F8D99B41B177B120066504F /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A31B177B120066504F /* Trip.swift */; };
+		3F8D99B61B1780FA0066504F /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		3F8D99A11B177B120066504F /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
 		3F8D99A21B177B120066504F /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
 		3F8D99A31B177B120066504F /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		3F8D99B51B1780FA0066504F /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				3F8D999A1B177B120066504F /* LoginController.swift */,
 				3F8D999F1B177B120066504F /* NewMomentController.swift */,
 				3F8D99A21B177B120066504F /* TimelineController.swift */,
+				3F8D99B51B1780FA0066504F /* AddTripViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				3F8D99881B1778780066504F /* JournalsViewController.swift in Sources */,
 				3F8D99A81B177B120066504F /* DashedLine.swift in Sources */,
 				3F8D99B41B177B120066504F /* Trip.swift in Sources */,
+				3F8D99B61B1780FA0066504F /* AddTripViewController.swift in Sources */,
 				3F8D99A51B177B120066504F /* CoreDataTestViewController.swift in Sources */,
 				3F8D99AF1B177B120066504F /* Moments.swift in Sources */,
 				3F8D99891B1778780066504F /* MenuViewController.swift in Sources */,

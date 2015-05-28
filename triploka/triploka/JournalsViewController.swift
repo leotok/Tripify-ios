@@ -14,7 +14,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     var addButton : UIBarButtonItem?
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +26,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         self.navigationController?.navigationBar.topItem?.title = "Journals"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
-        addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("showTrip"))
+        addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addTrip"))
         addButton!.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = addButton
         
@@ -60,10 +59,13 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
        
     }
     
-    func showTrip()
+    func addTrip()
     {
-        
+        let addvc = AddTripViewController()
+        self.navigationController?.pushViewController(addvc, animated: true)
     }
+    
+    
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
@@ -105,17 +107,17 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
         //pegar do DAO as prioritys de cada journal, tem q ser antes de criar as cells pq nao tem acesso a elas daqui
-       
+        return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
         
-        if indexPath.row == 0 // || indexPath.row == 3
-        {
-            println(indexPath.row)
-            return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
-        }
-        else
-        {
-            return CGSizeMake(self.view.frame.width/2.1, self.view.frame.height/4.2)
-        }
+//        if indexPath.row == 0 // || indexPath.row == 3
+//        {
+//            println(indexPath.row)
+//            return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
+//        }
+//        else
+//        {
+//            return CGSizeMake(self.view.frame.width/2.1, self.view.frame.height/4.2)
+//        }
         
     }
     
