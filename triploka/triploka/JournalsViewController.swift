@@ -11,6 +11,7 @@ import UIKit
 class JournalsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
 
     var sideMenuButton = UIBarButtonItem()
+    var addButton : UIBarButtonItem?
     
     
     
@@ -25,6 +26,11 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         
         self.navigationController?.navigationBar.topItem?.title = "Journals"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+
+        addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("showTrip"))
+        addButton!.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItem = addButton
+        
         
         sideMenuButton.tintColor = UIColor.whiteColor()
         sideMenuButton.image = UIImage(named: "Menu-25")
@@ -52,6 +58,11 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
 
         self.view.addSubview(collectionJournal)
        
+    }
+    
+    func showTrip()
+    {
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
