@@ -16,6 +16,7 @@ class Trip: NSManagedObject {
     @NSManaged var endDate: NSDate
     @NSManaged var presentationImage: NSData
     @NSManaged var moments: NSSet
+    var momentsArray: [Moment] = []
 
     class func entityName() -> String{
         
