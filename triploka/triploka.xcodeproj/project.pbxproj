@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F8D99611B1778290066504F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99601B1778290066504F /* AppDelegate.swift */; };
+		3F8D99641B1778290066504F /* triploka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99621B1778290066504F /* triploka.xcdatamodeld */; };
+		3F8D996B1B1778290066504F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996A1B1778290066504F /* Images.xcassets */; };
+		3F8D996E1B1778290066504F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996C1B1778290066504F /* LaunchScreen.xib */; };
+		3F8D997A1B1778290066504F /* triplokaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99791B1778290066504F /* triplokaTests.swift */; };
+		3F8D99871B1778780066504F /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99831B1778780066504F /* GenericViewController.swift */; };
+		3F8D99881B1778780066504F /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
+		3F8D99891B1778780066504F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99851B1778780066504F /* MenuViewController.swift */; };
+		3F8D998A1B1778780066504F /* TripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99861B1778780066504F /* TripCollectionViewCell.swift */; };
+		3F8D998E1B1778850066504F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998D1B1778850066504F /* SWRevealViewController.m */; };
+		3F8D99A41B177B120066504F /* CoreDataTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D99931B177B120066504F /* CoreDataTest.xib */; };
+		3F8D99A51B177B120066504F /* CoreDataTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99941B177B120066504F /* CoreDataTestViewController.swift */; };
+		3F8D99A61B177B120066504F /* DAOCloudTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99951B177B120066504F /* DAOCloudTravel.swift */; };
+		3F8D99A71B177B120066504F /* DAOCloudTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99961B177B120066504F /* DAOCloudTrip.swift */; };
+		3F8D99A81B177B120066504F /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99971B177B120066504F /* DashedLine.swift */; };
+		3F8D99A91B177B120066504F /* JoinLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99981B177B120066504F /* JoinLine.swift */; };
+		3F8D99AA1B177B120066504F /* Junction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99991B177B120066504F /* Junction.swift */; };
+		3F8D99AB1B177B120066504F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999A1B177B120066504F /* LoginController.swift */; };
+		3F8D99AC1B177B120066504F /* ManagedObjectContextHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999B1B177B120066504F /* ManagedObjectContextHandler.swift */; };
+		3F8D99AD1B177B120066504F /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999C1B177B120066504F /* Moment.swift */; };
+		3F8D99AE1B177B120066504F /* MomentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999D1B177B120066504F /* MomentCategory.swift */; };
+		3F8D99AF1B177B120066504F /* Moments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999E1B177B120066504F /* Moments.swift */; };
+		3F8D99B01B177B120066504F /* NewMomentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999F1B177B120066504F /* NewMomentController.swift */; };
+		3F8D99B11B177B120066504F /* TestMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A01B177B120066504F /* TestMoment.swift */; };
+		3F8D99B21B177B120066504F /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A11B177B120066504F /* Timeline.swift */; };
+		3F8D99B31B177B120066504F /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A21B177B120066504F /* TimelineController.swift */; };
+		3F8D99B41B177B120066504F /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A31B177B120066504F /* Trip.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F8D99741B1778290066504F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F8D99531B1778290066504F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F8D995A1B1778290066504F;
+			remoteInfo = triploka;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F8D995B1B1778290066504F /* triploka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triploka.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F8D995F1B1778290066504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F8D99601B1778290066504F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F8D99631B1778290066504F /* triploka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = triploka.xcdatamodel; sourceTree = "<group>"; };
+		3F8D996A1B1778290066504F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3F8D996D1B1778290066504F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3F8D99731B1778290066504F /* triplokaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = triplokaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F8D99781B1778290066504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F8D99791B1778290066504F /* triplokaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triplokaTests.swift; sourceTree = "<group>"; };
+		3F8D99831B1778780066504F /* GenericViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
+		3F8D99841B1778780066504F /* JournalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalsViewController.swift; sourceTree = "<group>"; };
+		3F8D99851B1778780066504F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		3F8D99861B1778780066504F /* TripCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F8D998B1B1778840066504F /* triploka-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "triploka-Bridging-Header.h"; sourceTree = "<group>"; };
+		3F8D998C1B1778850066504F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		3F8D998D1B1778850066504F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		3F8D99931B177B120066504F /* CoreDataTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreDataTest.xib; sourceTree = "<group>"; };
+		3F8D99941B177B120066504F /* CoreDataTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestViewController.swift; sourceTree = "<group>"; };
+		3F8D99951B177B120066504F /* DAOCloudTravel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOCloudTravel.swift; sourceTree = "<group>"; };
+		3F8D99961B177B120066504F /* DAOCloudTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOCloudTrip.swift; sourceTree = "<group>"; };
+		3F8D99971B177B120066504F /* DashedLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashedLine.swift; sourceTree = "<group>"; };
+		3F8D99981B177B120066504F /* JoinLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinLine.swift; sourceTree = "<group>"; };
+		3F8D99991B177B120066504F /* Junction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Junction.swift; sourceTree = "<group>"; };
+		3F8D999A1B177B120066504F /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		3F8D999B1B177B120066504F /* ManagedObjectContextHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextHandler.swift; sourceTree = "<group>"; };
+		3F8D999C1B177B120066504F /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
+		3F8D999D1B177B120066504F /* MomentCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentCategory.swift; sourceTree = "<group>"; };
+		3F8D999E1B177B120066504F /* Moments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moments.swift; sourceTree = "<group>"; };
+		3F8D999F1B177B120066504F /* NewMomentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMomentController.swift; sourceTree = "<group>"; };
+		3F8D99A01B177B120066504F /* TestMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMoment.swift; sourceTree = "<group>"; };
+		3F8D99A11B177B120066504F /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		3F8D99A21B177B120066504F /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
+		3F8D99A31B177B120066504F /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F8D99581B1778290066504F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F8D99701B1778290066504F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F8D99521B1778290066504F = {
+			isa = PBXGroup;
+			children = (
+				3F8D995D1B1778290066504F /* triploka */,
+				3F8D99761B1778290066504F /* triplokaTests */,
+				3F8D995C1B1778290066504F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F8D995C1B1778290066504F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D995B1B1778290066504F /* triploka.app */,
+				3F8D99731B1778290066504F /* triplokaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F8D995D1B1778290066504F /* triploka */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D99911B177AA90066504F /* Controller */,
+				3F8D99901B177AA40066504F /* View */,
+				3F8D998F1B177AA00066504F /* Model */,
+				3F8D99921B177AB60066504F /* SWReveal */,
+				3F8D99601B1778290066504F /* AppDelegate.swift */,
+				3F8D99621B1778290066504F /* triploka.xcdatamodeld */,
+				3F8D99931B177B120066504F /* CoreDataTest.xib */,
+				3F8D995E1B1778290066504F /* Supporting Files */,
+			);
+			path = triploka;
+			sourceTree = "<group>";
+		};
+		3F8D995E1B1778290066504F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D996A1B1778290066504F /* Images.xcassets */,
+				3F8D996C1B1778290066504F /* LaunchScreen.xib */,
+				3F8D995F1B1778290066504F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F8D99761B1778290066504F /* triplokaTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D99791B1778290066504F /* triplokaTests.swift */,
+				3F8D99771B1778290066504F /* Supporting Files */,
+			);
+			path = triplokaTests;
+			sourceTree = "<group>";
+		};
+		3F8D99771B1778290066504F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D99781B1778290066504F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F8D998F1B177AA00066504F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D99951B177B120066504F /* DAOCloudTravel.swift */,
+				3F8D99961B177B120066504F /* DAOCloudTrip.swift */,
+				3F8D999B1B177B120066504F /* ManagedObjectContextHandler.swift */,
+				3F8D999C1B177B120066504F /* Moment.swift */,
+				3F8D999D1B177B120066504F /* MomentCategory.swift */,
+				3F8D999E1B177B120066504F /* Moments.swift */,
+				3F8D99A11B177B120066504F /* Timeline.swift */,
+				3F8D99A31B177B120066504F /* Trip.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3F8D99901B177AA40066504F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D99861B1778780066504F /* TripCollectionViewCell.swift */,
+				3F8D99971B177B120066504F /* DashedLine.swift */,
+				3F8D99981B177B120066504F /* JoinLine.swift */,
+				3F8D99991B177B120066504F /* Junction.swift */,
+				3F8D99A01B177B120066504F /* TestMoment.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3F8D99911B177AA90066504F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D99831B1778780066504F /* GenericViewController.swift */,
+				3F8D99841B1778780066504F /* JournalsViewController.swift */,
+				3F8D99851B1778780066504F /* MenuViewController.swift */,
+				3F8D99941B177B120066504F /* CoreDataTestViewController.swift */,
+				3F8D999A1B177B120066504F /* LoginController.swift */,
+				3F8D999F1B177B120066504F /* NewMomentController.swift */,
+				3F8D99A21B177B120066504F /* TimelineController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3F8D99921B177AB60066504F /* SWReveal */ = {
+			isa = PBXGroup;
+			children = (
+				3F8D998C1B1778850066504F /* SWRevealViewController.h */,
+				3F8D998D1B1778850066504F /* SWRevealViewController.m */,
+				3F8D998B1B1778840066504F /* triploka-Bridging-Header.h */,
+			);
+			name = SWReveal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F8D995A1B1778290066504F /* triploka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F8D997D1B1778290066504F /* Build configuration list for PBXNativeTarget "triploka" */;
+			buildPhases = (
+				3F8D99571B1778290066504F /* Sources */,
+				3F8D99581B1778290066504F /* Frameworks */,
+				3F8D99591B1778290066504F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = triploka;
+			productName = triploka;
+			productReference = 3F8D995B1B1778290066504F /* triploka.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F8D99721B1778290066504F /* triplokaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F8D99801B1778290066504F /* Build configuration list for PBXNativeTarget "triplokaTests" */;
+			buildPhases = (
+				3F8D996F1B1778290066504F /* Sources */,
+				3F8D99701B1778290066504F /* Frameworks */,
+				3F8D99711B1778290066504F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F8D99751B1778290066504F /* PBXTargetDependency */,
+			);
+			name = triplokaTests;
+			productName = triplokaTests;
+			productReference = 3F8D99731B1778290066504F /* triplokaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F8D99531B1778290066504F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Leonardo Edelman Wajnsztok";
+				TargetAttributes = {
+					3F8D995A1B1778290066504F = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					3F8D99721B1778290066504F = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 3F8D995A1B1778290066504F;
+					};
+				};
+			};
+			buildConfigurationList = 3F8D99561B1778290066504F /* Build configuration list for PBXProject "triploka" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F8D99521B1778290066504F;
+			productRefGroup = 3F8D995C1B1778290066504F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F8D995A1B1778290066504F /* triploka */,
+				3F8D99721B1778290066504F /* triplokaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F8D99591B1778290066504F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8D996E1B1778290066504F /* LaunchScreen.xib in Resources */,
+				3F8D996B1B1778290066504F /* Images.xcassets in Resources */,
+				3F8D99A41B177B120066504F /* CoreDataTest.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F8D99711B1778290066504F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F8D99571B1778290066504F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8D99A61B177B120066504F /* DAOCloudTravel.swift in Sources */,
+				3F8D998E1B1778850066504F /* SWRevealViewController.m in Sources */,
+				3F8D99881B1778780066504F /* JournalsViewController.swift in Sources */,
+				3F8D99A81B177B120066504F /* DashedLine.swift in Sources */,
+				3F8D99B41B177B120066504F /* Trip.swift in Sources */,
+				3F8D99A51B177B120066504F /* CoreDataTestViewController.swift in Sources */,
+				3F8D99AF1B177B120066504F /* Moments.swift in Sources */,
+				3F8D99891B1778780066504F /* MenuViewController.swift in Sources */,
+				3F8D99871B1778780066504F /* GenericViewController.swift in Sources */,
+				3F8D99AD1B177B120066504F /* Moment.swift in Sources */,
+				3F8D99611B1778290066504F /* AppDelegate.swift in Sources */,
+				3F8D99A71B177B120066504F /* DAOCloudTrip.swift in Sources */,
+				3F8D99AE1B177B120066504F /* MomentCategory.swift in Sources */,
+				3F8D99B31B177B120066504F /* TimelineController.swift in Sources */,
+				3F8D99A91B177B120066504F /* JoinLine.swift in Sources */,
+				3F8D99641B1778290066504F /* triploka.xcdatamodeld in Sources */,
+				3F8D99AA1B177B120066504F /* Junction.swift in Sources */,
+				3F8D99B21B177B120066504F /* Timeline.swift in Sources */,
+				3F8D99B11B177B120066504F /* TestMoment.swift in Sources */,
+				3F8D99B01B177B120066504F /* NewMomentController.swift in Sources */,
+				3F8D99AC1B177B120066504F /* ManagedObjectContextHandler.swift in Sources */,
+				3F8D998A1B1778780066504F /* TripCollectionViewCell.swift in Sources */,
+				3F8D99AB1B177B120066504F /* LoginController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F8D996F1B1778290066504F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F8D997A1B1778290066504F /* triplokaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F8D99751B1778290066504F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F8D995A1B1778290066504F /* triploka */;
+			targetProxy = 3F8D99741B1778290066504F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F8D996C1B1778290066504F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F8D996D1B1778290066504F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F8D997B1B1778290066504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F8D997C1B1778290066504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F8D997E1B1778290066504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = triploka/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "triploka/triploka-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F8D997F1B1778290066504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = triploka/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "triploka/triploka-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		3F8D99811B1778290066504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = triplokaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/triploka.app/triploka";
+			};
+			name = Debug;
+		};
+		3F8D99821B1778290066504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = triplokaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/triploka.app/triploka";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F8D99561B1778290066504F /* Build configuration list for PBXProject "triploka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F8D997B1B1778290066504F /* Debug */,
+				3F8D997C1B1778290066504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F8D997D1B1778290066504F /* Build configuration list for PBXNativeTarget "triploka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F8D997E1B1778290066504F /* Debug */,
+				3F8D997F1B1778290066504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3F8D99801B1778290066504F /* Build configuration list for PBXNativeTarget "triplokaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F8D99811B1778290066504F /* Debug */,
+				3F8D99821B1778290066504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F8D99621B1778290066504F /* triploka.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F8D99631B1778290066504F /* triploka.xcdatamodel */,
+			);
+			currentVersion = 3F8D99631B1778290066504F /* triploka.xcdatamodel */;
+			path = triploka.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3F8D99531B1778290066504F /* Project object */;
+}

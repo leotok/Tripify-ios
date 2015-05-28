@@ -1,15 +1,15 @@
 //
-//  chp3Tests.swift
-//  chp3Tests
+//  triplokaTests.swift
+//  triplokaTests
 //
-//  Created by Leonardo Edelman Wajnsztok on 21/05/15.
+//  Created by Leonardo Edelman Wajnsztok on 28/05/15.
 //  Copyright (c) 2015 Leonardo Edelman Wajnsztok. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class chp3Tests: XCTestCase {
+class triplokaTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
