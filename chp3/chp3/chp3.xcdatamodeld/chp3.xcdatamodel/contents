@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Moment" representedClassName="chp3.Moment" syncable="YES">
+        <attribute name="audioRecording" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateOfCreation" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="geoTag" optional="YES" attributeType="String" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="moments" inverseEntity="Trip" syncable="YES"/>
+    </entity>
+    <entity name="Trip" representedClassName="chp3.Trip" syncable="YES">
+        <attribute name="beginDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="presentationImage" optional="YES" attributeType="Binary" valueTransformerName="" storedInTruthFile="YES" syncable="YES"/>
+        <relationship name="moments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Moment" inverseName="trip" inverseEntity="Moment" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Moment" positionX="-369" positionY="62" width="128" height="148"/>
+        <element name="Trip" positionX="-659" positionY="68" width="128" height="118"/>
+    </elements>
+</model>

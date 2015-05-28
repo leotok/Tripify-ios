@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0F8AE61E-AB27-4080-81B1-FABA1233E228</string>
+	<key>IDESourceControlProjectName</key>
+	<string>chp3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C04CDEAB88BEA8858512DF42175695938DB46DAA</key>
+		<string>https://bitbucket.org/grupo11b/chp3.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>chp3/chp3.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C04CDEAB88BEA8858512DF42175695938DB46DAA</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/grupo11b/chp3.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C04CDEAB88BEA8858512DF42175695938DB46DAA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C04CDEAB88BEA8858512DF42175695938DB46DAA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>chp3</string>
+		</dict>
+	</array>
+</dict>
+</plist>
