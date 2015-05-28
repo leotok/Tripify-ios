@@ -26,11 +26,11 @@ class AddTripViewController: UIViewController, UITextFieldDelegate{
         var input = UILabel()
         cover = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.width / 1.5, self.view.bounds.height / 3))
         cover.center = self.view.center
-        input.text = "Add Cover Photo"
-        input.frame.size = CGSizeMake(100, 40)
+        input.text = "Add Cover"
+        input.frame.size = CGSizeMake(120, 40)
         input.center = cover.center
         input.textAlignment = .Center
-        cover.addSubview(input)
+        self.view.addSubview(input)
         cover.layer.borderWidth = 1
         cover.layer.borderColor = UIColor.grayColor().CGColor
         self.view.addSubview(cover)
