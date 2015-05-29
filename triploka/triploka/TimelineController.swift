@@ -55,6 +55,10 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.title = "Trip"
+        self.view.backgroundColor = UIColor.whiteColor()
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"yourNotificationHandler:", name: "ModelViewDismiss", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"holdNotificationHandler:", name: "ViewHold", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"scrollNotification:", name: "ScrollNotification", object: nil)
@@ -66,7 +70,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        scrollView.frame = CGRectMake(0, 20, self.view.frame.width, self.view.frame.height-20)
+        scrollView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         scrollView.delegate = self
         scrollView.contentSize = CGSizeMake(self.view.frame.width, totalHeight)
         scrollView.backgroundColor = UIColor.clearColor()
