@@ -65,30 +65,34 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-//        Add ScrollView
+        
+        //        Add ScrollView
+        
+        self.view.backgroundColor = UIColor.whiteColor()
         
         scrollView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         scrollView.delegate = self
         scrollView.contentSize = CGSizeMake(self.view.frame.width, totalHeight)
+        scrollView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(scrollView)
         
         
-//        Add DashedLine
+        //        Add DashedLine
         
-//        dashed = DashedLine()
-//        dashed.backgroundColor = UIColor.whiteColor()
-//        dashed.frame = CGRectMake(self.scrollView.bounds.size.width/2 - 1.25, 0, 10, 4500)
-//        self.scrollView.addSubview(dashed)
+        //        dashed = DashedLine()
+        //        dashed.backgroundColor = UIColor.whiteColor()
+        //        dashed.frame = CGRectMake(self.scrollView.bounds.size.width/2 - 1.25, 0, 10, 4500)
+        //        self.scrollView.addSubview(dashed)
         
         
-//        Add TapEvent
+        //        Add TapEvent
         
         tapEvent = UITapGestureRecognizer(target: self, action:Selector("addEvent:"))
         tapHoldEvent = UILongPressGestureRecognizer(target: self, action: Selector("holdEvent:"))
-//        dashed.addGestureRecognizer(tapEvent)
+        //        dashed.addGestureRecognizer(tapEvent)
         
         
-//        Add Moments
+        //        Add Moments
         
         x1 = 0.05 * self.view.bounds.width
         x2 = 0.55 * self.view.bounds.width
@@ -98,7 +102,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         y = offset
         lineWidth = self.view.frame.size.width/2 - (x1 + width)
         
-//        var moments = momentsArray.count
+        //        var moments = momentsArray.count
         
         var moments = 2
         
@@ -131,7 +135,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
                 
                 height = momentTest.deltaY
             }
-            
+                
             else {
                 
                 var momentTest = TestMoment()
@@ -159,9 +163,9 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
                 
             }
             
-//            totalHeight += size + offset
+            //            totalHeight += size + offset
             
-//            y += size + offset
+            //            y += size + offset
             
             totalHeight += height
             y += height
@@ -259,7 +263,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
                 newLineX = self.xLine1
                 
             }
-            
+                
             else {
                 
                 newLineX = self.xLine2
@@ -281,8 +285,8 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         
         var momentTest = TestMoment()
         momentTest.frame = CGRectMake(self.view.bounds.width, newMomentY, self.width, self.size)
-        momentTest.backgroundColor = UIColor.redColor()
-//        momentTest.image = self.image
+        momentTest.backgroundColor = UIColor(patternImage: UIImage(named:"pictureMoment")!)
+        //        momentTest.image = self.image
         self.scrollView.addSubview(momentTest)
         self.momentsTestArray.insert(momentTest, atIndex: Int(maximo2))
         
@@ -291,7 +295,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         joinLine.frame = CGRectMake(newLineX, newMomentY + size/2, lineWidth, 2)
         self.scrollView.addSubview(joinLine)
         self.lineTestArray.insert(joinLine,atIndex: Int(maximo2))
-
+        
         var junction = Junction()
         junction.backgroundColor = UIColor.blueColor()
         junction.frame = CGRectMake(xLine2-x1/2, newMomentY+size/2-x1/2, x1, x1)
@@ -328,12 +332,12 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
             
             self.organizeMoments(point.y, image: self.image)
             
-//            var imagePicker = NewMomentController()
+            //            var imagePicker = NewMomentController()
             
-//            self.presentViewController(imagePicker, animated: true, completion: nil)
-        
+            //            self.presentViewController(imagePicker, animated: true, completion: nil)
+            
         }
-       
+        
     }
     
     func scrollNotification(notice: NSNotification) {
@@ -347,13 +351,13 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         println(totalHeight)
         println(visibleRect.height)
         
-        if object.frame.origin.y > 0.9 * visibleRect.size.height && visibleRect.height < self.totalHeight{
-
+        if object.frame.midY > 0.9 * visibleRect.size.height && visibleRect.height < self.totalHeight{
+            
             self.scrollView.contentOffset.y += 15
             
         }
-        
-        else if object.frame.origin.y < self.scrollView.contentOffset.y + 20 && self.scrollView.contentOffset.y > 0 {
+            
+        else if object.frame.midY < self.scrollView.contentOffset.y + 20 && self.scrollView.contentOffset.y > 0 {
             
             self.scrollView.contentOffset.y -= 15
             
@@ -368,16 +372,18 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         self.moved = true
         var index = Int(0)
         var indexOriginal = Int(0)
+        var center = CGPoint(x: self.teste.frame.midX, y: self.teste.frame.midY)
+        
         
         for var i = 0; i < self.momentsTestArray.count; i++ {
             
-            if CGRectContainsPoint(self.momentsTestArray[i].frame, teste.frame.origin) && self.momentsTestArray[i].frame.origin != self.teste.frame.origin {
+            if CGRectContainsPoint(self.momentsTestArray[i].frame, center) && self.momentsTestArray[i].frame.origin != self.teste.frame.origin {
                 
                 index = i
-
+                
             }
-            
-            else if CGRectContainsPoint(self.momentsTestArray[i].frame, teste.frame.origin) && self.momentsTestArray[i].frame.origin == self.teste.frame.origin {
+                
+            else if CGRectContainsPoint(self.momentsTestArray[i].frame, center) && self.momentsTestArray[i].frame.origin == self.teste.frame.origin {
                 
                 indexOriginal = i
                 
@@ -395,7 +401,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         var firstPoint = self.momentsTestArray[first].frame.origin
         
         if first > 0 && first < self.momentsTestArray.count-1 {
-        
+            
             UIView.animateWithDuration(0.3, animations: {
                 
                 self.momentsTestArray[first].frame.origin = self.teste.originalFrame
@@ -403,7 +409,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
                 
             })
         }
-        
+            
         else {
             
             UIView.animateWithDuration(0.3, animations: {
@@ -422,7 +428,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         var lineAux = self.lineTestArray[second]
         
         if first > 0 && first < self.momentsTestArray.count - 1 {
-        
+            
             self.momentsTestArray[second] = self.momentsTestArray[first]
             self.momentsTestArray[first] = aux
             
@@ -437,8 +443,8 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         dashed.removeFromSuperview()
         
         dashed = DashedLine()
-        dashed.backgroundColor = UIColor.whiteColor()
-        dashed.frame = CGRectMake(self.scrollView.bounds.size.width/2 - 1.25, 0, 10, self.scrollView.contentSize.height)
+        dashed.backgroundColor = UIColor.clearColor()
+        dashed.frame = CGRectMake(self.scrollView.bounds.size.width/2 - 22, 0, 44, self.scrollView.contentSize.height)
         dashed.addGestureRecognizer(tapEvent)
         self.scrollView.addSubview(dashed)
         self.scrollView.sendSubviewToBack(self.dashed)
