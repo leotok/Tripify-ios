@@ -19,7 +19,6 @@
 		3F8D998E1B1778850066504F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998D1B1778850066504F /* SWRevealViewController.m */; };
 		3F8D99A41B177B120066504F /* CoreDataTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D99931B177B120066504F /* CoreDataTest.xib */; };
 		3F8D99A51B177B120066504F /* CoreDataTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99941B177B120066504F /* CoreDataTestViewController.swift */; };
-		3F8D99A61B177B120066504F /* DAOCloudTravel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99951B177B120066504F /* DAOCloudTravel.swift */; };
 		3F8D99A71B177B120066504F /* DAOCloudTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99961B177B120066504F /* DAOCloudTrip.swift */; };
 		3F8D99A81B177B120066504F /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99971B177B120066504F /* DashedLine.swift */; };
 		3F8D99A91B177B120066504F /* JoinLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99981B177B120066504F /* JoinLine.swift */; };
@@ -28,7 +27,6 @@
 		3F8D99AC1B177B120066504F /* ManagedObjectContextHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999B1B177B120066504F /* ManagedObjectContextHandler.swift */; };
 		3F8D99AD1B177B120066504F /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999C1B177B120066504F /* Moment.swift */; };
 		3F8D99AE1B177B120066504F /* MomentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999D1B177B120066504F /* MomentCategory.swift */; };
-		3F8D99AF1B177B120066504F /* Moments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999E1B177B120066504F /* Moments.swift */; };
 		3F8D99B01B177B120066504F /* NewMomentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999F1B177B120066504F /* NewMomentController.swift */; };
 		3F8D99B11B177B120066504F /* TestMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A01B177B120066504F /* TestMoment.swift */; };
 		3F8D99B21B177B120066504F /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A11B177B120066504F /* Timeline.swift */; };
@@ -66,7 +64,6 @@
 		3F8D998D1B1778850066504F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		3F8D99931B177B120066504F /* CoreDataTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreDataTest.xib; sourceTree = "<group>"; };
 		3F8D99941B177B120066504F /* CoreDataTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestViewController.swift; sourceTree = "<group>"; };
-		3F8D99951B177B120066504F /* DAOCloudTravel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOCloudTravel.swift; sourceTree = "<group>"; };
 		3F8D99961B177B120066504F /* DAOCloudTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAOCloudTrip.swift; sourceTree = "<group>"; };
 		3F8D99971B177B120066504F /* DashedLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashedLine.swift; sourceTree = "<group>"; };
 		3F8D99981B177B120066504F /* JoinLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinLine.swift; sourceTree = "<group>"; };
@@ -75,7 +72,6 @@
 		3F8D999B1B177B120066504F /* ManagedObjectContextHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextHandler.swift; sourceTree = "<group>"; };
 		3F8D999C1B177B120066504F /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		3F8D999D1B177B120066504F /* MomentCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentCategory.swift; sourceTree = "<group>"; };
-		3F8D999E1B177B120066504F /* Moments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moments.swift; sourceTree = "<group>"; };
 		3F8D999F1B177B120066504F /* NewMomentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMomentController.swift; sourceTree = "<group>"; };
 		3F8D99A01B177B120066504F /* TestMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMoment.swift; sourceTree = "<group>"; };
 		3F8D99A11B177B120066504F /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
@@ -165,12 +161,10 @@
 		3F8D998F1B177AA00066504F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3F8D99951B177B120066504F /* DAOCloudTravel.swift */,
 				3F8D99961B177B120066504F /* DAOCloudTrip.swift */,
 				3F8D999B1B177B120066504F /* ManagedObjectContextHandler.swift */,
 				3F8D999C1B177B120066504F /* Moment.swift */,
 				3F8D999D1B177B120066504F /* MomentCategory.swift */,
-				3F8D999E1B177B120066504F /* Moments.swift */,
 				3F8D99A11B177B120066504F /* Timeline.swift */,
 				3F8D99A31B177B120066504F /* Trip.swift */,
 			);
@@ -314,14 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8D99A61B177B120066504F /* DAOCloudTravel.swift in Sources */,
 				3F8D998E1B1778850066504F /* SWRevealViewController.m in Sources */,
 				3F8D99881B1778780066504F /* JournalsViewController.swift in Sources */,
 				3F8D99A81B177B120066504F /* DashedLine.swift in Sources */,
 				3F8D99B41B177B120066504F /* Trip.swift in Sources */,
 				3F8D99B61B1780FA0066504F /* AddTripViewController.swift in Sources */,
 				3F8D99A51B177B120066504F /* CoreDataTestViewController.swift in Sources */,
-				3F8D99AF1B177B120066504F /* Moments.swift in Sources */,
 				3F8D99891B1778780066504F /* MenuViewController.swift in Sources */,
 				3F8D99871B1778780066504F /* GenericViewController.swift in Sources */,
 				3F8D99AD1B177B120066504F /* Moment.swift in Sources */,
@@ -530,6 +522,7 @@
 				3F8D997F1B1778290066504F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F8D99801B1778290066504F /* Build configuration list for PBXNativeTarget "triplokaTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +531,7 @@
 				3F8D99821B1778290066504F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
