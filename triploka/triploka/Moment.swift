@@ -9,6 +9,14 @@
 import CoreLocation
 import CoreData
 
+
+/**
+ *
+ *   Classe do modelo, representando o momento
+ *   de uma viagem. É responsável por controlar
+ *   sua relação com o PersistentStore do CoreData
+ *
+*/
 class Moment: NSManagedObject {
 
     /*********************************************
@@ -46,24 +54,27 @@ class Moment: NSManagedObject {
         self.init(entity: entity, insertIntoManagedObjectContext:context)
     }
     
-    
-    //    class func entityName() -> String{
-    //
-    //        return "Moment"
-    //    }
-    //
-    //    class func insertNewObjectIntoContext(context: NSManagedObjectContext) -> Moment {
-    //
-    //        return NSEntityDescription.insertNewObjectForEntityForName( self.entityName(),
-    //            inManagedObjectContext: context)
-    //            as! Moment
-    //    }
-    
+    /**
+     *
+     *  Getter method to the geoTag property
+     *
+     *  :returns: a CLLocation object
+     *
+    */
     func getGeoTag() -> CLLocation{
         
         return self.geoTag as! CLLocation
     }
     
+    
+    /**
+     *
+     *  Setter method to the geoTag property
+     *
+     *  :param: newGeoTag: the new CLLocation object to be
+     *  attributed
+     *
+    */
     func changeGeoTag(newGeoTag: CLLocation){
         
         self.geoTag = newGeoTag
@@ -72,7 +83,13 @@ class Moment: NSManagedObject {
         appDelegate.saveContext()
     }
     
-    
+    /**
+     *
+     *  Gets all the photos associated with this moment
+     *
+     *  :returns: an array of UIImages
+     *
+    */
     func getAllPhotos() -> [UIImage]{
         
         let photoAlbum = self.mutableSetValueForKey("photoAlbum")
@@ -80,6 +97,13 @@ class Moment: NSManagedObject {
         return allPhotos.allObjects as! [UIImage]
     }
 
+    /**
+     *
+     *  Adds a new photo to the moment
+     *
+     *  :param: photo: The new image to be added
+     *
+    */
     func addNewPhoto(photo: UIImage){
         
         let photoAlbum = self.mutableSetValueForKey("photoAlbum")
