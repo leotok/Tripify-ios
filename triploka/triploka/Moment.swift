@@ -1,6 +1,6 @@
 //
 //  Moment.swift
-//  chp3
+//  triploka
 //
 //  Created by Victor Yves Crispim on 05/5/15.
 //  Copyright (c) 2015 Leonardo Edelman Wajnsztok. All rights reserved.
@@ -13,13 +13,11 @@ class Moment: NSManagedObject {
 
     @NSManaged var category: NSNumber
     @NSManaged var comment: String
-    @NSManaged var dateOfCreation: NSDate
-    @NSManaged var geoTag: String
-    @NSManaged var image: NSData
-    @NSManaged var audioRecording: NSData
+    @NSManaged var geoTag: AnyObject
+    @NSManaged var index: NSNumber
+    @NSManaged var photoAlbum: NSSet
     @NSManaged var trip: Trip
-    
-    
+
     class func entityName() -> String{
         
         return "Moment"
@@ -31,6 +29,4 @@ class Moment: NSManagedObject {
             inManagedObjectContext: context)
             as! Moment
     }
-
-
 }
