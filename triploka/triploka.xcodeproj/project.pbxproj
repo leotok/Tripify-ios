@@ -33,6 +33,7 @@
 		4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51D1B18E35E00378DDF /* Trip.swift */; };
 		4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51F1B18E35E00378DDF /* Photo.swift */; };
 		4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC5211B18E35F00378DDF /* Moment.swift */; };
+		94387AAF1B1912E900051D08 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94387AAE1B1912E900051D08 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		4F4EC51F1B18E35E00378DDF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		4F4EC5211B18E35F00378DDF /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
+		94387AAD1B1912E700051D08 /* triploka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = triploka.entitlements; sourceTree = "<group>"; };
+		94387AAE1B1912E900051D08 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94387AAF1B1912E900051D08 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +102,7 @@
 		3F8D99521B1778290066504F = {
 			isa = PBXGroup;
 			children = (
+				94387AAE1B1912E900051D08 /* CloudKit.framework */,
 				3F8D995D1B1778290066504F /* triploka */,
 				3F8D99761B1778290066504F /* triplokaTests */,
 				3F8D995C1B1778290066504F /* Products */,
@@ -116,6 +121,7 @@
 		3F8D995D1B1778290066504F /* triploka */ = {
 			isa = PBXGroup;
 			children = (
+				94387AAD1B1912E700051D08 /* triploka.entitlements */,
 				3F8D99911B177AA90066504F /* Controller */,
 				3F8D99901B177AA40066504F /* View */,
 				3F8D998F1B177AA00066504F /* Model */,
@@ -251,6 +257,12 @@
 				TargetAttributes = {
 					3F8D995A1B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = H8UTHN35FS;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					3F8D99721B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -443,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = triploka/triploka.entitlements;
 				INFOPLIST_FILE = triploka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -456,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = triploka/triploka.entitlements;
 				INFOPLIST_FILE = triploka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
