@@ -16,39 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SWRevealViewControllerDel
     var viewController = SWRevealViewController()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
         if let window = window {
+            
             let front = GenericViewController()
             let rear = MenuViewController()
             let frontNav = UINavigationController(rootViewController: front)
-            
-            
             let revealvc = SWRevealViewController(rearViewController: rear, frontViewController: frontNav)
-            
-            //revealvc.addChildViewController(front)
-            //revealvc.addChildViewController(rear)
             
             revealvc.rearViewRevealWidth = 280
             revealvc.rearViewRevealOverdraw = 0
             revealvc.bounceBackOnOverdraw = false
             revealvc.stableDragOnOverdraw = true
             revealvc.setFrontViewPosition(FrontViewPosition.Left, animated: true)
-            
             revealvc.delegate = self
             
             self.viewController = revealvc
+
             window.backgroundColor = UIColor.whiteColor()
-            
-            
-           // self.loadObjectGraph()
-            
             window.rootViewController = revealvc
-            //          window.rootViewController = CoreDataTestViewController(context: self.managedObjectContext)
-            //          window.rootViewController = TimelineController()
-            
             window.makeKeyAndVisible()
         }
         
@@ -142,7 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SWRevealViewControllerDel
         }
     }
     
-    
+
 //    private func loadObjectGraph(){
 //        
 //        let request = NSFetchRequest(entityName: "Trip")

@@ -7,28 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F8D99611B1778290066504F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99601B1778290066504F /* AppDelegate.swift */; };
-		3F8D99641B1778290066504F /* triploka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99621B1778290066504F /* triploka.xcdatamodeld */; };
-		3F8D996B1B1778290066504F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996A1B1778290066504F /* Images.xcassets */; };
-		3F8D996E1B1778290066504F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996C1B1778290066504F /* LaunchScreen.xib */; };
 		3F8D997A1B1778290066504F /* triplokaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99791B1778290066504F /* triplokaTests.swift */; };
-		3F8D99871B1778780066504F /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99831B1778780066504F /* GenericViewController.swift */; };
-		3F8D99881B1778780066504F /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
-		3F8D99891B1778780066504F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99851B1778780066504F /* MenuViewController.swift */; };
-		3F8D998A1B1778780066504F /* TripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99861B1778780066504F /* TripCollectionViewCell.swift */; };
-		3F8D998E1B1778850066504F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998D1B1778850066504F /* SWRevealViewController.m */; };
-		3F8D99A71B177B120066504F /* DAOCloudTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99961B177B120066504F /* DAOCloudTrip.swift */; };
-		3F8D99A81B177B120066504F /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99971B177B120066504F /* DashedLine.swift */; };
-		3F8D99A91B177B120066504F /* JoinLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99981B177B120066504F /* JoinLine.swift */; };
-		3F8D99AA1B177B120066504F /* Junction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99991B177B120066504F /* Junction.swift */; };
-		3F8D99AB1B177B120066504F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999A1B177B120066504F /* LoginController.swift */; };
-		3F8D99AE1B177B120066504F /* MomentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999D1B177B120066504F /* MomentCategory.swift */; };
-		3F8D99B01B177B120066504F /* NewMomentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999F1B177B120066504F /* NewMomentController.swift */; };
-		3F8D99B11B177B120066504F /* TestMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A01B177B120066504F /* TestMoment.swift */; };
-		3F8D99B31B177B120066504F /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A21B177B120066504F /* TimelineController.swift */; };
-		3F8D99B61B1780FA0066504F /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
-		4F4EC4D01B189FCE00378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC4CF1B189FCE00378DDF /* Trip.swift */; };
-		4F4EC4D21B18A53A00378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC4D11B18A53A00378DDF /* Moment.swift */; };
+		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
+		4F4EC5001B18D71800378DDF /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99831B1778780066504F /* GenericViewController.swift */; };
+		4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
+		4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999A1B177B120066504F /* LoginController.swift */; };
+		4F4EC5031B18D71800378DDF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99851B1778780066504F /* MenuViewController.swift */; };
+		4F4EC5041B18D71800378DDF /* NewMomentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999F1B177B120066504F /* NewMomentController.swift */; };
+		4F4EC5051B18D71800378DDF /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A21B177B120066504F /* TimelineController.swift */; };
+		4F4EC5061B18D72600378DDF /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99971B177B120066504F /* DashedLine.swift */; };
+		4F4EC5071B18D72600378DDF /* JoinLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99981B177B120066504F /* JoinLine.swift */; };
+		4F4EC5081B18D72600378DDF /* Junction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99991B177B120066504F /* Junction.swift */; };
+		4F4EC5091B18D72600378DDF /* TestMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A01B177B120066504F /* TestMoment.swift */; };
+		4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99861B1778780066504F /* TripCollectionViewCell.swift */; };
+		4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99961B177B120066504F /* DAOCloudTrip.swift */; };
+		4F4EC50C1B18D72600378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC4D11B18A53A00378DDF /* Moment.swift */; };
+		4F4EC50D1B18D72600378DDF /* MomentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999D1B177B120066504F /* MomentCategory.swift */; };
+		4F4EC50E1B18D72600378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC4CF1B189FCE00378DDF /* Trip.swift */; };
+		4F4EC50F1B18D72600378DDF /* triploka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99621B1778290066504F /* triploka.xcdatamodeld */; };
+		4F4EC5101B18D72600378DDF /* SWRevealViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998C1B1778850066504F /* SWRevealViewController.h */; };
+		4F4EC5111B18D72600378DDF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998D1B1778850066504F /* SWRevealViewController.m */; };
+		4F4EC5121B18D72600378DDF /* triploka-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998B1B1778840066504F /* triploka-Bridging-Header.h */; };
+		4F4EC5131B18D72600378DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99601B1778290066504F /* AppDelegate.swift */; };
+		4F4EC5141B18D73D00378DDF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996A1B1778290066504F /* Images.xcassets */; };
+		4F4EC5151B18D73D00378DDF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996C1B1778290066504F /* LaunchScreen.xib */; };
+		4F4EC5161B18D73D00378DDF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D995F1B1778290066504F /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,8 +157,8 @@
 				3F8D99961B177B120066504F /* DAOCloudTrip.swift */,
 				4F4EC4D11B18A53A00378DDF /* Moment.swift */,
 				3F8D999D1B177B120066504F /* MomentCategory.swift */,
-				3F8D99621B1778290066504F /* triploka.xcdatamodeld */,
 				4F4EC4CF1B189FCE00378DDF /* Trip.swift */,
+				3F8D99621B1778290066504F /* triploka.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -276,8 +279,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8D996E1B1778290066504F /* LaunchScreen.xib in Resources */,
-				3F8D996B1B1778290066504F /* Images.xcassets in Resources */,
+				4F4EC5141B18D73D00378DDF /* Images.xcassets in Resources */,
+				4F4EC5151B18D73D00378DDF /* LaunchScreen.xib in Resources */,
+				4F4EC5161B18D73D00378DDF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +299,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F8D998E1B1778850066504F /* SWRevealViewController.m in Sources */,
-				3F8D99881B1778780066504F /* JournalsViewController.swift in Sources */,
-				3F8D99A81B177B120066504F /* DashedLine.swift in Sources */,
-				3F8D99B61B1780FA0066504F /* AddTripViewController.swift in Sources */,
-				4F4EC4D21B18A53A00378DDF /* Moment.swift in Sources */,
-				3F8D99891B1778780066504F /* MenuViewController.swift in Sources */,
-				3F8D99871B1778780066504F /* GenericViewController.swift in Sources */,
-				3F8D99611B1778290066504F /* AppDelegate.swift in Sources */,
-				3F8D99A71B177B120066504F /* DAOCloudTrip.swift in Sources */,
-				3F8D99AE1B177B120066504F /* MomentCategory.swift in Sources */,
-				4F4EC4D01B189FCE00378DDF /* Trip.swift in Sources */,
-				3F8D99B31B177B120066504F /* TimelineController.swift in Sources */,
-				3F8D99A91B177B120066504F /* JoinLine.swift in Sources */,
-				3F8D99641B1778290066504F /* triploka.xcdatamodeld in Sources */,
-				3F8D99AA1B177B120066504F /* Junction.swift in Sources */,
-				3F8D99B11B177B120066504F /* TestMoment.swift in Sources */,
-				3F8D99B01B177B120066504F /* NewMomentController.swift in Sources */,
-				3F8D998A1B1778780066504F /* TripCollectionViewCell.swift in Sources */,
-				3F8D99AB1B177B120066504F /* LoginController.swift in Sources */,
+				4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */,
+				4F4EC5001B18D71800378DDF /* GenericViewController.swift in Sources */,
+				4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */,
+				4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */,
+				4F4EC5031B18D71800378DDF /* MenuViewController.swift in Sources */,
+				4F4EC5041B18D71800378DDF /* NewMomentController.swift in Sources */,
+				4F4EC5051B18D71800378DDF /* TimelineController.swift in Sources */,
+				4F4EC5061B18D72600378DDF /* DashedLine.swift in Sources */,
+				4F4EC5071B18D72600378DDF /* JoinLine.swift in Sources */,
+				4F4EC5081B18D72600378DDF /* Junction.swift in Sources */,
+				4F4EC5091B18D72600378DDF /* TestMoment.swift in Sources */,
+				4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */,
+				4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */,
+				4F4EC50C1B18D72600378DDF /* Moment.swift in Sources */,
+				4F4EC50D1B18D72600378DDF /* MomentCategory.swift in Sources */,
+				4F4EC50E1B18D72600378DDF /* Trip.swift in Sources */,
+				4F4EC50F1B18D72600378DDF /* triploka.xcdatamodeld in Sources */,
+				4F4EC5101B18D72600378DDF /* SWRevealViewController.h in Sources */,
+				4F4EC5111B18D72600378DDF /* SWRevealViewController.m in Sources */,
+				4F4EC5121B18D72600378DDF /* triploka-Bridging-Header.h in Sources */,
+				4F4EC5131B18D72600378DDF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

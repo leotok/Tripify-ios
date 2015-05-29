@@ -6,14 +6,19 @@
 //  Copyright (c) 2015 Leonardo Edelman Wajnsztok. All rights reserved.
 //
 
-import UIKit
+import CoreLocation
+import CoreData
 import XCTest
 
 class triplokaTests: XCTestCase {
     
+    //var testMoment = NSEntityDescriptio
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+    //    testMoment.geoTag = CLLocation(latitude: 323233232, longitude: 312323)
     }
     
     override func tearDown() {
@@ -22,15 +27,18 @@ class triplokaTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        
+//        var transformer = NSValueTransformer(forName: NSKeyedUnarchiveFromDataTransformerName)
+////        var transformedData = transformer!.reverseTransformedValue(self.testMoment.geoTag) as! NSData
+//        XCTAssertNotNil(transformedData, "Transformer was not able to produce binary data")
+        
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measureBlock() {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
     
 }

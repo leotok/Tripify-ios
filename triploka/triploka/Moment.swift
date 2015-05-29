@@ -6,11 +6,18 @@
 //  Copyright (c) 2015 Leonardo Edelman Wajnsztok. All rights reserved.
 //
 
-import Foundation
+import CoreLocation
 import CoreData
+
 
 class Moment: NSManagedObject {
 
+    /*********************************************
+    *
+    *  MARK: Properties
+    *
+    ***/
+    
     @NSManaged var category: NSNumber
     @NSManaged var comment: String
     @NSManaged var geoTag: AnyObject
@@ -18,15 +25,62 @@ class Moment: NSManagedObject {
     @NSManaged var photoAlbum: NSSet
     @NSManaged var trip: Trip
 
-    class func entityName() -> String{
+    
+    /**
+    *
+    *   Convenience init, so you don't have to pass an entity
+    *   and the ManagedObjectContext as parameters
+    *
+    *   :returns: a new instance of a Moment
+    *
+    */
+    convenience init() {
         
-        return "Moment"
+        var appDelegate : AppDelegate
+        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        var context : NSManagedObjectContext
+        context = appDelegate.managedObjectContext!
+        
+        var entity : NSEntityDescription
+        entity = NSEntityDescription.entityForName("Moment", inManagedObjectContext: context)!
+        
+        self.init(entity: entity, insertIntoManagedObjectContext:context)
+    }
+
+    
+//    class func entityName() -> String{
+//        
+//        return "Moment"
+//    }
+//    
+//    class func insertNewObjectIntoContext(context: NSManagedObjectContext) -> Moment {
+//        
+//        return NSEntityDescription.insertNewObjectForEntityForName( self.entityName(),
+//            inManagedObjectContext: context)
+//            as! Moment
+//    }
+    
+    func getGeoTag() -> CLLocation{
+        
+        return self.geoTag as! CLLocation
     }
     
-    class func insertNewObjectIntoContext(context: NSManagedObjectContext) -> Moment {
+    func changeGeoTag(newGeoTag: CLLocation){
         
-        return NSEntityDescription.insertNewObjectForEntityForName( self.entityName(),
-            inManagedObjectContext: context)
-            as! Moment
+        self.geoTag = newGeoTag
+
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.saveContext()
     }
+    
+    
+//    func getAllPhotos() -> [UIImage]{
+//        
+//    }
+//    
+//    func addNewPhoto(newPhoto: UIImage){
+//        
+//    }
+    
 }
