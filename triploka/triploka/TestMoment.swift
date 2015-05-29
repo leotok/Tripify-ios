@@ -34,20 +34,27 @@ class TestMoment: UIView {
             
             UIView.animateWithDuration(0.2, animations: {
                 
-                self.frame.origin = recognizer.locationInView(self.superview)
+                
+                self.layer.shadowOffset = CGSize(width: self.frame.size.width+10, height: self.frame.size.height+10)
                 
             })
             
         }
-        
+            
         else if recognizer.state == .Changed {
             
-            self.frame.origin = recognizer.locationInView(self.superview)
+            var center = getCenter(self.frame)
+            
+            var moveByX = recognizer.locationInView(self.superview).x - self.frame.midX
+            var moveByY = recognizer.locationInView(self.superview).y - self.frame.midY
+            
+            self.frame.origin.x += moveByX
+            self.frame.origin.y += moveByY
             NSNotificationCenter.defaultCenter().postNotificationName("ScrollNotification", object: self)
             
             
         }
-        
+            
         else if recognizer.state == .Ended {
             
             
@@ -56,11 +63,10 @@ class TestMoment: UIView {
         }
     }
     
-    func sendNotification() {
+    func getCenter(rect: CGRect) -> CGPoint {
         
-        
+        return CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
         
     }
-    
     
 }
