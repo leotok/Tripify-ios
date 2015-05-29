@@ -10,26 +10,26 @@ import Foundation
 import CoreData
 
 class Trip: NSManagedObject {
-
+    
     /*********************************************
     *
     *  MARK: Properties
     *
     ***/
-    
+
     @NSManaged var beginDate: NSDate
-    @NSManaged var destination: String
     @NSManaged var endDate: NSDate
+    @NSManaged var destination: String
     @NSManaged var presentationImage: AnyObject
     @NSManaged var moments: NSSet
-    
+
     /**
-     *
-     *   Convenience init, so you don't have to pass an entity
-     *   and the ManagedObjectContext
-     *
-     *   :returns: a new instance of a Trip
-     *
+    *
+    *   Convenience init, so you don't have to pass an entity
+    *   and the ManagedObjectContext
+    *
+    *   :returns: a new instance of a Trip
+    *
     */
     convenience init() {
         
@@ -60,11 +60,11 @@ class Trip: NSManagedObject {
     
     
     /**
-     *
-     *  Gets all the moments in a Trip
-     *
-     *  :returns: A Moment array, sorted by their index
-     *
+    *
+    *  Gets all the moments in a Trip
+    *
+    *  :returns: A Moment array, sorted by their index
+    *
     */
     func getAllMoments() -> [Moment]{
         
@@ -78,11 +78,11 @@ class Trip: NSManagedObject {
     }
     
     /**
-     *
-     *  Adds a new moment to a Trip, updating its index
-     *
-     *  :param: moment The Moment object to be inserted
-     *
+    *
+    *  Adds a new moment to a Trip, updating its index
+    *
+    *  :param: moment The Moment object to be inserted
+    *
     */
     func addNewMoment(moment: Moment){
         
@@ -97,27 +97,27 @@ class Trip: NSManagedObject {
     }
     
     /**
-     *
-     *  Gets an specific moment of a Trip
-     *
-     *  :param: index: The index that identifies the moment
-     *
-     *  :returns: The correct moment, or nil if the index is
-     *            out of bounds
-     *
+    *
+    *  Gets an specific moment of a Trip
+    *
+    *  :param: index: The index that identifies the moment
+    *
+    *  :returns: The correct moment, or nil if the index is
+    *            out of bounds
+    *
     */
     func getMomentWithIndex(index: Int) -> Moment?{
         
         let allMoments = self.mutableSetValueForKey("moments")
         
         if index < 0 || index >= allMoments.count{
-        
+            
             println("Couldn't get moment. Invalid index")
             return nil
         }
         
         allMoments.filterUsingPredicate(NSPredicate(format: "(index == %@)", index))
-
+        
         if allMoments.count == 1{
             return allMoments.anyObject() as! Moment?
         }

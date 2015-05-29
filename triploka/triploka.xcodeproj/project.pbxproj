@@ -21,10 +21,7 @@
 		4F4EC5091B18D72600378DDF /* TestMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A01B177B120066504F /* TestMoment.swift */; };
 		4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99861B1778780066504F /* TripCollectionViewCell.swift */; };
 		4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99961B177B120066504F /* DAOCloudTrip.swift */; };
-		4F4EC50C1B18D72600378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC4D11B18A53A00378DDF /* Moment.swift */; };
 		4F4EC50D1B18D72600378DDF /* MomentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999D1B177B120066504F /* MomentCategory.swift */; };
-		4F4EC50E1B18D72600378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC4CF1B189FCE00378DDF /* Trip.swift */; };
-		4F4EC50F1B18D72600378DDF /* triploka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99621B1778290066504F /* triploka.xcdatamodeld */; };
 		4F4EC5101B18D72600378DDF /* SWRevealViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998C1B1778850066504F /* SWRevealViewController.h */; };
 		4F4EC5111B18D72600378DDF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998D1B1778850066504F /* SWRevealViewController.m */; };
 		4F4EC5121B18D72600378DDF /* triploka-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D998B1B1778840066504F /* triploka-Bridging-Header.h */; };
@@ -32,6 +29,10 @@
 		4F4EC5141B18D73D00378DDF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996A1B1778290066504F /* Images.xcassets */; };
 		4F4EC5151B18D73D00378DDF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996C1B1778290066504F /* LaunchScreen.xib */; };
 		4F4EC5161B18D73D00378DDF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D995F1B1778290066504F /* Info.plist */; };
+		4F4EC51C1B18E29500378DDF /* triploka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51A1B18E29500378DDF /* triploka.xcdatamodeld */; };
+		4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51D1B18E35E00378DDF /* Trip.swift */; };
+		4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51F1B18E35E00378DDF /* Photo.swift */; };
+		4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC5211B18E35F00378DDF /* Moment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +49,6 @@
 		3F8D995B1B1778290066504F /* triploka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triploka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8D995F1B1778290066504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F8D99601B1778290066504F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F8D99631B1778290066504F /* triploka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = triploka.xcdatamodel; sourceTree = "<group>"; };
 		3F8D996A1B1778290066504F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F8D996D1B1778290066504F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3F8D99731B1778290066504F /* triplokaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = triplokaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,8 +71,10 @@
 		3F8D99A01B177B120066504F /* TestMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMoment.swift; sourceTree = "<group>"; };
 		3F8D99A21B177B120066504F /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
 		3F8D99B51B1780FA0066504F /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
-		4F4EC4CF1B189FCE00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
-		4F4EC4D11B18A53A00378DDF /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
+		4F4EC51B1B18E29500378DDF /* triploka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = triploka.xcdatamodel; sourceTree = "<group>"; };
+		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		4F4EC51F1B18E35E00378DDF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		4F4EC5211B18E35F00378DDF /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,11 +156,12 @@
 		3F8D998F1B177AA00066504F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F4EC5211B18E35F00378DDF /* Moment.swift */,
+				4F4EC51F1B18E35E00378DDF /* Photo.swift */,
+				4F4EC51D1B18E35E00378DDF /* Trip.swift */,
 				3F8D99961B177B120066504F /* DAOCloudTrip.swift */,
-				4F4EC4D11B18A53A00378DDF /* Moment.swift */,
 				3F8D999D1B177B120066504F /* MomentCategory.swift */,
-				4F4EC4CF1B189FCE00378DDF /* Trip.swift */,
-				3F8D99621B1778290066504F /* triploka.xcdatamodeld */,
+				4F4EC51A1B18E29500378DDF /* triploka.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */,
 				4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */,
 				4F4EC5001B18D71800378DDF /* GenericViewController.swift in Sources */,
 				4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */,
@@ -307,15 +311,15 @@
 				4F4EC5041B18D71800378DDF /* NewMomentController.swift in Sources */,
 				4F4EC5051B18D71800378DDF /* TimelineController.swift in Sources */,
 				4F4EC5061B18D72600378DDF /* DashedLine.swift in Sources */,
+				4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */,
+				4F4EC51C1B18E29500378DDF /* triploka.xcdatamodeld in Sources */,
+				4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */,
 				4F4EC5071B18D72600378DDF /* JoinLine.swift in Sources */,
 				4F4EC5081B18D72600378DDF /* Junction.swift in Sources */,
 				4F4EC5091B18D72600378DDF /* TestMoment.swift in Sources */,
 				4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */,
 				4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */,
-				4F4EC50C1B18D72600378DDF /* Moment.swift in Sources */,
 				4F4EC50D1B18D72600378DDF /* MomentCategory.swift in Sources */,
-				4F4EC50E1B18D72600378DDF /* Trip.swift in Sources */,
-				4F4EC50F1B18D72600378DDF /* triploka.xcdatamodeld in Sources */,
 				4F4EC5101B18D72600378DDF /* SWRevealViewController.h in Sources */,
 				4F4EC5111B18D72600378DDF /* SWRevealViewController.m in Sources */,
 				4F4EC5121B18D72600378DDF /* triploka-Bridging-Header.h in Sources */,
@@ -526,12 +530,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3F8D99621B1778290066504F /* triploka.xcdatamodeld */ = {
+		4F4EC51A1B18E29500378DDF /* triploka.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3F8D99631B1778290066504F /* triploka.xcdatamodel */,
+				4F4EC51B1B18E29500378DDF /* triploka.xcdatamodel */,
 			);
-			currentVersion = 3F8D99631B1778290066504F /* triploka.xcdatamodel */;
+			currentVersion = 4F4EC51B1B18E29500378DDF /* triploka.xcdatamodel */;
 			path = triploka.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

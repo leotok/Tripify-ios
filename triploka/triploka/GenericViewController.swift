@@ -8,6 +8,9 @@
 
 import UIKit
 
+import CoreData
+import CoreLocation
+
 class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
 
     var sideMenuButton = UIBarButtonItem()
@@ -39,7 +42,42 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
             sideMenuButton.action = Selector("revealToggle:")
             
         }
+        
+        self.test()
     
     }
     
+    
+    func test(){
+
+//        var testMoment = Moment()
+//        
+//        testMoment.changeGeoTag(CLLocation(latitude: 2423423, longitude: 234234234))
+//        testMoment.addNewPhoto(UIImage(named: "teste")!)
+//        testMoment.addNewPhoto(UIImage(named: "maria")!)
+//        testMoment.addNewPhoto(UIImage(named: "arc")!)
+        
+        
+        var appDelegate : AppDelegate
+        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var context = appDelegate.managedObjectContext
+        
+        
+        var request : NSFetchRequest
+        request = NSFetchRequest(entityName: "Moment")
+        
+        var erro : NSError?
+        var result : [Moment]
+        
+        result = context!.executeFetchRequest(request, error: &erro)! as! [Moment]
+        println(result.count)
+        
+        var allImages : [UIImage]?
+        
+        for moment in result{
+            
+            allImages = moment.getAllPhotos()
+            println(allImages!.count)
+        }
+    }
 }
