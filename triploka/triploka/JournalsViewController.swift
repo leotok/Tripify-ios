@@ -93,11 +93,22 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             cell!.priority = 2
             
         }
-
+        
+        var tap = UITapGestureRecognizer(target: self, action: Selector("showTimeline"))
+        cell?.addGestureRecognizer(tap)
+        
         return cell!
         
     }
     
+    
+    func showTimeline()
+    {
+        var timeline = TimelineController()
+        self.navigationController?.pushViewController(timeline, animated: true)
+    }
+
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         //aqui ira o count do das trips

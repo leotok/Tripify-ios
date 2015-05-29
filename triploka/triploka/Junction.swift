@@ -12,6 +12,7 @@ class Junction: UIView {
     
     override func drawRect(rect: CGRect) {
         
+        self.clipsToBounds = true
         self.layer.cornerRadius = 10
     }
     
