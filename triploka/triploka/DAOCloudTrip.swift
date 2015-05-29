@@ -30,15 +30,8 @@ class DAOCloudTrip: NSObject {
     
     func saveNewTrip(trip: Trip) {
         
-        let tripID : CKRecordID = dao.getTripID(trip)
-        let tripRecord : CKRecord = CKRecord(recordType: "Trip", recordID: tripID)
-        
-        let photoAssset : CKAsset = CKAsset(fileURL: NSURL(fileURLWithPath: "")) // consertar
-        
-        tripRecord.setValue(trip.beginDate, forKey: "beginDate")
-        tripRecord.setValue(trip.endDate, forKey: "endDate")
-        tripRecord.setValue(trip.destination, forKey: "destination")
-        tripRecord.setValue(photoAssset, forKey: "presentationImage")
+        let tripRecord : CKRecord = getTripRecord(trip)
+        modifyTrip(trip, tripRecord: tripRecord)
         
         privateDB.saveRecord(tripRecord, completionHandler: { (recordReturned, error) -> Void in
             
@@ -59,10 +52,48 @@ class DAOCloudTrip: NSObject {
         
         if index > 0 {
             
-            let tripID : CKRecordID = dao.getTripID(trip)
-            let tripRecord : CKRecord = CKRecord(recordType: "Trip", recordID: tripID)
+            let tripRecord : CKRecord = getTripRecord(trip)
             
             auxSaveNewMoment(index, moments: trip.getAllMoments(), tripRecord: tripRecord, callAgain: false)
+        }
+    }
+    
+    func updateTrip(trip: Trip) {
+        
+        let tripRecord : CKRecord = getTripRecord(trip)
+        modifyTrip(trip, tripRecord: tripRecord)
+        let updateOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [tripRecord], recordIDsToDelete: nil)
+        
+        updateOperation.savePolicy = CKRecordSavePolicy.ChangedKeys
+        
+        updateOperation.modifyRecordsCompletionBlock = { saved, _, error in
+         
+            if let err = error {
+                
+                println("Erro ao atualizar viagem. O erro foi: \(err)")
+            }
+        }
+    }
+    
+    func updateMoment(index: Int, trip: Trip) {
+        
+        let tripRecord : CKRecord = getTripRecord(trip)
+        let momentRecord : CKRecord = CKRecord(recordType: "Moment")
+        let moments : [Moment] = trip.getAllMoments()
+        let moment : Moment = moments[index]
+        
+        modifyMoment(index, moment: moment, momentRecord: momentRecord, tripRecord: tripRecord)
+        
+        let updateOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [momentRecord], recordIDsToDelete: nil)
+        
+        updateOperation.savePolicy = CKRecordSavePolicy.ChangedKeys
+        
+        updateOperation.modifyRecordsCompletionBlock = { saved, _, error in
+            
+            if let err = error {
+                
+                println("Erro ao atualizar viagem. O erro foi: \(err)")
+            }
         }
     }
     
@@ -81,11 +112,7 @@ class DAOCloudTrip: NSObject {
             let moment : Moment = moments[index]
             let momentRecord : CKRecord = CKRecord(recordType: "Moment")
             
-            momentRecord.setValue(moment.category, forKey: "category")
-            momentRecord.setValue(moment.comment, forKey: "comment")
-            momentRecord.setValue(moment.geoTag, forKey: "geoTrag")
-            momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
-            momentRecord.setValue(NSNumber(integer: index), forKey: "index")
+            modifyMoment(index, moment: moment, momentRecord: momentRecord, tripRecord: tripRecord)
             
             privateDB.saveRecord(momentRecord, completionHandler: { (recordReturned, error) -> Void in
                 
@@ -352,6 +379,30 @@ class DAOCloudTrip: NSObject {
     private func getTripID(trip: Trip) -> CKRecordID {
         
         return CKRecordID(recordName: "\(trip.beginDate)bd\(trip.endDate)ed\(trip.destination)dt")
+    }
+    
+    private func getTripRecord(trip: Trip) -> CKRecord {
+        
+        return CKRecord(recordType: "Trip", recordID: getTripID(trip))
+    }
+    
+    private func modifyTrip(trip: Trip, tripRecord: CKRecord) {
+        
+        let photoAssset : CKAsset = CKAsset(fileURL: NSURL(fileURLWithPath: "")) // consertar
+        
+        tripRecord.setValue(trip.beginDate, forKey: "beginDate")
+        tripRecord.setValue(trip.endDate, forKey: "endDate")
+        tripRecord.setValue(trip.destination, forKey: "destination")
+        tripRecord.setValue(photoAssset, forKey: "presentationImage")
+    }
+    
+    private func modifyMoment(index: Int, moment: Moment, momentRecord: CKRecord, tripRecord: CKRecord) {
+        
+        momentRecord.setValue(moment.category, forKey: "category")
+        momentRecord.setValue(moment.comment, forKey: "comment")
+        momentRecord.setValue(moment.geoTag, forKey: "geoTrag")
+        momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
+        momentRecord.setValue(NSNumber(integer: index), forKey: "index")
     }
     
     private func getMomentsQuery(tripID: CKRecordID) -> CKQuery {
