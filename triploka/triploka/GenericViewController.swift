@@ -14,16 +14,28 @@ import CoreLocation
 class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
     
     var sideMenuButton = UIBarButtonItem()
-    var color :Int = 0
+    var statistic1: UILabel!
+    var statistic2: UILabel!
+    var statistic3: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // background
+        
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
-        bg.image = UIImage(named: "blurMenu")
-        bg.alpha = 0.1
+        bg.image = UIImage(named: "passport2.jpg")
         self.view.addSubview(bg)
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = self.view.frame
+        self.view.addSubview(effectView)
+
+        
+        
+        // info do profile
         
         var profilePic = UIImageView(image: UIImage(named: "leoProfile.jpg"))
         profilePic.frame.size = CGSizeMake(150, 150)
@@ -40,6 +52,33 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         username.font = UIFont(name: "AmaticSC-Regular", size: 30)
         self.view.addSubview(username)
         
+        
+        // estatísticas das viagens
+        
+        self.statistic1 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 2, 40))
+        self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.8)
+        self.statistic1.textAlignment = .Center
+        self.statistic1.text = "3 different countrys"
+        self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 13)
+        self.view.addSubview(self.statistic1)
+
+        self.statistic2 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 2, 40))
+        self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.7)
+        self.statistic2.textAlignment = .Center
+        self.statistic2.text = "5 new friends"
+        self.statistic2.font = UIFont(name: "AmericanTypewriter", size: 13)
+        self.view.addSubview(self.statistic2)
+        
+        self.statistic3 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 2, 40))
+        self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.6)
+        self.statistic3.textAlignment = .Center
+        self.statistic3.text = "11 restaurants"
+        self.statistic3.font = UIFont(name: "AmericanTypewriter", size: 13)
+        self.view.addSubview(self.statistic3)
+        
+        
+        // configuração navigation controller
+        
         var tripify = UIImageView(image: UIImage(named: "tripifyWhite"))
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
@@ -47,6 +86,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
         
         let revealController :SWRevealViewController = self.revealViewController()
         self.view.addGestureRecognizer(revealController.panGestureRecognizer())

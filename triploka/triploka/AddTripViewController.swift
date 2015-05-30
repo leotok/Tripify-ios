@@ -18,14 +18,19 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     var gallery: UIButton!
     var cancel: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
-        bg.image = UIImage(named: "blurMenu")
-        bg.alpha = 0.1
+        bg.image = UIImage(named: "passport2.jpg")
         self.view.addSubview(bg)
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = self.view.frame
+        self.view.addSubview(effectView)
         
         self.navigationItem.title = "Add New Trip"
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -37,12 +42,12 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         cover = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.width / 1.4, self.view.bounds.height / 2.8))
         cover.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.5)
         cover.userInteractionEnabled = true
+        cover.backgroundColor = UIColor.whiteColor()
         input.text = "Add Cover"
         input.font = UIFont(name: "AmaticSC-Regular", size: 30)
         input.frame.size = CGSizeMake(120, 40)
         input.center = cover.center
         input.textAlignment = .Center
-        self.view.addSubview(input)
         cover.layer.borderWidth = 1
         cover.layer.borderColor = UIColor.grayColor().CGColor
         
@@ -50,6 +55,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         self.cover.addGestureRecognizer(coverTap)
         
         self.view.addSubview(cover)
+        self.view.addSubview(input)
         
         titleTextField = UITextField(frame: CGRectMake(0, 0, self.view.bounds.width / 1.5, 30))
         titleTextField!.center = CGPointMake(self.view.center.x, self.view.bounds.height / 8)

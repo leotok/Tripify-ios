@@ -19,9 +19,12 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
-        bg.image = UIImage(named: "blurMenu")
-        bg.alpha = 0.1
+        bg.image = UIImage(named: "passport2.jpg")
         self.view.addSubview(bg)
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = self.view.frame
+        self.view.addSubview(effectView)
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
         let revealController :SWRevealViewController = self.revealViewController()
