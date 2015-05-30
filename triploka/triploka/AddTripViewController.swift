@@ -71,7 +71,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         println("oi")
         cinza = UIView(frame: CGRectMake(0, self.view.bounds.height, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3))
         cinza.backgroundColor = UIColor.blackColor()
-        cinza.alpha = 0.7
+        cinza.alpha = 0.6
         
         camera = UIButton(frame: CGRectMake(0,0, 80, 80))
         camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height - 80)

@@ -25,9 +25,25 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         bg.alpha = 0.1
         self.view.addSubview(bg)
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
+        var profilePic = UIImageView(image: UIImage(named: "leoProfile.jpg"))
+        profilePic.frame.size = CGSizeMake(200, 200)
+        profilePic.center = CGPointMake(self.view.center.x, self.view.bounds.height / 4)
+        profilePic.layer.cornerRadius = 100
+        profilePic.clipsToBounds = true
+        self.view.addSubview(profilePic)
         
-        self.navigationController?.navigationBar.topItem?.title = "Home"
+        var username = UILabel()
+        username.frame.size = CGSizeMake(200, 40)
+        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 2.1)
+        username.textAlignment = .Center
+        username.text = "Leo Wajnsztok"
+        username.font = UIFont(name: "AmaticSC-Regular", size: 30)
+        self.view.addSubview(username)
+        
+        var tripify = UIImageView(image: UIImage(named: "tripifyWhite"))
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.topItem?.titleView = tripify
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -56,7 +72,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
     //    func test(){
     //
     ////        var testMoment = Moment()
-    ////
+    /////Users/LeoWajnsztok/Desktop/Captura de Tela 2015-05-30 às 00.05.15.png
     ////        testMoment.changeGeoTag(CLLocation(latitude: 2423423, longitude: 234234234))
     ////        testMoment.addNewPhoto(UIImage(named: "teste")!)
     ////        testMoment.addNewPhoto(UIImage(named: "maria")!)
