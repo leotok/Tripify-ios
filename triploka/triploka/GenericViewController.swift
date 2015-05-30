@@ -12,7 +12,7 @@ import CoreData
 import CoreLocation
 
 class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
-
+    
     var sideMenuButton = UIBarButtonItem()
     var color :Int = 0
     
@@ -20,11 +20,16 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
+        var bg = UIImageView(frame: self.view.frame)
+        bg.image = UIImage(named: "blurMenu")
+        bg.alpha = 0.1
+        self.view.addSubview(bg)
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
         
         self.navigationController?.navigationBar.topItem?.title = "Home"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-
+        
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         let revealController :SWRevealViewController = self.revealViewController()
@@ -32,7 +37,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         sideMenuButton.tintColor = UIColor.whiteColor()
         sideMenuButton.image = UIImage(named: "Menu-25")
-    
+        
         self.navigationItem.leftBarButtonItem = sideMenuButton
         
         
@@ -44,40 +49,40 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         }
         
         //self.test()
-    
+        
     }
     
     
-//    func test(){
-//
-////        var testMoment = Moment()
-////        
-////        testMoment.changeGeoTag(CLLocation(latitude: 2423423, longitude: 234234234))
-////        testMoment.addNewPhoto(UIImage(named: "teste")!)
-////        testMoment.addNewPhoto(UIImage(named: "maria")!)
-////        testMoment.addNewPhoto(UIImage(named: "arc")!)
-//        
-//        
-//        var appDelegate : AppDelegate
-//        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        var context = appDelegate.managedObjectContext
-//        
-//        
-//        var request : NSFetchRequest
-//        request = NSFetchRequest(entityName: "Moment")
-//        
-//        var erro : NSError?
-//        var result : [Moment]
-//        
-//        result = context!.executeFetchRequest(request, error: &erro)! as! [Moment]
-//        println(result.count)
-//        
-//        var allImages : [UIImage]?
-//        
-//        for moment in result{
-//            
-//            allImages = moment.getAllPhotos()
-//            println(allImages!.count)
-//        }
-//    }
+    //    func test(){
+    //
+    ////        var testMoment = Moment()
+    ////
+    ////        testMoment.changeGeoTag(CLLocation(latitude: 2423423, longitude: 234234234))
+    ////        testMoment.addNewPhoto(UIImage(named: "teste")!)
+    ////        testMoment.addNewPhoto(UIImage(named: "maria")!)
+    ////        testMoment.addNewPhoto(UIImage(named: "arc")!)
+    //
+    //
+    //        var appDelegate : AppDelegate
+    //        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    //        var context = appDelegate.managedObjectContext
+    //
+    //
+    //        var request : NSFetchRequest
+    //        request = NSFetchRequest(entityName: "Moment")
+    //
+    //        var erro : NSError?
+    //        var result : [Moment]
+    //
+    //        result = context!.executeFetchRequest(request, error: &erro)! as! [Moment]
+    //        println(result.count)
+    //
+    //        var allImages : [UIImage]?
+    //
+    //        for moment in result{
+    //            
+    //            allImages = moment.getAllPhotos()
+    //            println(allImages!.count)
+    //        }
+    //    }
 }
