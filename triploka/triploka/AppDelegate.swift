@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SWRevealViewControllerDel
             let frontNav = UINavigationController(rootViewController: front)
             let revealvc = SWRevealViewController(rearViewController: rear, frontViewController: frontNav)
             
-            revealvc.rearViewRevealWidth = 280
+            revealvc.rearViewRevealWidth = 260
             revealvc.rearViewRevealOverdraw = 0
             revealvc.bounceBackOnOverdraw = false
             revealvc.stableDragOnOverdraw = true
