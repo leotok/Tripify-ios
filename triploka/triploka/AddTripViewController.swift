@@ -75,13 +75,13 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         cinza.alpha = 0.6
         
         camera = UIButton(frame: CGRectMake(0,0, 80, 80))
-        camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height - 80)
+        camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height )
         camera.setImage(UIImage(named: "Camera-50"), forState: UIControlState.Normal)
         camera.addTarget(self, action: Selector("cameraPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         
         
         gallery = UIButton(frame: CGRectMake(0,0, 80, 80))
-        gallery.center = CGPointMake(self.cinza.bounds.width / 1.45 , self.view.frame.height - 80)
+        gallery.center = CGPointMake(self.cinza.bounds.width / 1.45 , self.view.frame.height)
         gallery.setImage(UIImage(named: "Picture-50"), forState: UIControlState.Normal)
         gallery.addTarget(self, action: Selector("galleryPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -96,6 +96,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         UIView.animateWithDuration(0.1, animations: {
             self.cinza.frame = CGRectMake(0, self.view.bounds.height / 1.3, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3)
+            self.camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height - 80)
+            self.gallery.center = CGPointMake(self.cinza.bounds.width / 1.45 , self.view.frame.height - 80)
         })
         
     }
