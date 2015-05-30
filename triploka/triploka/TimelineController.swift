@@ -58,6 +58,10 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.title = "Trip"
         self.view.backgroundColor = UIColor.whiteColor()
+        var bg = UIImageView(frame: self.view.frame)
+        bg.image = UIImage(named: "blurMenu")
+        bg.alpha = 0.1
+        self.view.addSubview(bg)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"yourNotificationHandler:", name: "ModelViewDismiss", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"holdNotificationHandler:", name: "ViewHold", object: nil)

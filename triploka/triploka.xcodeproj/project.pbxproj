@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F694CBF1B1936E500F8D70E /* Camera-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CBC1B1936E500F8D70E /* Camera-50.png */; };
+		3F694CC01B1936E500F8D70E /* Cancel-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CBD1B1936E500F8D70E /* Cancel-32.png */; };
+		3F694CC11B1936E500F8D70E /* Picture-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CBE1B1936E500F8D70E /* Picture-50.png */; };
 		3F8D997A1B1778290066504F /* triplokaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99791B1778290066504F /* triplokaTests.swift */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
 		4F4EC5001B18D71800378DDF /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99831B1778780066504F /* GenericViewController.swift */; };
@@ -47,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F694CBC1B1936E500F8D70E /* Camera-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera-50.png"; sourceTree = "<group>"; };
+		3F694CBD1B1936E500F8D70E /* Cancel-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cancel-32.png"; sourceTree = "<group>"; };
+		3F694CBE1B1936E500F8D70E /* Picture-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Picture-50.png"; sourceTree = "<group>"; };
 		3F8D995B1B1778290066504F /* triploka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triploka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8D995F1B1778290066504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F8D99601B1778290066504F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 		3F8D995E1B1778290066504F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F694CBC1B1936E500F8D70E /* Camera-50.png */,
+				3F694CBD1B1936E500F8D70E /* Cancel-32.png */,
+				3F694CBE1B1936E500F8D70E /* Picture-50.png */,
 				3F8D996A1B1778290066504F /* Images.xcassets */,
 				3F8D996C1B1778290066504F /* LaunchScreen.xib */,
 				3F8D995F1B1778290066504F /* Info.plist */,
@@ -297,6 +306,9 @@
 				4F4EC5141B18D73D00378DDF /* Images.xcassets in Resources */,
 				4F4EC5151B18D73D00378DDF /* LaunchScreen.xib in Resources */,
 				4F4EC5161B18D73D00378DDF /* Info.plist in Resources */,
+				3F694CC11B1936E500F8D70E /* Picture-50.png in Resources */,
+				3F694CBF1B1936E500F8D70E /* Camera-50.png in Resources */,
+				3F694CC01B1936E500F8D70E /* Cancel-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
