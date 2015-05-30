@@ -257,7 +257,7 @@
 				TargetAttributes = {
 					3F8D995A1B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = H8UTHN35FS;
+						DevelopmentTeam = 6ZQ4CB9ZL9;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -456,6 +456,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = triploka/triploka.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = triploka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -470,6 +471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = triploka/triploka.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = triploka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
