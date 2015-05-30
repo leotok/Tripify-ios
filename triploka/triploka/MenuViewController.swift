@@ -20,7 +20,6 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         var bgImage = UIImageView(image: UIImage(named: "blurMenu"))
         bgImage.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
         
-    
         self.tableViewMenu.frame = CGRectMake(0, (self.view.frame.size.height) / 4, self.view.frame.size.width, self.view.frame.size.height)
         self.userName.frame = CGRectMake(30, 120, 200, 50)
         self.userName.text = "Leo Wajnsztok"
@@ -104,7 +103,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         if (indexPath.row == 0)
         {
-            cell?.textLabel?.text = "Home"
+            cell?.textLabel?.text = "Passport"
         }
         else if (indexPath.row == 1)
         {
