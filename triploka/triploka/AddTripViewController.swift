@@ -34,10 +34,11 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         var input = UILabel()
-        cover = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.width / 1.5, self.view.bounds.height / 3))
-        cover.center = self.view.center
+        cover = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.width / 1.4, self.view.bounds.height / 2.8))
+        cover.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.5)
         cover.userInteractionEnabled = true
         input.text = "Add Cover"
+        input.font = UIFont(name: "AmaticSC-Regular", size: 30)
         input.frame.size = CGSizeMake(120, 40)
         input.center = cover.center
         input.textAlignment = .Center
@@ -76,6 +77,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         camera = UIButton(frame: CGRectMake(0,0, 80, 80))
         camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height - 80)
         camera.setImage(UIImage(named: "Camera-50"), forState: UIControlState.Normal)
+        camera.addTarget(self, action: Selector("cameraPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         
         
         gallery = UIButton(frame: CGRectMake(0,0, 80, 80))
@@ -109,6 +111,21 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         self.cancelPressed()
     }
     
+    func cameraPressed() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            
+        self.coverPicker = UIImagePickerController()
+        self.coverPicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.coverPicker.delegate = self
+        self.coverPicker.allowsEditing = true
+        
+        self.presentViewController(coverPicker, animated: true, completion: nil)
+        
+        }
+        self.cancelPressed()
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         self.cover.image = image
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
@@ -127,10 +144,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     }
     
     func doneButtonPressed() {
-        
-        print("oi")
         self.navigationController?.popViewControllerAnimated(true)
-        
     }
     
 }

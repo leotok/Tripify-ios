@@ -20,6 +20,8 @@ class TripCollectionViewCell: UICollectionViewCell
     {
         super.init(frame: frame)
         
+        
+        
         tripTitle = UILabel()
         
         tripTitle.frame.size = CGSizeMake(180, 40)
@@ -27,11 +29,13 @@ class TripCollectionViewCell: UICollectionViewCell
         tripTitle.textColor = UIColor.whiteColor()
         tripTitle.textAlignment = .Center
         tripTitle.font = UIFont(name: "AmericanTypewriter", size: 35)
-        
         tripCover = UIImageView(frame: CGRectMake(0, 0, frame.size.width, frame.size.height))
+       
         
         self.addSubview(tripCover)
         self.addSubview(tripTitle)
+        
+
     }
     
     required init(coder aDecoder: NSCoder)

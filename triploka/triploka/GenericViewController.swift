@@ -26,15 +26,15 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.view.addSubview(bg)
         
         var profilePic = UIImageView(image: UIImage(named: "leoProfile.jpg"))
-        profilePic.frame.size = CGSizeMake(200, 200)
-        profilePic.center = CGPointMake(self.view.center.x, self.view.bounds.height / 4)
-        profilePic.layer.cornerRadius = 100
+        profilePic.frame.size = CGSizeMake(150, 150)
+        profilePic.center = CGPointMake(self.view.center.x, self.view.bounds.height / 5)
+        profilePic.layer.cornerRadius = 75
         profilePic.clipsToBounds = true
         self.view.addSubview(profilePic)
         
         var username = UILabel()
         username.frame.size = CGSizeMake(200, 40)
-        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 2.1)
+        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 2.5)
         username.textAlignment = .Center
         username.text = "Leo Wajnsztok"
         username.font = UIFont(name: "AmaticSC-Regular", size: 30)
