@@ -9,7 +9,7 @@
 import UIKit
 
 class JournalsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
-
+    
     var sideMenuButton = UIBarButtonItem()
     var addButton : UIBarButtonItem?
     
@@ -18,6 +18,13 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.whiteColor()
+        var bg = UIImageView(frame: self.view.frame)
+        bg.image = UIImage(named: "passport2.jpg")
+        self.view.addSubview(bg)
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = self.view.frame
+        self.view.addSubview(effectView)
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
         let revealController :SWRevealViewController = self.revealViewController()
@@ -25,7 +32,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         
         self.navigationController?.navigationBar.topItem?.title = "Journals"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-
+        
         addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addTrip"))
         addButton!.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = addButton
@@ -54,9 +61,9 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         collectionJournal.registerClass(TripCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionJournal.backgroundColor = UIColor.clearColor()
         
-
+        
         self.view.addSubview(collectionJournal)
-       
+        
     }
     
     func addTrip()
@@ -70,10 +77,10 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         var cell : TripCollectionViewCell? = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath:indexPath) as? TripCollectionViewCell
-
-         println(indexPath.row)
+        
+        println(indexPath.row)
         // pegar vetor de trips do DAO usar aqui
-
+        
         if indexPath.row == 0
         {
             cell!.tripTitle.text = "Portugal"
@@ -107,8 +114,8 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         var timeline = TimelineController()
         self.navigationController?.pushViewController(timeline, animated: true)
     }
-
-
+    
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         //aqui ira o count do das trips
@@ -120,15 +127,15 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         //pegar do DAO as prioritys de cada journal, tem q ser antes de criar as cells pq nao tem acesso a elas daqui
         return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
         
-//        if indexPath.row == 0 // || indexPath.row == 3
-//        {
-//            println(indexPath.row)
-//            return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
-//        }
-//        else
-//        {
-//            return CGSizeMake(self.view.frame.width/2.1, self.view.frame.height/4.2)
-//        }
+        //        if indexPath.row == 0 // || indexPath.row == 3
+        //        {
+        //            println(indexPath.row)
+        //            return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
+        //        }
+        //        else
+        //        {
+        //            return CGSizeMake(self.view.frame.width/2.1, self.view.frame.height/4.2)
+        //        }
         
     }
     

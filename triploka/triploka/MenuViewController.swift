@@ -20,11 +20,18 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         var bgImage = UIImageView(image: UIImage(named: "blurMenu"))
         bgImage.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
         
-    
         self.tableViewMenu.frame = CGRectMake(0, (self.view.frame.size.height) / 4, self.view.frame.size.width, self.view.frame.size.height)
-        self.userName.frame = CGRectMake(30, 70, 100, 50)
-        self.userName.text = "Username"
+        self.userName.frame = CGRectMake(30, 120, 200, 50)
+        self.userName.text = "Leo Wajnsztok"
         self.userName.textColor = UIColor.whiteColor()
+        self.userName.font = UIFont(name: "AmaticSC-Regular", size: 32)
+        
+        var profilePic = UIImageView(image: UIImage(named: "leoProfile.jpg"))
+        profilePic.frame.size = CGSizeMake(100, 100)
+        profilePic.center = CGPointMake(self.view.frame.width/3.5, self.view.bounds.height / 8)
+        profilePic.layer.cornerRadius = 50
+        profilePic.clipsToBounds = true
+
         
         
         //self.tableViewMenu.setEditing(false, animated: false)
@@ -36,6 +43,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.view.addSubview(bgImage)
         self.view.addSubview(userName)
         self.view.addSubview(tableViewMenu)
+        self.view.addSubview(profilePic)
         
     }
     
@@ -95,7 +103,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         if (indexPath.row == 0)
         {
-            cell?.textLabel?.text = "Home"
+            cell?.textLabel?.text = "Passport"
         }
         else if (indexPath.row == 1)
         {
@@ -112,6 +120,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
         cell?.backgroundColor = UIColor.clearColor()
         cell?.textLabel?.textColor = UIColor.whiteColor()
+        cell?.textLabel?.font = UIFont(name: "AmaticSC-Regular", size: 28)
         
         return cell!
     }

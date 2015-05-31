@@ -57,7 +57,15 @@ class TimelineController: UIViewController, UIScrollViewDelegate {
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.title = "Trip"
+
         self.view.backgroundColor = UIColor.whiteColor()
+        var bg = UIImageView(frame: self.view.frame)
+        bg.image = UIImage(named: "passport2.jpg")
+        self.view.addSubview(bg)
+        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
+        effectView.frame = self.view.frame
+        self.view.addSubview(effectView)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"yourNotificationHandler:", name: "ModelViewDismiss", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"holdNotificationHandler:", name: "ViewHold", object: nil)
