@@ -33,7 +33,7 @@ class DAOCloudTrip: NSObject {
             
             var error : NSErrorPointer = nil
             let bundle = NSBundle.mainBundle().pathForResource("Instructions", ofType: "plist")
-            fileManager.copyItemAtPath(bundle, toPath: , error: error)
+            fileManager.copyItemAtPath(bundle!, toPath: plistPath, error: error)
             
             if error != nil {
                 
@@ -51,7 +51,15 @@ class DAOCloudTrip: NSObject {
     
     func readNextInstruction() {
         
+        let instructions : NSArray! = NSArray(contentsOfFile: plistPath)
         
+        if instructions != nil && instructions.count > 0 {
+            
+            let instruction : NSDictionary = instructions[0] as! NSDictionary
+            let type : String = instruction["type"] as! String
+            
+            if type == 
+        }
     }
     
     func saveNewTrip(trip: Trip) {
