@@ -15,17 +15,43 @@ class DAOCloudTrip: NSObject {
     
     private var container : CKContainer
     private var privateDB : CKDatabase
+    private var rootPath : String
+    private var plistPath : String
     
     override init() {
         
         container = CKContainer.defaultContainer()
         privateDB = container.privateCloudDatabase
+        
+        rootPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+        
+        plistPath = rootPath.stringByAppendingPathComponent("Instructions.plist")
+        
+        var fileManager = NSFileManager.defaultManager()
+        
+        if !fileManager.fileExistsAtPath(plistPath) {
+            
+            var error : NSErrorPointer = nil
+            let bundle = NSBundle.mainBundle().pathForResource("Instructions", ofType: "plist")
+            fileManager.copyItemAtPath(bundle, toPath: , error: error)
+            
+            if error != nil {
+                
+                println("Erro ao copiar plist para bundle")
+            }
+        }
+        
         super.init()
     }
     
     class func getInstance() -> DAOCloudTrip {
         
         return dao
+    }
+    
+    func readNextInstruction() {
+        
+        
     }
     
     func saveNewTrip(trip: Trip) {
@@ -67,7 +93,7 @@ class DAOCloudTrip: NSObject {
         updateOperation.savePolicy = CKRecordSavePolicy.ChangedKeys
         
         updateOperation.modifyRecordsCompletionBlock = { saved, _, error in
-         
+            
             if let err = error {
                 
                 println("Erro ao atualizar viagem. O erro foi: \(err)")
@@ -274,7 +300,7 @@ class DAOCloudTrip: NSObject {
                         
                         moments[i].comment = momentRecord.valueForKey("comment") as! String
                         
-                        //moments[i].geoTag = momentRecord.valueForKey("geoTag") as! String
+                        moments[i].geoTag = momentRecord.valueForKey("geoTag") as! String
                         
                         i++
                     }
@@ -400,7 +426,7 @@ class DAOCloudTrip: NSObject {
         
         momentRecord.setValue(moment.category, forKey: "category")
         momentRecord.setValue(moment.comment, forKey: "comment")
-//        momentRecord.setValue(moment.geoTag, forKey: "geoTrag")
+        momentRecord.setValue(moment.geoTag, forKey: "geoTrag")
         momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
         momentRecord.setValue(NSNumber(integer: index), forKey: "index")
     }
