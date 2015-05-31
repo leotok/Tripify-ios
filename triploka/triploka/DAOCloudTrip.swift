@@ -57,8 +57,29 @@ class DAOCloudTrip: NSObject {
             
             let instruction : NSDictionary = instructions[0] as! NSDictionary
             let type : String = instruction["type"] as! String
+            let action : String = instruction["action"] as! String
             
-            if type == 
+            if type == "Trip" {
+                
+                var trip : Trip = Trip()
+                
+                trip.beginDate = instruction.valueForKey("beginDate") as! NSDate
+                trip.endDate = instruction.valueForKey("endDate") as! NSDate
+                trip.destination = instruction["destination"] as! String
+                
+                if action == "Save" {
+                    
+                    saveNewTrip(trip)
+                }
+                else if action == "Update" {
+                    
+                    updateTrip(trip)
+                }
+                else if action == "Delete" {
+                    
+                    
+                }
+            }
         }
     }
     
