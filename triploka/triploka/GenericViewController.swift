@@ -39,14 +39,14 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         var profilePic = UIImageView(image: UIImage(named: "leoProfile.jpg"))
         profilePic.frame.size = CGSizeMake(150, 150)
-        profilePic.center = CGPointMake(self.view.center.x, self.view.bounds.height / 5)
+        profilePic.center = CGPointMake(self.view.center.x, self.view.bounds.height / 6)
         profilePic.layer.cornerRadius = 75
         profilePic.clipsToBounds = true
         self.view.addSubview(profilePic)
         
         var username = UILabel()
         username.frame.size = CGSizeMake(200, 40)
-        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 2.8)
+        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 3.1)
         username.textAlignment = .Center
         username.text = "Leo Wajnsztok"
         username.font = UIFont(name: "AmaticSC-Regular", size: 40)
@@ -55,20 +55,20 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         // estatísticas das viagens
         
-        var cinza = UIView(frame: CGRectMake(0, 0, self.view.frame.width , self.view.frame.height / 2.7))
+        var cinza = UIView(frame: CGRectMake(0, 0, self.view.frame.width , self.view.frame.height / 2.8))
         cinza.backgroundColor = UIColor.blackColor()
         cinza.alpha = 0.1
-        cinza.center = CGPointMake( self.view.center.x , self.view.frame.height / 1.65)
+        cinza.center = CGPointMake( self.view.center.x , self.view.frame.height / 1.72)
         self.view.addSubview(cinza)
         
         
         var suitcase = UIImageView(frame: CGRectMake(0, 0, 30, 30))
         suitcase.image = UIImage(named: "Suitcase-64")
-        suitcase.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.2)
+        suitcase.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.25)
         self.view.addSubview(suitcase)
         
         self.statistic1 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
-        self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 2)
+        self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.0)
         self.statistic1.textAlignment = .Center
         self.statistic1.text = "3 different countrys"
         self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 18)
@@ -76,11 +76,11 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
 
         var meeting = UIImageView(frame: CGRectMake(0, 0, 30, 30))
         meeting.image = UIImage(named: "Meeting-64")
-        meeting.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.75)
+        meeting.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.8)
         self.view.addSubview(meeting)
         
         self.statistic2 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
-        self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.6)
+        self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.65)
         self.statistic2.textAlignment = .Center
         self.statistic2.text = "5 new friends"
         self.statistic2.font = UIFont(name: "AmericanTypewriter", size: 18)
@@ -88,11 +88,11 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         var food = UIImageView(frame: CGRectMake(0, 0, 30, 30))
         food.image = UIImage(named: "Food-64")
-        food.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.44)
+        food.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.5)
         self.view.addSubview(food)
         
         self.statistic3 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
-        self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.34)
+        self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.4)
         self.statistic3.textAlignment = .Center
         self.statistic3.text = "11 restaurants"
         self.statistic3.font = UIFont(name: "AmericanTypewriter", size: 18)
