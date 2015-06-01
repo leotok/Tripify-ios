@@ -12,6 +12,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     
     var sideMenuButton = UIBarButtonItem()
     var addButton : UIBarButtonItem?
+    var trips = [Trip]()
     
     
     override func viewDidLoad() {
@@ -81,6 +82,10 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         println(indexPath.row)
         // pegar vetor de trips do DAO usar aqui
         
+        var trip = Trip()
+        
+        
+        
         if indexPath.row == 0
         {
             cell!.tripTitle.text = "Portugal"
@@ -119,23 +124,31 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         //aqui ira o count do das trips
+
+        
         return 10
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
         //pegar do DAO as prioritys de cada journal, tem q ser antes de criar as cells pq nao tem acesso a elas daqui
-        return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
+        //return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
         
-        //        if indexPath.row == 0 // || indexPath.row == 3
-        //        {
-        //            println(indexPath.row)
-        //            return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
-        //        }
-        //        else
-        //        {
-        //            return CGSizeMake(self.view.frame.width/2.1, self.view.frame.height/4.2)
-        //        }
+     
+        var cellSize = CGSizeMake( self.view.frame.width, self.view.frame.height / 2 )
+        
+//        if indexPath.row == 0 || indexPath.row == 3
+//        {
+//            cellSize.height = self.view.frame.height / 2
+//            cellSize.width = self.view.frame.width
+//        }
+//        else
+//        {
+//            cellSize.height = self.view.frame.height / 4
+//            cellSize.width = self.view.frame.width / 2.2
+//        }
+//        
+        return cellSize
         
     }
     
