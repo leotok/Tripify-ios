@@ -944,7 +944,10 @@ const int FrontViewPositionNone = 0xff;
 #pragma mark - Provided acction methods
 
 - (IBAction)revealToggle:(id)sender
-{    
+{
+    if ( self.viewDisabled != nil ) {
+        self.viewDisabled.userInteractionEnabled = !self.viewDisabled.userInteractionEnabled;
+    }
     [self revealToggleAnimated:YES];
 }
 

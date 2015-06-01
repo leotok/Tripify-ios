@@ -44,13 +44,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
         
-        
-        if self.revealViewController() != nil{
-            
-            sideMenuButton.target = self.revealViewController()
-            sideMenuButton.action = Selector("revealToggle:")
-        }
-        
         var layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         var collectionJournal = UICollectionView(frame: CGRectMake( 0, 0, self.view.frame.width, self.view.frame.height ), collectionViewLayout: layout)
@@ -62,6 +55,12 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         collectionJournal.registerClass(TripCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionJournal.backgroundColor = UIColor.clearColor()
         
+        if self.revealViewController() != nil{
+            
+            sideMenuButton.target = self.revealViewController()
+            sideMenuButton.action = Selector("revealToggle:")
+            revealController.viewDisabled = collectionJournal
+        }
         
         self.view.addSubview(collectionJournal)
         
