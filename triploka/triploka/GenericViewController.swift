@@ -55,6 +55,13 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         // estatísticas das viagens
         
+        var cinza = UIView(frame: CGRectMake(0, 0, self.view.frame.width , self.view.frame.height / 2.7))
+        cinza.backgroundColor = UIColor.blackColor()
+        cinza.alpha = 0.1
+        cinza.center = CGPointMake( self.view.center.x , self.view.frame.height / 1.65)
+        self.view.addSubview(cinza)
+        
+        
         var suitcase = UIImageView(frame: CGRectMake(0, 0, 30, 30))
         suitcase.image = UIImage(named: "Suitcase-64")
         suitcase.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.2)
