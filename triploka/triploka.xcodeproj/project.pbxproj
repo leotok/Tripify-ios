@@ -17,7 +17,7 @@
 		3F694CCE1B19638C00F8D70E /* tripify.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CCD1B19638C00F8D70E /* tripify.png */; };
 		3F694CD81B196D1D00F8D70E /* tripifyWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CD71B196D1D00F8D70E /* tripifyWhite.png */; };
 		3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F70EE471B1A385C004995B6 /* passport2.jpg */; };
-		3F8D997A1B1778290066504F /* triplokaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99791B1778290066504F /* triplokaTests.swift */; };
+		4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
 		4F4EC5001B18D71800378DDF /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99831B1778780066504F /* GenericViewController.swift */; };
 		4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
@@ -43,18 +43,7 @@
 		4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51D1B18E35E00378DDF /* Trip.swift */; };
 		4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51F1B18E35E00378DDF /* Photo.swift */; };
 		4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC5211B18E35F00378DDF /* Moment.swift */; };
-		94387AAF1B1912E900051D08 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94387AAE1B1912E900051D08 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3F8D99741B1778290066504F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3F8D99531B1778290066504F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F8D995A1B1778290066504F;
-			remoteInfo = triploka;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3F694CBC1B1936E500F8D70E /* Camera-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera-50.png"; sourceTree = "<group>"; };
@@ -72,7 +61,6 @@
 		3F8D99601B1778290066504F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F8D996A1B1778290066504F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F8D996D1B1778290066504F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3F8D99731B1778290066504F /* triplokaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = triplokaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8D99781B1778290066504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F8D99791B1778290066504F /* triplokaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triplokaTests.swift; sourceTree = "<group>"; };
 		3F8D99831B1778780066504F /* GenericViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
@@ -92,12 +80,12 @@
 		3F8D99A01B177B120066504F /* TestMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMoment.swift; sourceTree = "<group>"; };
 		3F8D99A21B177B120066504F /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
 		3F8D99B51B1780FA0066504F /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4F4EC51B1B18E29500378DDF /* triploka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = triploka.xcdatamodel; sourceTree = "<group>"; };
 		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		4F4EC51F1B18E35E00378DDF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		4F4EC5211B18E35F00378DDF /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		94387AAD1B1912E700051D08 /* triploka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = triploka.entitlements; sourceTree = "<group>"; };
-		94387AAE1B1912E900051D08 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,14 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94387AAF1B1912E900051D08 /* CloudKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3F8D99701B1778290066504F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +116,7 @@
 		3F8D99521B1778290066504F = {
 			isa = PBXGroup;
 			children = (
-				94387AAE1B1912E900051D08 /* CloudKit.framework */,
+				4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */,
 				3F8D995D1B1778290066504F /* triploka */,
 				3F8D99761B1778290066504F /* triplokaTests */,
 				3F8D995C1B1778290066504F /* Products */,
@@ -146,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				3F8D995B1B1778290066504F /* triploka.app */,
-				3F8D99731B1778290066504F /* triplokaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,24 +246,6 @@
 			productReference = 3F8D995B1B1778290066504F /* triploka.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3F8D99721B1778290066504F /* triplokaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3F8D99801B1778290066504F /* Build configuration list for PBXNativeTarget "triplokaTests" */;
-			buildPhases = (
-				3F8D996F1B1778290066504F /* Sources */,
-				3F8D99701B1778290066504F /* Frameworks */,
-				3F8D99711B1778290066504F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3F8D99751B1778290066504F /* PBXTargetDependency */,
-			);
-			name = triplokaTests;
-			productName = triplokaTests;
-			productReference = 3F8D99731B1778290066504F /* triplokaTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -295,16 +257,12 @@
 				TargetAttributes = {
 					3F8D995A1B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 6ZQ4CB9ZL9;
+						DevelopmentTeam = D4QEWF5RB3;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
-					};
-					3F8D99721B1778290066504F = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 3F8D995A1B1778290066504F;
 					};
 				};
 			};
@@ -322,7 +280,6 @@
 			projectRoot = "";
 			targets = (
 				3F8D995A1B1778290066504F /* triploka */,
-				3F8D99721B1778290066504F /* triplokaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -345,13 +302,6 @@
 				3F694CBF1B1936E500F8D70E /* Camera-50.png in Resources */,
 				3F694CC01B1936E500F8D70E /* Cancel-32.png in Resources */,
 				3F694CD81B196D1D00F8D70E /* tripifyWhite.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3F8D99711B1778290066504F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,23 +337,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3F8D996F1B1778290066504F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F8D997A1B1778290066504F /* triplokaTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3F8D99751B1778290066504F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F8D995A1B1778290066504F /* triploka */;
-			targetProxy = 3F8D99741B1778290066504F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3F8D996C1B1778290066504F /* LaunchScreen.xib */ = {
@@ -505,9 +439,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = triploka/triploka.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = triploka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "triploka/triploka-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -520,44 +456,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = triploka/triploka.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = triploka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "triploka/triploka-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		3F8D99811B1778290066504F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = triplokaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/triploka.app/triploka";
-			};
-			name = Debug;
-		};
-		3F8D99821B1778290066504F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = triplokaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/triploka.app/triploka";
 			};
 			name = Release;
 		};
@@ -578,15 +482,6 @@
 			buildConfigurations = (
 				3F8D997E1B1778290066504F /* Debug */,
 				3F8D997F1B1778290066504F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3F8D99801B1778290066504F /* Build configuration list for PBXNativeTarget "triplokaTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3F8D99811B1778290066504F /* Debug */,
-				3F8D99821B1778290066504F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
