@@ -46,7 +46,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         var username = UILabel()
         username.frame.size = CGSizeMake(200, 40)
-        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 2.5)
+        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 2.8)
         username.textAlignment = .Center
         username.text = "Leo Wajnsztok"
         username.font = UIFont(name: "AmaticSC-Regular", size: 30)
@@ -55,25 +55,40 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         // estatísticas das viagens
         
-        self.statistic1 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 2, 40))
-        self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.8)
+        var suitcase = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        suitcase.image = UIImage(named: "Suitcase-64")
+        suitcase.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.2)
+        self.view.addSubview(suitcase)
+        
+        self.statistic1 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
+        self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 2)
         self.statistic1.textAlignment = .Center
         self.statistic1.text = "3 different countrys"
-        self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 13)
+        self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 18)
         self.view.addSubview(self.statistic1)
 
-        self.statistic2 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 2, 40))
-        self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.7)
+        var meeting = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        meeting.image = UIImage(named: "Meeting-64")
+        meeting.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.75)
+        self.view.addSubview(meeting)
+        
+        self.statistic2 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
+        self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.6)
         self.statistic2.textAlignment = .Center
         self.statistic2.text = "5 new friends"
-        self.statistic2.font = UIFont(name: "AmericanTypewriter", size: 13)
+        self.statistic2.font = UIFont(name: "AmericanTypewriter", size: 18)
         self.view.addSubview(self.statistic2)
         
-        self.statistic3 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 2, 40))
-        self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.6)
+        var food = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        food.image = UIImage(named: "Food-64")
+        food.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.44)
+        self.view.addSubview(food)
+        
+        self.statistic3 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
+        self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.34)
         self.statistic3.textAlignment = .Center
         self.statistic3.text = "11 restaurants"
-        self.statistic3.font = UIFont(name: "AmericanTypewriter", size: 13)
+        self.statistic3.font = UIFont(name: "AmericanTypewriter", size: 18)
         self.view.addSubview(self.statistic3)
         
         

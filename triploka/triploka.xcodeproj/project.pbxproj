@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F65E9D61B1BE82C00DF176D /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F65E9D51B1BE82C00DF176D /* GenericViewController.swift */; };
+		3F65E9E01B1BE87A00DF176D /* Suitcase-32-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9DA1B1BE87A00DF176D /* Suitcase-32-2.png */; };
+		3F65E9E11B1BE87A00DF176D /* Suitcase-32-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9DB1B1BE87A00DF176D /* Suitcase-32-3.png */; };
+		3F65E9E21B1BE87A00DF176D /* Suitcase-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9DC1B1BE87A00DF176D /* Suitcase-32.png */; };
+		3F65E9E31B1BE87A00DF176D /* Suitcase-50-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9DD1B1BE87A00DF176D /* Suitcase-50-2.png */; };
+		3F65E9E41B1BE87A00DF176D /* Suitcase-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9DE1B1BE87A00DF176D /* Suitcase-50.png */; };
+		3F65E9E51B1BE87A00DF176D /* Suitcase-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9DF1B1BE87A00DF176D /* Suitcase-64.png */; };
+		3F65E9E71B1BE88200DF176D /* Meeting-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9E61B1BE88200DF176D /* Meeting-64.png */; };
+		3F65E9E91B1BE94900DF176D /* Food-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9E81B1BE94900DF176D /* Food-64.png */; };
 		3F694CBF1B1936E500F8D70E /* Camera-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CBC1B1936E500F8D70E /* Camera-50.png */; };
 		3F694CC01B1936E500F8D70E /* Cancel-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CBD1B1936E500F8D70E /* Cancel-32.png */; };
 		3F694CC11B1936E500F8D70E /* Picture-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CBE1B1936E500F8D70E /* Picture-50.png */; };
@@ -19,7 +28,6 @@
 		3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F70EE471B1A385C004995B6 /* passport2.jpg */; };
 		4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
-		4F4EC5001B18D71800378DDF /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99831B1778780066504F /* GenericViewController.swift */; };
 		4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
 		4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999A1B177B120066504F /* LoginController.swift */; };
 		4F4EC5031B18D71800378DDF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99851B1778780066504F /* MenuViewController.swift */; };
@@ -46,6 +54,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F65E9D51B1BE82C00DF176D /* GenericViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
+		3F65E9DA1B1BE87A00DF176D /* Suitcase-32-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Suitcase-32-2.png"; sourceTree = "<group>"; };
+		3F65E9DB1B1BE87A00DF176D /* Suitcase-32-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Suitcase-32-3.png"; sourceTree = "<group>"; };
+		3F65E9DC1B1BE87A00DF176D /* Suitcase-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Suitcase-32.png"; sourceTree = "<group>"; };
+		3F65E9DD1B1BE87A00DF176D /* Suitcase-50-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Suitcase-50-2.png"; sourceTree = "<group>"; };
+		3F65E9DE1B1BE87A00DF176D /* Suitcase-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Suitcase-50.png"; sourceTree = "<group>"; };
+		3F65E9DF1B1BE87A00DF176D /* Suitcase-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Suitcase-64.png"; sourceTree = "<group>"; };
+		3F65E9E61B1BE88200DF176D /* Meeting-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Meeting-64.png"; sourceTree = "<group>"; };
+		3F65E9E81B1BE94900DF176D /* Food-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Food-64.png"; sourceTree = "<group>"; };
 		3F694CBC1B1936E500F8D70E /* Camera-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera-50.png"; sourceTree = "<group>"; };
 		3F694CBD1B1936E500F8D70E /* Cancel-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cancel-32.png"; sourceTree = "<group>"; };
 		3F694CBE1B1936E500F8D70E /* Picture-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Picture-50.png"; sourceTree = "<group>"; };
@@ -63,7 +80,6 @@
 		3F8D996D1B1778290066504F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3F8D99781B1778290066504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F8D99791B1778290066504F /* triplokaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triplokaTests.swift; sourceTree = "<group>"; };
-		3F8D99831B1778780066504F /* GenericViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		3F8D99841B1778780066504F /* JournalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalsViewController.swift; sourceTree = "<group>"; };
 		3F8D99851B1778780066504F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3F8D99861B1778780066504F /* TripCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -100,6 +116,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F65E9D91B1BE87A00DF176D /* Suitcase */ = {
+			isa = PBXGroup;
+			children = (
+				3F65E9DA1B1BE87A00DF176D /* Suitcase-32-2.png */,
+				3F65E9DB1B1BE87A00DF176D /* Suitcase-32-3.png */,
+				3F65E9DC1B1BE87A00DF176D /* Suitcase-32.png */,
+				3F65E9DD1B1BE87A00DF176D /* Suitcase-50-2.png */,
+				3F65E9DE1B1BE87A00DF176D /* Suitcase-50.png */,
+				3F65E9DF1B1BE87A00DF176D /* Suitcase-64.png */,
+			);
+			path = Suitcase;
+			sourceTree = "<group>";
+		};
 		3F694CC41B195DC600F8D70E /* amatic */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +180,9 @@
 				3F694CC41B195DC600F8D70E /* amatic */,
 				3F694CC21B1956A300F8D70E /* leoProfile.jpg */,
 				3F694CBC1B1936E500F8D70E /* Camera-50.png */,
+				3F65E9E81B1BE94900DF176D /* Food-64.png */,
+				3F65E9E61B1BE88200DF176D /* Meeting-64.png */,
+				3F65E9D91B1BE87A00DF176D /* Suitcase */,
 				3F694CBD1B1936E500F8D70E /* Cancel-32.png */,
 				3F694CBE1B1936E500F8D70E /* Picture-50.png */,
 				3F8D996A1B1778290066504F /* Images.xcassets */,
@@ -206,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				3F8D99B51B1780FA0066504F /* AddTripViewController.swift */,
-				3F8D99831B1778780066504F /* GenericViewController.swift */,
+				3F65E9D51B1BE82C00DF176D /* GenericViewController.swift */,
 				3F8D99841B1778780066504F /* JournalsViewController.swift */,
 				3F8D999A1B177B120066504F /* LoginController.swift */,
 				3F8D99851B1778780066504F /* MenuViewController.swift */,
@@ -291,11 +323,19 @@
 			files = (
 				3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */,
 				3F694CCE1B19638C00F8D70E /* tripify.png in Resources */,
+				3F65E9E51B1BE87A00DF176D /* Suitcase-64.png in Resources */,
+				3F65E9E11B1BE87A00DF176D /* Suitcase-32-3.png in Resources */,
 				3F694CC81B195DC600F8D70E /* Amatic-Bold.ttf in Resources */,
 				3F694CCA1B195DC600F8D70E /* SIL Open Font License.txt in Resources */,
+				3F65E9E21B1BE87A00DF176D /* Suitcase-32.png in Resources */,
+				3F65E9E01B1BE87A00DF176D /* Suitcase-32-2.png in Resources */,
 				4F4EC5141B18D73D00378DDF /* Images.xcassets in Resources */,
+				3F65E9E31B1BE87A00DF176D /* Suitcase-50-2.png in Resources */,
+				3F65E9E41B1BE87A00DF176D /* Suitcase-50.png in Resources */,
+				3F65E9E91B1BE94900DF176D /* Food-64.png in Resources */,
 				4F4EC5151B18D73D00378DDF /* LaunchScreen.xib in Resources */,
 				3F694CC31B1956A300F8D70E /* leoProfile.jpg in Resources */,
+				3F65E9E71B1BE88200DF176D /* Meeting-64.png in Resources */,
 				4F4EC5161B18D73D00378DDF /* Info.plist in Resources */,
 				3F694CC91B195DC600F8D70E /* AmaticSC-Regular.ttf in Resources */,
 				3F694CC11B1936E500F8D70E /* Picture-50.png in Resources */,
@@ -314,7 +354,6 @@
 			files = (
 				4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */,
 				4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */,
-				4F4EC5001B18D71800378DDF /* GenericViewController.swift in Sources */,
 				4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */,
 				4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */,
 				4F4EC5031B18D71800378DDF /* MenuViewController.swift in Sources */,
@@ -328,6 +367,7 @@
 				4F4EC5081B18D72600378DDF /* Junction.swift in Sources */,
 				4F4EC5091B18D72600378DDF /* TestMoment.swift in Sources */,
 				4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */,
+				3F65E9D61B1BE82C00DF176D /* GenericViewController.swift in Sources */,
 				4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */,
 				4F4EC50D1B18D72600378DDF /* MomentCategory.swift in Sources */,
 				4F4EC5101B18D72600378DDF /* SWRevealViewController.h in Sources */,
