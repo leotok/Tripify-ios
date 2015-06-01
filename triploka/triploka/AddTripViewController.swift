@@ -24,6 +24,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // background
+        
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
         bg.image = UIImage(named: "passport2.jpg")
@@ -33,11 +35,17 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         effectView.frame = self.view.frame
         self.view.addSubview(effectView)
         
+        
+        // config navigation controller
+        
         self.navigationItem.title = "Add New Trip"
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: Selector("doneButtonPressed"))
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        
+        // inputs da trip
         
         self.input = UILabel()
         cover = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.width / 1.4, self.view.bounds.height / 2.8))
@@ -155,7 +163,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     }
     
     func doneButtonPressed() {
+        
+        var newTrip = Trip()
+        newTrip.changePresentationImage(self.cover.image!)
+        newTrip.destination = self.input.text!
+        newTrip.beginDate = NSDate()
+        
         self.navigationController?.popViewControllerAnimated(true)
+    
     }
     
 }

@@ -49,7 +49,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 2.8)
         username.textAlignment = .Center
         username.text = "Leo Wajnsztok"
-        username.font = UIFont(name: "AmaticSC-Regular", size: 30)
+        username.font = UIFont(name: "AmaticSC-Regular", size: 40)
         self.view.addSubview(username)
         
         
