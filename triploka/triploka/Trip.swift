@@ -17,13 +17,13 @@ class Trip: NSManagedObject {
     *
     ***/
     
-
+    
     @NSManaged var beginDate: NSDate
     @NSManaged var endDate: NSDate
     @NSManaged var destination: String
     @NSManaged var presentationImage: AnyObject
     @NSManaged var moments: NSSet
-
+    
     /**
     *
     *   Convenience init, so you don't have to pass an entity
@@ -46,7 +46,7 @@ class Trip: NSManagedObject {
         self.init(entity: entity, insertIntoManagedObjectContext:context)
         
     }
-
+    
     
     /*********************************************
     *

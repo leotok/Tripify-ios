@@ -17,6 +17,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     var camera: UIButton!
     var gallery: UIButton!
     var cancel: UIButton!
+    var input: UILabel!
     
     
     
@@ -38,7 +39,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        var input = UILabel()
+        self.input = UILabel()
         cover = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.width / 1.4, self.view.bounds.height / 2.8))
         cover.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.5)
         cover.userInteractionEnabled = true
@@ -137,6 +138,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         self.cover.image = image
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
+        self.input.removeFromSuperview()        
+        
     }
     
     func cancelPressed() {
