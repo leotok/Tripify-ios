@@ -49,7 +49,15 @@ class DAOCloudTrip: NSObject {
         return dao
     }
     
-    func readNextInstruction() {
+    func updateCloudKit() {
+        
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.value), 0)) {
+            
+            self.readNextInstruction()
+        }
+    }
+    
+    private func readNextInstruction() {
         
         let instructions : NSArray! = NSArray(contentsOfFile: plistPath)
         
@@ -59,13 +67,13 @@ class DAOCloudTrip: NSObject {
             let type : String = instruction["type"] as! String
             let action : String = instruction["action"] as! String
             
+            var trip : Trip = Trip()
+            
+            trip.beginDate = instruction.valueForKey("beginDate") as! NSDate
+            trip.endDate = instruction.valueForKey("endDate") as! NSDate
+            trip.destination = instruction["destination"] as! String
+            
             if type == "Trip" {
-                
-                var trip : Trip = Trip()
-                
-                trip.beginDate = instruction.valueForKey("beginDate") as! NSDate
-                trip.endDate = instruction.valueForKey("endDate") as! NSDate
-                trip.destination = instruction["destination"] as! String
                 
                 if action == "Save" {
                     
@@ -77,7 +85,24 @@ class DAOCloudTrip: NSObject {
                 }
                 else if action == "Delete" {
                     
+                    deleteTrip(trip)
+                }
+            }
+            else if action == "Moment" {
+                
+                let index : Int = (instruction.valueForKey("index") as! NSNumber).integerValue
+                
+                if action == "Save" {
                     
+                    saveNewMoment(index, trip: trip)
+                }
+                else if action == "Update" {
+                    
+                    updateMoment(index, trip: trip)
+                }
+                else if action == "Delete" {
+                    
+                    deleteMomentFrom(index, trip: trip)
                 }
             }
         }
@@ -93,11 +118,11 @@ class DAOCloudTrip: NSObject {
             if let err = error {
                 
                 println("Erro ao salvar uma viagem. O erro foi: \(err)")
+                self.updateCloudKit()
             }
             else {
                 
                 println("Viagem salva com sucesso!")
-                
                 self.saveAllMoments(tripRecord, moments: trip.getAllMoments())
             }
         })
@@ -126,6 +151,7 @@ class DAOCloudTrip: NSObject {
             if let err = error {
                 
                 println("Erro ao atualizar viagem. O erro foi: \(err)")
+                self.updateCloudKit()
             }
         }
     }
