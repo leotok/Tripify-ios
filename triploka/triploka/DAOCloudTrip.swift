@@ -329,7 +329,7 @@ class DAOCloudTrip: NSObject {
                         
                         moments[i].comment = momentRecord.valueForKey("comment") as! String
                         
-                        moments[i].geoTag = momentRecord.valueForKey("geoTag") as! String
+                        //moments[i].geoTag = momentRecord.valueForKey("geoTag") as! String
                         
                         i++
                     }
@@ -455,7 +455,7 @@ class DAOCloudTrip: NSObject {
         
         momentRecord.setValue(moment.category, forKey: "category")
         momentRecord.setValue(moment.comment, forKey: "comment")
-        momentRecord.setValue(moment.geoTag, forKey: "geoTrag")
+        //momentRecord.setValue(moment.geoTag, forKey: "geoTrag")
         momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
         momentRecord.setValue(NSNumber(integer: index), forKey: "index")
     }
