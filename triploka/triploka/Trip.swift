@@ -16,6 +16,7 @@ class Trip: NSManagedObject {
     *  MARK: Properties
     *
     ***/
+    
 
     @NSManaged var beginDate: NSDate
     @NSManaged var endDate: NSDate
@@ -45,18 +46,27 @@ class Trip: NSManagedObject {
         self.init(entity: entity, insertIntoManagedObjectContext:context)
         
     }
+
     
-    //    class func entityName() -> String{
-    //
-    //        return "Trip"
-    //    }
-    //
-    //    class func insertNewObjectIntoContext(context: NSManagedObjectContext) -> Trip {
-    //
-    //        return NSEntityDescription.insertNewObjectForEntityForName( self.entityName(),
-    //            inManagedObjectContext: context)
-    //            as! Trip
-    //    }
+    /*********************************************
+    *
+    *  MARK: Instance Methods
+    *
+    ***/
+    
+    
+    func getPresentationImage() -> UIImage{
+        
+        return self.presentationImage as! UIImage
+    }
+    
+    func changePresentationImage(newImage: UIImage){
+        
+        self.presentationImage = newImage
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.saveContext()
+    }
     
     
     /**
