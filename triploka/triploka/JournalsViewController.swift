@@ -18,6 +18,8 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //self.trips = LocalDAO.sharedInstance.getAllTrips()
+        
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
         bg.image = UIImage(named: "passport2.jpg")
@@ -81,9 +83,12 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         println(indexPath.row)
         // pegar vetor de trips do DAO usar aqui
         
-        var trip = Trip()
-        
-        
+//        var trip = Trip()
+//        
+//        trip = trips[indexPath.row]
+//        cell!.tripTitle.text = trip.destination
+//        cell!.tripCover.image = trip.presentationImage as? UIImage
+//        cell!.priority = 1
         
         if indexPath.row == 0
         {
@@ -124,6 +129,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     {
         //aqui ira o count do das trips
 
+        //return self.trips.count
         
         return 10
     }

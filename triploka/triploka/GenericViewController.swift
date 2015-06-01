@@ -67,10 +67,11 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         suitcase.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.25)
         self.view.addSubview(suitcase)
         
+//        var numContries = LocalDAO.sharedInstance.getNumberOfVisitedCountries()
         self.statistic1 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.0)
         self.statistic1.textAlignment = .Center
-        self.statistic1.text = "3 different countrys"
+        self.statistic1.text = "3 different countries"
         self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 18)
         self.view.addSubview(self.statistic1)
 
@@ -79,6 +80,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         meeting.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.8)
         self.view.addSubview(meeting)
         
+//        var numFriends = LocalDAO.sharedInstance.getNumberOfNewFriends()
         self.statistic2 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.65)
         self.statistic2.textAlignment = .Center
@@ -91,6 +93,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         food.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.5)
         self.view.addSubview(food)
         
+//        var numRest = LocalDAO.sharedInstance.getNumberOfOfRestaurants()
         self.statistic3 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.4)
         self.statistic3.textAlignment = .Center
