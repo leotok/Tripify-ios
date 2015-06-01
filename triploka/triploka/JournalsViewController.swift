@@ -12,10 +12,13 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     
     var sideMenuButton = UIBarButtonItem()
     var addButton : UIBarButtonItem?
+    var trips = [Trip]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.trips = LocalDAO.sharedInstance.getAllTrips()
         
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
@@ -43,13 +46,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
         
-        
-        if self.revealViewController() != nil{
-            
-            sideMenuButton.target = self.revealViewController()
-            sideMenuButton.action = Selector("revealToggle:")
-        }
-        
         var layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         var collectionJournal = UICollectionView(frame: CGRectMake( 0, 0, self.view.frame.width, self.view.frame.height ), collectionViewLayout: layout)
@@ -61,6 +57,12 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         collectionJournal.registerClass(TripCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionJournal.backgroundColor = UIColor.clearColor()
         
+        if self.revealViewController() != nil{
+            
+            sideMenuButton.target = self.revealViewController()
+            sideMenuButton.action = Selector("revealToggle:")
+            revealController.viewDisabled = collectionJournal
+        }
         
         self.view.addSubview(collectionJournal)
         
@@ -80,6 +82,13 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         
         println(indexPath.row)
         // pegar vetor de trips do DAO usar aqui
+        
+//        var trip = Trip()
+//        
+//        trip = trips[indexPath.row]
+//        cell!.tripTitle.text = trip.destination
+//        cell!.tripCover.image = trip.presentationImage as? UIImage
+//        cell!.priority = 1
         
         if indexPath.row == 0
         {
@@ -119,23 +128,32 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         //aqui ira o count do das trips
+
+        //return self.trips.count
+        
         return 10
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
         //pegar do DAO as prioritys de cada journal, tem q ser antes de criar as cells pq nao tem acesso a elas daqui
-        return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
+        //return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
         
-        //        if indexPath.row == 0 // || indexPath.row == 3
-        //        {
-        //            println(indexPath.row)
-        //            return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
-        //        }
-        //        else
-        //        {
-        //            return CGSizeMake(self.view.frame.width/2.1, self.view.frame.height/4.2)
-        //        }
+     
+        var cellSize = CGSizeMake( self.view.frame.width, self.view.frame.height / 2 )
+        
+//        if indexPath.row == 0 || indexPath.row == 3
+//        {
+//            cellSize.height = self.view.frame.height / 2
+//            cellSize.width = self.view.frame.width
+//        }
+//        else
+//        {
+//            cellSize.height = self.view.frame.height / 4
+//            cellSize.width = self.view.frame.width / 2.2
+//        }
+//        
+        return cellSize
         
     }
     

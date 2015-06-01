@@ -21,13 +21,15 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         bgImage.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
         
         self.tableViewMenu.frame = CGRectMake(0, (self.view.frame.size.height) / 4, self.view.frame.size.width, self.view.frame.size.height)
-        self.userName.frame = CGRectMake(30, 120, 200, 50)
+        self.userName.frame = CGRectMake(30, 130, 200, 50)
         self.userName.text = "Leo Wajnsztok"
         self.userName.textColor = UIColor.whiteColor()
         self.userName.font = UIFont(name: "AmaticSC-Regular", size: 32)
         
         var profilePic = UIImageView(image: UIImage(named: "leoProfile.jpg"))
-        profilePic.frame.size = CGSizeMake(100, 100)
+        profilePic.layer.borderColor = UIColor.whiteColor().CGColor
+        profilePic.layer.borderWidth = 1
+        profilePic.frame.size = CGSizeMake( 100, 100)
         profilePic.center = CGPointMake(self.view.frame.width/3.5, self.view.bounds.height / 8)
         profilePic.layer.cornerRadius = 50
         profilePic.clipsToBounds = true

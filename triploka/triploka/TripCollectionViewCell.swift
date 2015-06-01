@@ -43,5 +43,4 @@ class TripCollectionViewCell: UICollectionViewCell
         super.init(coder: aDecoder)
     }
     
-    
 }
