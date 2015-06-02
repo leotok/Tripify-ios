@@ -1013,17 +1013,14 @@ const int FrontViewPositionNone = 0xff;
     
     if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:overProgress:)] )
     {
-        NSLog(@"1");
         [_delegate revealController:self panGestureEndedToLocation:xLocation progress:dragProgress overProgress:overProgress];
     }
     else if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:)] )
     {
-        NSLog(@"2");
         [_delegate revealController:self panGestureEndedToLocation:xLocation progress:dragProgress];
     }
     if ( [_delegate respondsToSelector:@selector(revealControllerPanGestureEnded:)] )
     {
-        NSLog(@"3");
         [_delegate revealControllerPanGestureEnded:self];
     }
 }
@@ -1301,7 +1298,9 @@ const int FrontViewPositionNone = 0xff;
     // initially we assume drag to left and default duration
     FrontViewPosition frontViewPosition = FrontViewPositionLeft;
     NSTimeInterval duration = _toggleAnimationDuration;
+    
 
+    
     // Velocity driven change:
     if (ABS(velocity) > _quickFlickVelocity)
     {
@@ -1326,7 +1325,7 @@ const int FrontViewPositionNone = 0xff;
     
     // Position driven change:
     else
-    {    
+    {
         // we may need to set the drag position        
         if (xLocation > revealWidth*0.5f)
         {
@@ -1341,6 +1340,17 @@ const int FrontViewPositionNone = 0xff;
             }
         }
     }
+
+    
+//    if ( self.lastViewPosition != self.frontViewPosition )
+//    {
+//        NSLog(@"oi");
+//        if ( self.viewDisabled != nil )
+//        {
+//            self.viewDisabled.userInteractionEnabled = !self.viewDisabled.userInteractionEnabled;
+//        }
+  //  }
+    self.lastViewPosition = frontViewPosition;
     
     // symetric replacement of frontViewPosition
     [self _getAdjustedFrontViewPosition:&frontViewPosition forSymetry:symetry];

@@ -46,7 +46,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         var username = UILabel()
         username.frame.size = CGSizeMake(200, 40)
-        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 3.1)
+        username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 3)
         username.textAlignment = .Center
         username.text = "Leo Wajnsztok"
         username.font = UIFont(name: "AmaticSC-Regular", size: 40)

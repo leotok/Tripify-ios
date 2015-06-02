@@ -187,6 +187,7 @@ typedef NS_ENUM(NSInteger, SWRevealToggleAnimationType)
 /* Basic API */
 
 @property (nonatomic) UIView *viewDisabled;
+@property (nonatomic) int lastViewPosition;
 
 // Object instance init and rear view setting
 - (id)initWithRearViewController:(UIViewController *)rearViewController frontViewController:(UIViewController *)frontViewController;
