@@ -13,7 +13,12 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     var sideMenuButton = UIBarButtonItem()
     var addButton : UIBarButtonItem?
     var trips = [Trip]()
+    var collectionJournal: UICollectionView!
     
+    override func viewWillAppear(animated: Bool) {
+        self.trips = LocalDAO.sharedInstance.getAllTrips()
+        collectionJournal.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +52,8 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         self.navigationItem.leftBarButtonItem = sideMenuButton
         
         var layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        var collectionJournal = UICollectionView(frame: CGRectMake( 0, 0, self.view.frame.width, self.view.frame.height ), collectionViewLayout: layout)
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 10, 0)
+        collectionJournal = UICollectionView(frame: CGRectMake( 0, 0, self.view.frame.width, self.view.frame.height - 53), collectionViewLayout: layout)
         collectionJournal.dataSource = self
         collectionJournal.delegate = self
         collectionJournal.userInteractionEnabled = true
@@ -68,6 +73,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         
     }
     
+    
     func addTrip()
     {
         let addvc = AddTripViewController()
@@ -80,38 +86,39 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     {
         var cell : TripCollectionViewCell? = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath:indexPath) as? TripCollectionViewCell
         
-        println(indexPath.row)
-        // pegar vetor de trips do DAO usar aqui
-        
-//        var trip = Trip()
-//        
-//        trip = trips[indexPath.row]
-//        cell!.tripTitle.text = trip.destination
-//        cell!.tripCover.image = trip.presentationImage as? UIImage
-//        cell!.priority = 1
-        
-        if indexPath.row == 0
-        {
-            cell!.tripTitle.text = "Portugal"
-            cell!.tripCover.image = UIImage(named: "maria")
-            cell!.priority = 1
-        }
-        else if indexPath.row == 1
-        {
-            cell!.tripTitle.text = "França"
-            cell!.tripCover.image = UIImage(named: "arc.jpg")
-            cell!.priority = 2
-        }
-        else
-        {
-            cell!.tripTitle.text = "Lixo"
-            cell!.tripCover.image = UIImage(named: "maria")
-            cell!.priority = 2
+        if trips.count > 0 {
             
-        }
+            var trip: Trip
         
-        var tap = UITapGestureRecognizer(target: self, action: Selector("showTimeline"))
-        cell?.addGestureRecognizer(tap)
+            println(trips.count)
+            trip = trips[indexPath.row]
+            cell!.tripTitle.text = trip.destination
+            cell!.tripCover.image = trip.presentationImage as? UIImage
+            cell!.priority = 1
+            
+//            if indexPath.row == 0
+//            {
+//                cell!.tripTitle.text = "Portugal"
+//                cell!.tripCover.image = UIImage(named: "maria")
+//                cell!.priority = 1
+//            }
+//            else if indexPath.row == 1
+//            {
+//                cell!.tripTitle.text = "França"
+//                cell!.tripCover.image = UIImage(named: "arc.jpg")
+//                cell!.priority = 2
+//            }
+//            else
+//            {
+//                cell!.tripTitle.text = "Lixo"
+//                cell!.tripCover.image = UIImage(named: "maria")
+//                cell!.priority = 2
+//                
+//            }
+            
+            var tap = UITapGestureRecognizer(target: self, action: Selector("showTimeline"))
+            cell?.addGestureRecognizer(tap)
+        }
         
         return cell!
         
@@ -127,11 +134,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        //aqui ira o count do das trips
-
-        //return self.trips.count
-        
-        return 10
+        return self.trips.count
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize

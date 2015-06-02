@@ -11,12 +11,12 @@ import CoreData
 
 class Trip: NSManagedObject {
     
+    
     /*********************************************
     *
     *  MARK: Properties
     *
     ***/
-    
     
     @NSManaged var beginDate: NSDate
     @NSManaged var endDate: NSDate
@@ -25,26 +25,22 @@ class Trip: NSManagedObject {
     @NSManaged var moments: NSSet
     
     /**
-    *
-    *   Convenience init, so you don't have to pass an entity
-    *   and the ManagedObjectContext
-    *
-    *   :returns: a new instance of a Trip
-    *
+     *
+     *   Convenience init, so you don't have to pass an entity
+     *   and the ManagedObjectContext
+     *
+     *   :returns: a new instance of a Trip
+     *
     */
     convenience init() {
         
-        var appDelegate : AppDelegate
-        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
         var context : NSManagedObjectContext
-        context = appDelegate.managedObjectContext!
+        context = LocalDAO.sharedInstance.managedObjectContext!
         
         var entity : NSEntityDescription
         entity = NSEntityDescription.entityForName("Trip", inManagedObjectContext: context)!
         
         self.init(entity: entity, insertIntoManagedObjectContext:context)
-        
     }
     
     
@@ -53,7 +49,6 @@ class Trip: NSManagedObject {
     *  MARK: Instance Methods
     *
     ***/
-    
     
     func getPresentationImage() -> UIImage{
         
@@ -64,17 +59,15 @@ class Trip: NSManagedObject {
         
         self.presentationImage = newImage
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.saveContext()
+        LocalDAO.sharedInstance.saveContext()
     }
     
-    
     /**
-    *
-    *  Gets all the moments in a Trip
-    *
-    *  :returns: A Moment array, sorted by their index
-    *
+     *
+     *  Gets all the moments in a Trip
+     *
+     *  :returns: A Moment array, sorted by their index
+     *
     */
     func getAllMoments() -> [Moment]{
         
@@ -88,11 +81,11 @@ class Trip: NSManagedObject {
     }
     
     /**
-    *
-    *  Adds a new moment to a Trip, updating its index
-    *
-    *  :param: moment The Moment object to be inserted
-    *
+     *
+     *  Adds a new moment to a Trip, updating its index
+     *
+     *  :param: moment The Moment object to be inserted
+     *
     */
     func addNewMoment(moment: Moment){
         
@@ -102,19 +95,18 @@ class Trip: NSManagedObject {
         
         allMoments.addObject(moment)
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.saveContext()
+        LocalDAO.sharedInstance.saveContext()
     }
     
     /**
-    *
-    *  Gets an specific moment of a Trip
-    *
-    *  :param: index: The index that identifies the moment
-    *
-    *  :returns: The correct moment, or nil if the index is
-    *            out of bounds
-    *
+     *
+     *  Gets an specific moment of a Trip
+     *
+     *  :param: index: The index that identifies the moment
+     *
+     *  :returns: The correct moment, or nil if the index is
+     *            out of bounds
+     *
     */
     func getMomentWithIndex(index: Int) -> Moment?{
         

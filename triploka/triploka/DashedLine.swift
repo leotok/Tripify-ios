@@ -12,12 +12,12 @@ class DashedLine: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        var thickness = CGFloat(3)
+        var thickness = CGFloat(0.5)
         var context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, thickness)
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+        CGContextSetStrokeColorWithColor(context, UIColor.grayColor().CGColor)
         
-        var rar: [CGFloat] = [4,2]
+        var rar: [CGFloat] = [4,0]
         CGContextSetLineDash(context, 0.0, rar, 2)
         
         CGContextMoveToPoint(context, 22, 0)
