@@ -17,11 +17,8 @@ class Photo: NSManagedObject {
     
     convenience init() {
         
-        var appDelegate : AppDelegate
-        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
         var context : NSManagedObjectContext
-        context = appDelegate.managedObjectContext!
+        context = LocalDAO.sharedInstance.managedObjectContext!
         
         var entity : NSEntityDescription
         entity = NSEntityDescription.entityForName("Photo", inManagedObjectContext: context)!
@@ -38,7 +35,6 @@ class Photo: NSManagedObject {
         
         self.image = newImage
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.saveContext()
+        LocalDAO.sharedInstance.saveContext()
     }
 }

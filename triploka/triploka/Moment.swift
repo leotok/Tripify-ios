@@ -10,6 +10,12 @@ import CoreLocation
 import CoreData
 
 
+//  TODO 
+//  colocar a propriedade do audio
+//  Retornar as URLs de todas as photos de um momento
+//  Retornar a URL de uma photo específica
+
+
 /**
  *
  *   Classe do modelo, representando o momento
@@ -19,34 +25,34 @@ import CoreData
 */
 class Moment: NSManagedObject {
 
+    
     /*********************************************
     *
     *  MARK: Properties
     *
     ***/
     
-    @NSManaged var index: NSNumber
-    @NSManaged var category: NSNumber
-    @NSManaged var comment: String
-    @NSManaged private var geoTag: AnyObject
-    @NSManaged private var photoAlbum: NSSet
-    @NSManaged var trip: Trip
+    @NSManaged var index: NSNumber?
+    @NSManaged var category: NSNumber?
+    @NSManaged var comment: String?
+    @NSManaged private var geoTag: AnyObject?
+    @NSManaged private var photoAlbum: NSSet?
+    @NSManaged var trip: Trip?
 
     /**
-    *
-    *   Convenience init, so you don't have to pass an entity
-    *   and the ManagedObjectContext as parameters
-    *
-    *   :returns: a new instance of a Moment
-    *
+     *
+     *  Convenience init, so you don't have to pass an entity
+     *  and the ManagedObjectContext as parameters.
+     *  All of its properties should be set after the object
+     *  creation.
+     *
+     *   :returns: a new instance of a Moment
+     *
     */
     convenience init() {
         
-        var appDelegate : AppDelegate
-        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
         var context : NSManagedObjectContext
-        context = appDelegate.managedObjectContext!
+        context = LocalDAO.sharedInstance.managedObjectContext!
         
         var entity : NSEntityDescription
         entity = NSEntityDescription.entityForName("Moment", inManagedObjectContext: context)!
@@ -79,8 +85,7 @@ class Moment: NSManagedObject {
         
         self.geoTag = newGeoTag
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.saveContext()
+        LocalDAO.sharedInstance.saveContext()
     }
     
     /**
@@ -114,7 +119,6 @@ class Moment: NSManagedObject {
         
         photoAlbum.addObject(newPhoto)
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.saveContext()
+        LocalDAO.sharedInstance.saveContext()
     }
 }
