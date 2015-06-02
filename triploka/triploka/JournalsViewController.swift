@@ -80,7 +80,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     {
         var cell : TripCollectionViewCell? = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath:indexPath) as? TripCollectionViewCell
         
-        println(indexPath.row)
+        //println(indexPath.row)
         // pegar vetor de trips do DAO usar aqui
         
 //        var trip = Trip()
