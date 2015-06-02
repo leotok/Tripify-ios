@@ -49,6 +49,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     var totalHeight = CGFloat(0)
     
     var dashed: DashedLine = DashedLine()
+    var pointJunction: Junction = Junction()
     
     var teste: TestMoment = TestMoment()
     
@@ -348,6 +349,8 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                 
         UIView.animateWithDuration(0.5, animations: {
             
+            self.pointJunction.frame.origin.x -= 2*self.view.frame.width
+            
             for var j = 0; j < self.momentsTestArray.count; j++ {
                 
                 self.lineTestArray[j].frame.origin.x -= 2*self.momentsTestArray[j].frame.width
@@ -491,6 +494,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: sizeOfContent)
         
         dashed.removeFromSuperview()
+        pointJunction.removeFromSuperview()
         
         dashed = DashedLine()
         dashed.backgroundColor = UIColor.clearColor()
@@ -498,6 +502,12 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         dashed.addGestureRecognizer(tapEvent)
         self.scrollView.addSubview(dashed)
         self.scrollView.sendSubviewToBack(self.dashed)
+        
+        pointJunction = Junction()
+        pointJunction.frame.size = CGSize(width: self.view.frame.width/20, height: self.view.frame.width/20)
+        pointJunction.center = CGPoint(x: self.scrollView.frame.width/2, y: sizeOfContent)
+        pointJunction.backgroundColor = UIColor.whiteColor()
+        self.scrollView.addSubview(pointJunction)
         
     }
     
@@ -524,6 +534,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             
             self.momentsTestArray[self.max].image.alpha = 1
             self.momentsTestArray[self.max].layer.borderWidth = 0
+            self.pointJunction.frame.origin.x += 2*self.view.frame.width
             
             }, completion: {
                 (value : Bool) in
