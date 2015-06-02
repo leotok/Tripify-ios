@@ -265,7 +265,6 @@
 				3F8D99981B177B120066504F /* JoinLine.swift */,
 				94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */,
 				3F8D99991B177B120066504F /* Junction.swift */,
-				3F8D99A01B177B120066504F /* TestMoment.swift */,
 				3F8D99861B1778780066504F /* TripCollectionViewCell.swift */,
 			);
 			name = View;
@@ -338,7 +337,7 @@
 				TargetAttributes = {
 					3F8D995A1B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = D4QEWF5RB3;
+						DevelopmentTeam = H8UTHN35FS;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
