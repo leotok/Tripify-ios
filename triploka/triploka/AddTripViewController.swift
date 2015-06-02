@@ -166,7 +166,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         var newTrip = Trip()
         newTrip.changePresentationImage(self.cover.image!)
-        newTrip.destination = self.input.text!
+        newTrip.destination = self.titleTextField.text!
         newTrip.beginDate = NSDate()
         
         self.navigationController?.popViewControllerAnimated(true)
