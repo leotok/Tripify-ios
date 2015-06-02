@@ -162,6 +162,13 @@ class LocalDAO {
     *
     ***/
     
+    /**
+     *
+     *  Gets all the Trips stored on the CoreData Sersistent Store
+     *
+     *  :returns: An array of Trip objects
+     *
+    */
     func getAllTrips() -> [Trip]{
         
         let tripRequest = NSFetchRequest(entityName: "Trip")
@@ -177,6 +184,11 @@ class LocalDAO {
         return tripsArray as! [Trip]
     }
     
+    /**
+    *
+    *  Gets the total number of different countries visited so far
+    *
+    */
     func getNumberOfVisitedCountries() -> Int{
         
         let request = NSFetchRequest(entityName: "Trip")
@@ -198,11 +210,35 @@ class LocalDAO {
         return destinations.count
     }
 
-//    func getNumberOfNewFriends() -> Int{
-//        
-//    }
-//
-//    func getNumberOfRestaurants() -> Int{
-//        
-//    }
+    /**
+    *
+    *  Gets the total number of new friends met so far
+    *
+    */
+    func getNumberOfNewFriends() -> Int{
+        
+        let request = NSFetchRequest(entityName: "Moments")
+        request.predicate = NSPredicate(format: "(category == %@)", MomentCategory.MetSomeone.rawValue)
+        var error : NSError?
+        
+        let tripsArray = self.managedObjectContext?.executeFetchRequest(request, error: &error)
+        
+        return tripsArray!.count
+    }
+
+    /**
+    *
+    *  Gets the total number of restaurants visited so far
+    *
+    */
+    func getNumberOfRestaurants() -> Int{
+
+        let request = NSFetchRequest(entityName: "Moments")
+        request.predicate = NSPredicate(format: "(category == %@)", MomentCategory.Restaurant.rawValue)
+        var error : NSError?
+        
+        let tripsArray = self.managedObjectContext?.executeFetchRequest(request, error: &error)
+        
+        return tripsArray!.count
+    }
 }
