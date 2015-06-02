@@ -349,7 +349,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                 
         UIView.animateWithDuration(0.5, animations: {
             
-            self.pointJunction.frame.origin.x -= 2*self.view.frame.width
+            self.pointJunction.frame.origin.x = -40
             
             for var j = 0; j < self.momentsTestArray.count; j++ {
                 
@@ -494,6 +494,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: sizeOfContent)
         
         dashed.removeFromSuperview()
+        
         pointJunction.removeFromSuperview()
         
         dashed = DashedLine()
@@ -534,7 +535,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             
             self.momentsTestArray[self.max].image.alpha = 1
             self.momentsTestArray[self.max].layer.borderWidth = 0
-            self.pointJunction.frame.origin.x += 2*self.view.frame.width
+            self.pointJunction.center.x = self.scrollView.frame.width/2
             
             }, completion: {
                 (value : Bool) in
