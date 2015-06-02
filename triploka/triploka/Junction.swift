@@ -14,6 +14,8 @@ class Junction: UIView {
         
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
+        self.layer.borderColor = UIColor.grayColor().CGColor
+        self.layer.borderWidth = self.frame.width/10
     }
     
 }
