@@ -72,6 +72,7 @@
 		94D4F29F1B1CD37A0034F575 /* PictureMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29E1B1CD37A0034F575 /* PictureMoment.swift */; };
 		94D4F2A11B1CD3870034F575 /* RestaurantMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F2A01B1CD3870034F575 /* RestaurantMoment.swift */; };
 		871C2E7C1B1CB7E600CAA562 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */; };
+		87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentOptions.swift; sourceTree = "<group>"; };
 		871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		871F38E21B1B8E1100EE725C /* Instructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = triplokaTests/Instructions.plist; sourceTree = SOURCE_ROOT; };
+		87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		94387AAD1B1912E700051D08 /* triploka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = triploka.entitlements; sourceTree = "<group>"; };
 		94D4F29A1B1CD3640034F575 /* TextMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMoment.swift; sourceTree = "<group>"; };
 		94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioMoment.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				4F9C50581B1CA695000DA827 /* LocalDAO.swift */,
 				4F4EC51A1B18E29500378DDF /* triploka.xcdatamodeld */,
 				871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */,
+				87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			files = (
 				94D4F2A11B1CD3870034F575 /* RestaurantMoment.swift in Sources */,
 				94D4F29B1B1CD3640034F575 /* TextMoment.swift in Sources */,
+				87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */,
 				4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */,
 				4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */,
 				4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */,
