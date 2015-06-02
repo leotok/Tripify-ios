@@ -1012,13 +1012,20 @@ const int FrontViewPositionNone = 0xff;
     [self _getDragLocation:&xLocation progress:&dragProgress overdrawProgress:&overProgress];
     
     if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:overProgress:)] )
+    {
+        NSLog(@"1");
         [_delegate revealController:self panGestureEndedToLocation:xLocation progress:dragProgress overProgress:overProgress];
-    
+    }
     else if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:)] )
+    {
+        NSLog(@"2");
         [_delegate revealController:self panGestureEndedToLocation:xLocation progress:dragProgress];
-    
+    }
     if ( [_delegate respondsToSelector:@selector(revealControllerPanGestureEnded:)] )
+    {
+        NSLog(@"3");
         [_delegate revealControllerPanGestureEnded:self];
+    }
 }
 
 
