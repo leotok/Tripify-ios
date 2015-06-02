@@ -83,8 +83,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     
     func chooseCover() {
         cover.userInteractionEnabled = false
-        
-        println("oi")
+
         cinza = UIView(frame: CGRectMake(0, self.view.bounds.height, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3))
         cinza.backgroundColor = UIColor.blackColor()
         cinza.alpha = 0.6
