@@ -51,6 +51,7 @@
 		4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51F1B18E35E00378DDF /* Photo.swift */; };
 		4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC5211B18E35F00378DDF /* Moment.swift */; };
 		871C2E7C1B1CB7E600CAA562 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */; };
+		87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		4F4EC5211B18E35F00378DDF /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		871F38E21B1B8E1100EE725C /* Instructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = triplokaTests/Instructions.plist; sourceTree = SOURCE_ROOT; };
+		87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		94387AAD1B1912E700051D08 /* triploka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = triploka.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +223,7 @@
 				3F8D999D1B177B120066504F /* MomentCategory.swift */,
 				4F4EC51A1B18E29500378DDF /* triploka.xcdatamodeld */,
 				871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */,
+				87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */,
 				4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */,
 				4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */,
 				4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */,

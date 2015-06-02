@@ -9,7 +9,7 @@
 import Foundation
 public class NetworkStatus {
     
-    class func isConnectedToNetwork(){
+    class func checkNetworkConnection(){
         
         dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.value), 0)) {
             
@@ -32,7 +32,10 @@ public class NetworkStatus {
             
             if status {
                 
-                
+                dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.value), 0)) {
+                    
+                    DAOCloudTrip.getInstance().readNextInstruction()
+                }
             }
             
         }
