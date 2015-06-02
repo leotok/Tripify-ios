@@ -9,11 +9,25 @@
 import Foundation
 import CoreData
 
+@objc
 class Photo: NSManagedObject {
 
+    /*********************************************
+    *
+    *  MARK: Properties
+    *
+    ***/
+    
     @NSManaged private var image: AnyObject
     @NSManaged var moment: NSManagedObject
-
+    
+    
+    
+    /*********************************************
+    *
+    *  MARK: Initializer
+    *
+    ***/
     
     convenience init() {
         
@@ -27,6 +41,13 @@ class Photo: NSManagedObject {
     }
     
     
+    
+    /*********************************************
+    *
+    *  MARK: Instance Methods
+    *
+    ***/
+    
     func getImage() -> UIImage{
         return self.image as! UIImage
     }
@@ -34,7 +55,6 @@ class Photo: NSManagedObject {
     func setNewImage(newImage: UIImage){
         
         self.image = newImage
-        
         LocalDAO.sharedInstance.saveContext()
     }
 }

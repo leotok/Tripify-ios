@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
+@objc
 class Trip: NSManagedObject {
-    
     
     /*********************************************
     *
@@ -24,14 +24,14 @@ class Trip: NSManagedObject {
     @NSManaged var presentationImage: AnyObject
     @NSManaged var moments: NSSet
     
-    /**
-     *
-     *   Convenience init, so you don't have to pass an entity
-     *   and the ManagedObjectContext
-     *
-     *   :returns: a new instance of a Trip
-     *
-    */
+
+    
+    /*********************************************
+    *
+    *  MARK: Initializer
+    *
+    ***/
+    
     convenience init() {
         
         var context : NSManagedObjectContext
@@ -42,6 +42,7 @@ class Trip: NSManagedObject {
         
         self.init(entity: entity, insertIntoManagedObjectContext:context)
     }
+    
     
     
     /*********************************************
@@ -127,5 +128,36 @@ class Trip: NSManagedObject {
             println("Could not retrieve moment with index \(index)")
             return nil
         }
+    }
+    
+    /**
+     *
+     *   Deletes all the moments of the trip and saves
+     *   the NSManagedContext after. This behavior should
+     *   be corrected later
+     *
+    */
+    func deleteAllMoments(){
+        
+        let allMoments = self.mutableArrayValueForKey("moment")
+        
+        for moment in allMoments{
+            LocalDAO.sharedInstance.managedObjectContext?.deleteObject(moment as! Moment)
+        }
+        
+        LocalDAO.sharedInstance.saveContext()
+    }
+    
+    /**
+     *
+     *   Deletes a specific moments of the trip and saves
+     *   the NSManagedContext after. This behavior should
+     *   be corrected later
+     *
+    */
+    func deleteMoment(moment: Moment){
+        
+        LocalDAO.sharedInstance.managedObjectContext?.deleteObject(moment)
+        LocalDAO.sharedInstance.saveContext()
     }
 }

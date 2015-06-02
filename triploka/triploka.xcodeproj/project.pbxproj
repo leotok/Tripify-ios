@@ -65,12 +65,12 @@
 		4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51D1B18E35E00378DDF /* Trip.swift */; };
 		4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51F1B18E35E00378DDF /* Photo.swift */; };
 		4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC5211B18E35F00378DDF /* Moment.swift */; };
+		4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C50581B1CA695000DA827 /* LocalDAO.swift */; };
 		94287AEB1B1C6F9E0086B6B6 /* MomentOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */; };
 		94D4F29B1B1CD3640034F575 /* TextMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29A1B1CD3640034F575 /* TextMoment.swift */; };
 		94D4F29D1B1CD36F0034F575 /* AudioMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */; };
 		94D4F29F1B1CD37A0034F575 /* PictureMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29E1B1CD37A0034F575 /* PictureMoment.swift */; };
 		94D4F2A11B1CD3870034F575 /* RestaurantMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F2A01B1CD3870034F575 /* RestaurantMoment.swift */; };
-		4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C50581B1CA695000DA827 /* LocalDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,8 +121,8 @@
 		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		4F4EC51F1B18E35E00378DDF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		4F4EC5211B18E35F00378DDF /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
-		94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentOptions.swift; sourceTree = "<group>"; };
 		4F9C50581B1CA695000DA827 /* LocalDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDAO.swift; sourceTree = "<group>"; };
+		94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentOptions.swift; sourceTree = "<group>"; };
 		94387AAD1B1912E700051D08 /* triploka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = triploka.entitlements; sourceTree = "<group>"; };
 		94D4F29A1B1CD3640034F575 /* TextMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMoment.swift; sourceTree = "<group>"; };
 		94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioMoment.swift; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 				TargetAttributes = {
 					3F8D995A1B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = H8UTHN35FS;
+						DevelopmentTeam = D4QEWF5RB3;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -613,6 +613,7 @@
 				4F9C505D1B1D002B000DA827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

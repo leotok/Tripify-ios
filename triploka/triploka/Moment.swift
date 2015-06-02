@@ -23,8 +23,8 @@ import CoreData
  *   sua relação com o PersistentStore do CoreData
  *
 */
+@objc
 class Moment: NSManagedObject {
-
     
     /*********************************************
     *
@@ -39,16 +39,14 @@ class Moment: NSManagedObject {
     @NSManaged private var photoAlbum: NSSet?
     @NSManaged var trip: Trip?
 
-    /**
-     *
-     *  Convenience init, so you don't have to pass an entity
-     *  and the ManagedObjectContext as parameters.
-     *  All of its properties should be set after the object
-     *  creation.
-     *
-     *   :returns: a new instance of a Moment
-     *
-    */
+    
+    
+    /*********************************************
+    *
+    *  MARK: Initializer
+    *
+    ***/
+    
     convenience init() {
         
         var context : NSManagedObjectContext
@@ -59,6 +57,14 @@ class Moment: NSManagedObject {
         
         self.init(entity: entity, insertIntoManagedObjectContext:context)
     }
+    
+    
+    
+    /*********************************************
+    *
+    *  MARK: Instance Methods
+    *
+    ***/
     
     /**
      *
@@ -71,7 +77,6 @@ class Moment: NSManagedObject {
         
         return self.geoTag as! CLLocation
     }
-    
     
     /**
      *
