@@ -345,9 +345,9 @@ class DAOCloudTrip: NSObject {
                         
                         let momentRecord : CKRecord = momentRecordObj as! CKRecord
                         
-                        moment.category = momentRecord.valueForKey("category") as! NSNumber
+                        moment.category = (momentRecord.valueForKey("category") as! NSNumber)
                         
-                        moment.comment = momentRecord.valueForKey("comment") as! String
+                        moment.comment = (momentRecord.valueForKey("comment") as! String)
                         
                         moment.changeGeoTag(momentRecord.valueForKey("geoTag") as! CLLocation)
                         
