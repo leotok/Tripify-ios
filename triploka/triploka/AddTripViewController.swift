@@ -185,16 +185,21 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     func doneButtonPressed() {
         
         var newTrip = Trip()
-        if self.cover.image != nil
-        {
+        if self.cover.image != nil {
             newTrip.changePresentationImage(self.cover.image!)
         }
-        else
-        {
+        else {
             newTrip.changePresentationImage(UIImage(named:"blueBlur.jpg")!)
         }
         
-        newTrip.destination = self.titleTextField.text!
+        if self.titleTextField.text.isEmpty {
+            newTrip.destination = "Leo's Trip"
+        } else
+        {
+            newTrip.destination = self.titleTextField.text!
+        }
+        
+        
         newTrip.beginDate = NSDate()
         
         self.navigationController?.popViewControllerAnimated(true)

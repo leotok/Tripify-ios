@@ -124,7 +124,17 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             //println(trips.count)
             trip = trips[indexPath.row]
             cell!.tripTitle.text = trip.destination
-            cell!.tripCover.image = trip.getPresentationImage() as UIImage
+            
+            var image: UIImage? = trip.getPresentationImage()
+            if image != nil
+            {
+                cell!.tripCover.image = image
+            }
+            else
+            {
+                cell!.tripCover.image = UIImage(named: "blueBluer.jpg")
+            }
+            
             cell!.priority = 1
             
             var tap = UITapGestureRecognizer(target: self, action: Selector("showTimeline"))
