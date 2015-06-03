@@ -90,7 +90,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         let length = count(textField.text.utf16) + count(string.utf16) - range.length
         
-        return length <= 26
+        return length <= 20
         
     }
     
@@ -189,7 +189,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
             newTrip.changePresentationImage(self.cover.image!)
         }
         else {
-            newTrip.changePresentationImage(UIImage(named:"blueBlur.jpg")!)
+            newTrip.changePresentationImage(UIImage(named:"city-cars-traffic-lights.jpeg")!)
         }
         
         if self.titleTextField.text.isEmpty {

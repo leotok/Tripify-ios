@@ -45,7 +45,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-  //      LocalDAO.sharedInstance.deleteAllTrips()
+      //  LocalDAO.sharedInstance.deleteAllTrips()
         
         // Background
         
@@ -132,7 +132,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             }
             else
             {
-                cell!.tripCover.image = UIImage(named: "blueBluer.jpg")
+                cell!.tripCover.image = UIImage(named: "city-cars-traffic-lights.jpeg")
             }
             
             cell!.priority = 1
