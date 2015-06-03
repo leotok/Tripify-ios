@@ -76,12 +76,26 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
     }
     
+    // Delegates TextField
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let length = count(textField.text.utf16) + count(string.utf16) - range.length
+        
+        return length <= 26
+        
+    }
+    
+    // Camera e Gallery para cover
+    
     func chooseCover() {
+        self.titleTextField.resignFirstResponder()
         cover.userInteractionEnabled = false
 
         cinza = UIView(frame: CGRectMake(0, self.view.bounds.height, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3))
@@ -161,10 +175,20 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
     }
     
+    // volta e salva a trip criada
+    
     func doneButtonPressed() {
         
         var newTrip = Trip()
-        newTrip.changePresentationImage(self.cover.image!)
+        if self.cover.image != nil
+        {
+            newTrip.changePresentationImage(self.cover.image!)
+        }
+        else
+        {
+            newTrip.changePresentationImage(UIImage(named:"blueBlur.jpg")!)
+        }
+        
         newTrip.destination = self.titleTextField.text!
         newTrip.beginDate = NSDate()
         

@@ -14,16 +14,31 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     var addButton : UIBarButtonItem?
     var trips = [Trip]()
     var collectionJournal: UICollectionView!
+    var addTripLabel: UILabel?
     
     override func viewWillAppear(animated: Bool) {
         self.trips = LocalDAO.sharedInstance.getAllTrips()
         collectionJournal.reloadData()
+        if( self.trips.count == 0)
+        {
+            self.addTripLabel = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50 ))
+            self.addTripLabel!.center = CGPointMake(self.view.center.x, self.view.frame.height / 3 )
+            self.addTripLabel!.textAlignment = .Center
+            self.addTripLabel!.text = "Add a new trip!"
+            self.addTripLabel!.font = UIFont(name: "AmaticSC-Regular", size: 45)
+            self.view.addSubview(self.addTripLabel!)
+        }
+        else
+        {
+            self.addTripLabel?.removeFromSuperview()
+    
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.trips = LocalDAO.sharedInstance.getAllTrips()
+        // Background
         
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
@@ -33,6 +48,10 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
         effectView.frame = self.view.frame
         self.view.addSubview(effectView)
+        
+     
+        
+        // Config navigation controller
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
         let revealController :SWRevealViewController = self.revealViewController()
@@ -50,6 +69,9 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         sideMenuButton.image = UIImage(named: "Menu-25")
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
+        
+        
+        // Collection View
         
         var layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 10, 0)
@@ -93,28 +115,8 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             //println(trips.count)
             trip = trips[indexPath.row]
             cell!.tripTitle.text = trip.destination
-            cell!.tripCover.image = trip.presentationImage as? UIImage
+            cell!.tripCover.image = trip.getPresentationImage() as UIImage
             cell!.priority = 1
-            
-//            if indexPath.row == 0
-//            {
-//                cell!.tripTitle.text = "Portugal"
-//                cell!.tripCover.image = UIImage(named: "maria")
-//                cell!.priority = 1
-//            }
-//            else if indexPath.row == 1
-//            {
-//                cell!.tripTitle.text = "França"
-//                cell!.tripCover.image = UIImage(named: "arc.jpg")
-//                cell!.priority = 2
-//            }
-//            else
-//            {
-//                cell!.tripTitle.text = "Lixo"
-//                cell!.tripCover.image = UIImage(named: "maria")
-//                cell!.priority = 2
-//                
-//            }
             
             var tap = UITapGestureRecognizer(target: self, action: Selector("showTimeline"))
             cell?.addGestureRecognizer(tap)

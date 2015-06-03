@@ -24,10 +24,11 @@ class TripCollectionViewCell: UICollectionViewCell
         
         tripTitle = UILabel()
         
-        tripTitle.frame.size = CGSizeMake(180, 40)
+        tripTitle.frame.size = CGSizeMake(self.frame.width / 1.5 , 100)
         tripTitle.center = CGPointMake(self.center.x, self.frame.height/1.3)
         tripTitle.textColor = UIColor.whiteColor()
         tripTitle.textAlignment = .Center
+        tripTitle.numberOfLines = 2
         tripTitle.font = UIFont(name: "AmericanTypewriter", size: 35)
         tripCover = UIImageView(frame: CGRectMake(0, 0, frame.size.width, frame.size.height))
        

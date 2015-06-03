@@ -11,6 +11,8 @@ import UIKit
 import CoreData
 import CoreLocation
 
+
+
 class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
     
     var sideMenuButton = UIBarButtonItem()
@@ -27,11 +29,15 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
         bg.image = UIImage(named: "passport2.jpg")
-        self.view.addSubview(bg)
+        //self.view.addSubview(bg)
         var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
         effectView.frame = self.view.frame
-        self.view.addSubview(effectView)
+        //self.view.addSubview(effectView)
+        var bg2 = UIImageView(frame: self.view.frame)
+        bg2.image = UIImage(named: "passport2.jpg")
+        bg2.alpha = 0.1
+        self.view.addSubview(bg2)
 
         
         
@@ -59,11 +65,17 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         cinza.backgroundColor = UIColor.blackColor()
         cinza.alpha = 0.1
         cinza.center = CGPointMake( self.view.center.x , self.view.frame.height / 1.72)
-        self.view.addSubview(cinza)
+        //self.view.addSubview(cinza)
         
+        var blur2:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        var effectView2:UIVisualEffectView = UIVisualEffectView (effect: blur2)
+        effectView2.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height / 2.8)
+        effectView2.center = CGPointMake( self.view.center.x , self.view.frame.height / 1.72)
+        effectView2.alpha = 0.2
+        self.view.addSubview(effectView2)
         
         var suitcase = UIImageView(frame: CGRectMake(0, 0, 30, 30))
-        suitcase.image = UIImage(named: "Suitcase-64")
+        suitcase.image = UIImage(named: "Suitcase")
         suitcase.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.25)
         self.view.addSubview(suitcase)
         
@@ -73,10 +85,11 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic1.textAlignment = .Center
         self.statistic1.text = "3 different countries"
         self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 18)
+      //  self.statistic1.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic1)
 
         var meeting = UIImageView(frame: CGRectMake(0, 0, 30, 30))
-        meeting.image = UIImage(named: "Meeting-64")
+        meeting.image = UIImage(named: "Meeting")
         meeting.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.8)
         self.view.addSubview(meeting)
         
@@ -86,10 +99,11 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic2.textAlignment = .Center
         self.statistic2.text = "5 new friends"
         self.statistic2.font = UIFont(name: "AmericanTypewriter", size: 18)
+        //self.statistic2.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic2)
         
         var food = UIImageView(frame: CGRectMake(0, 0, 30, 30))
-        food.image = UIImage(named: "Food-64")
+        food.image = UIImage(named: "Food")
         food.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.5)
         self.view.addSubview(food)
         
@@ -99,6 +113,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic3.textAlignment = .Center
         self.statistic3.text = "11 restaurants"
         self.statistic3.font = UIFont(name: "AmericanTypewriter", size: 18)
+        //self.statistic3.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic3)
         
         
@@ -130,6 +145,17 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         }
         
         //self.test()
+        
+    }
+    
+    func applyBlurEffect(image: UIImage) -> UIImage{
+        
+        var imageToBlur = CIImage(image: image)
+        var blurfilter = CIFilter(name: "CIGaussianBlur")
+        blurfilter.setValue(imageToBlur, forKey: "inputImage")
+        var resultImage = blurfilter.valueForKey("outputImage") as! CIImage
+        var blurredImage = UIImage(CIImage: resultImage)
+        return blurredImage!
         
     }
     
