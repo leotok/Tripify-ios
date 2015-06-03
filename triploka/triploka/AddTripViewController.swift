@@ -26,6 +26,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         // background
         
+        
+        
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
         bg.image = UIImage(named: "passport2.jpg")
@@ -77,7 +79,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     }
     
     // Delegates TextField
-    
+        
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

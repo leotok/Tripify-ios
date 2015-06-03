@@ -21,7 +21,7 @@ class Trip: NSManagedObject {
     @NSManaged var beginDate: NSDate
     @NSManaged var endDate: NSDate
     @NSManaged var destination: String
-    @NSManaged var presentationImage: AnyObject
+    @NSManaged var presentationImage: UIImage
     @NSManaged var moments: NSSet
     
 
@@ -53,7 +53,7 @@ class Trip: NSManagedObject {
     
     func getPresentationImage() -> UIImage{
         
-        return self.presentationImage as! UIImage
+        return self.presentationImage
     }
     
     func changePresentationImage(newImage: UIImage){

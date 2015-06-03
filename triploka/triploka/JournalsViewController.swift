@@ -38,6 +38,8 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        LocalDAO.sharedInstance.deleteAllTrips()
+        
         // Background
         
         self.view.backgroundColor = UIColor.whiteColor()
@@ -94,6 +96,13 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         self.view.addSubview(collectionJournal)
         
     }
+    
+//    func sortTrip(trips: [Trip]) -> [Trip]{
+//        
+//        var tripSorted: [Trip]
+//        
+//      //  tripSorted = sort(&trips, { (trip1: Trip, trip2: Trip) -> Bool in return trip1 > trip2 })
+//    }
     
     
     func addTrip()
