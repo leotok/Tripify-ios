@@ -945,6 +945,8 @@ const int FrontViewPositionNone = 0xff;
 
 - (IBAction)revealToggle:(id)sender
 {
+        // desabilita o userInterection da view que foi para o lado no caso de action do MenuButton quando abre-se o leftMenu
+    
     if ( self.viewDisabled != nil ) {
         self.viewDisabled.userInteractionEnabled = !self.viewDisabled.userInteractionEnabled;
     }
@@ -1340,17 +1342,27 @@ const int FrontViewPositionNone = 0xff;
             }
         }
     }
-
     
-//    if ( self.lastViewPosition != self.frontViewPosition )
-//    {
-//        NSLog(@"oi");
-//        if ( self.viewDisabled != nil )
-//        {
-//            self.viewDisabled.userInteractionEnabled = !self.viewDisabled.userInteractionEnabled;
-//        }
-  //  }
-    self.lastViewPosition = frontViewPosition;
+    
+    // desabilita o userInterection da view que foi para o lado no caso de UIPanGestureRecogniser quando abre-se o leftMenu
+    
+    int sinal = 0;
+    if (velocity > 0)
+        sinal = 1;
+    else
+        sinal = -1;
+    
+    NSLog(@"%f %f",xLocation, revealWidth*0.5f);
+
+    if (ABS(xLocation > revealWidth*0.5f) || ((ABS(velocity) > _quickFlickVelocity) && sinal != self.lastSinal) ) {
+       // NSLog(@" Sinal: %d Last Sinal: %d",sinal,self.lastSinal);
+        if ( self.viewDisabled != nil )
+        {
+            self.viewDisabled.userInteractionEnabled = !self.viewDisabled.userInteractionEnabled;
+        }
+        
+    }
+    self.lastSinal = sinal;
     
     // symetric replacement of frontViewPosition
     [self _getAdjustedFrontViewPosition:&frontViewPosition forSymetry:symetry];

@@ -90,7 +90,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             
             var trip: Trip
         
-            println(trips.count)
+            //println(trips.count)
             trip = trips[indexPath.row]
             cell!.tripTitle.text = trip.destination
             cell!.tripCover.image = trip.presentationImage as? UIImage
