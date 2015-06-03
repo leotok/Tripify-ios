@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		4F9C505A1B1D002B000DA827 /* MoGenerator */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 4F9C505B1B1D002B000DA827 /* Build configuration list for PBXAggregateTarget "MoGenerator" */;
-			buildPhases = (
-				4F9C505E1B1D00E3000DA827 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = MoGenerator;
-			productName = MoGenerator;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		3F65E9D61B1BE82C00DF176D /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F65E9D51B1BE82C00DF176D /* GenericViewController.swift */; };
 		3F65E9E01B1BE87A00DF176D /* Suitcase-32-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9DA1B1BE87A00DF176D /* Suitcase-32-2.png */; };
@@ -65,14 +51,11 @@
 		4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51D1B18E35E00378DDF /* Trip.swift */; };
 		4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51F1B18E35E00378DDF /* Photo.swift */; };
 		4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC5211B18E35F00378DDF /* Moment.swift */; };
-		4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C50581B1CA695000DA827 /* LocalDAO.swift */; };
-		94287AEB1B1C6F9E0086B6B6 /* MomentOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */; };
-		94D4F29B1B1CD3640034F575 /* TextMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29A1B1CD3640034F575 /* TextMoment.swift */; };
-		94D4F29D1B1CD36F0034F575 /* AudioMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */; };
-		94D4F29F1B1CD37A0034F575 /* PictureMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29E1B1CD37A0034F575 /* PictureMoment.swift */; };
-		94D4F2A11B1CD3870034F575 /* RestaurantMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F2A01B1CD3870034F575 /* RestaurantMoment.swift */; };
-		871C2E7C1B1CB7E600CAA562 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */; };
-		87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */; };
+<<<<<<< HEAD
+		871F38E31B1B8E1100EE725C /* Instructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 871F38E21B1B8E1100EE725C /* Instructions.plist */; };
+		94387AAF1B1912E900051D08 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94387AAE1B1912E900051D08 /* CloudKit.framework */; };
+=======
+>>>>>>> 28ea85fc500c57eef1302da9422ac557c6f65741
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,16 +106,8 @@
 		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		4F4EC51F1B18E35E00378DDF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		4F4EC5211B18E35F00378DDF /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
-		4F9C50581B1CA695000DA827 /* LocalDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDAO.swift; sourceTree = "<group>"; };
-		94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentOptions.swift; sourceTree = "<group>"; };
-		871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
-		871F38E21B1B8E1100EE725C /* Instructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = triplokaTests/Instructions.plist; sourceTree = SOURCE_ROOT; };
-		87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		871F38E21B1B8E1100EE725C /* Instructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Instructions.plist; sourceTree = "<group>"; };
 		94387AAD1B1912E700051D08 /* triploka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = triploka.entitlements; sourceTree = "<group>"; };
-		94D4F29A1B1CD3640034F575 /* TextMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMoment.swift; sourceTree = "<group>"; };
-		94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioMoment.swift; sourceTree = "<group>"; };
-		94D4F29E1B1CD37A0034F575 /* PictureMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureMoment.swift; sourceTree = "<group>"; };
-		94D4F2A01B1CD3870034F575 /* RestaurantMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMoment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +183,6 @@
 		3F8D995E1B1778290066504F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				871F38E21B1B8E1100EE725C /* Instructions.plist */,
 				3F694CC41B195DC600F8D70E /* amatic */,
 				3F694CC21B1956A300F8D70E /* leoProfile.jpg */,
 				3F694CBC1B1936E500F8D70E /* Camera-50.png */,
@@ -237,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				3F8D99781B1778290066504F /* Info.plist */,
+				871F38E21B1B8E1100EE725C /* Instructions.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -249,10 +224,7 @@
 				4F4EC51D1B18E35E00378DDF /* Trip.swift */,
 				3F8D99961B177B120066504F /* DAOCloudTrip.swift */,
 				3F8D999D1B177B120066504F /* MomentCategory.swift */,
-				4F9C50581B1CA695000DA827 /* LocalDAO.swift */,
 				4F4EC51A1B18E29500378DDF /* triploka.xcdatamodeld */,
-				871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */,
-				87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -260,11 +232,10 @@
 		3F8D99901B177AA40066504F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				94D4F2A21B1CF3C00034F575 /* Type */,
 				3F8D99971B177B120066504F /* DashedLine.swift */,
 				3F8D99981B177B120066504F /* JoinLine.swift */,
-				94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */,
 				3F8D99991B177B120066504F /* Junction.swift */,
+				3F8D99A01B177B120066504F /* TestMoment.swift */,
 				3F8D99861B1778780066504F /* TripCollectionViewCell.swift */,
 			);
 			name = View;
@@ -292,18 +263,6 @@
 				3F8D998B1B1778840066504F /* triploka-Bridging-Header.h */,
 			);
 			name = SWReveal;
-			sourceTree = "<group>";
-		};
-		94D4F2A21B1CF3C00034F575 /* Type */ = {
-			isa = PBXGroup;
-			children = (
-				3F8D99A01B177B120066504F /* TestMoment.swift */,
-				94D4F29A1B1CD3640034F575 /* TextMoment.swift */,
-				94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */,
-				94D4F29E1B1CD37A0034F575 /* PictureMoment.swift */,
-				94D4F2A01B1CD3870034F575 /* RestaurantMoment.swift */,
-			);
-			name = Type;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,15 +296,12 @@
 				TargetAttributes = {
 					3F8D995A1B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = H8UTHN35FS;
+						DevelopmentTeam = D4QEWF5RB3;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
-					};
-					4F9C505A1B1D002B000DA827 = {
-						CreatedOnToolsVersion = 6.3.2;
 					};
 				};
 			};
@@ -363,7 +319,6 @@
 			projectRoot = "";
 			targets = (
 				3F8D995A1B1778290066504F /* triploka */,
-				4F9C505A1B1D002B000DA827 /* MoGenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -397,39 +352,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4F9C505E1B1D00E3000DA827 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+<<<<<<< HEAD
+		3F8D99711B1778290066504F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
+				871F38E31B1B8E1100EE725C /* Instructions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "mogenerator -m triploka/triploka.xcdatamodeld -O triploka/Model --swift --template-var arc=true";
 		};
-/* End PBXShellScriptBuildPhase section */
+=======
+>>>>>>> 28ea85fc500c57eef1302da9422ac557c6f65741
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F8D99571B1778290066504F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94D4F2A11B1CD3870034F575 /* RestaurantMoment.swift in Sources */,
-				94D4F29B1B1CD3640034F575 /* TextMoment.swift in Sources */,
-				87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */,
 				4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */,
-				4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */,
 				4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */,
 				4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */,
 				4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */,
 				4F4EC5031B18D71800378DDF /* MenuViewController.swift in Sources */,
-				94287AEB1B1C6F9E0086B6B6 /* MomentOptions.swift in Sources */,
 				4F4EC5041B18D71800378DDF /* NewMomentController.swift in Sources */,
 				4F4EC5051B18D71800378DDF /* TimelineController.swift in Sources */,
 				4F4EC5061B18D72600378DDF /* DashedLine.swift in Sources */,
@@ -439,15 +384,12 @@
 				4F4EC5071B18D72600378DDF /* JoinLine.swift in Sources */,
 				4F4EC5081B18D72600378DDF /* Junction.swift in Sources */,
 				4F4EC5091B18D72600378DDF /* TestMoment.swift in Sources */,
-				94D4F29D1B1CD36F0034F575 /* AudioMoment.swift in Sources */,
 				4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */,
 				3F65E9D61B1BE82C00DF176D /* GenericViewController.swift in Sources */,
 				4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */,
 				4F4EC50D1B18D72600378DDF /* MomentCategory.swift in Sources */,
 				4F4EC5101B18D72600378DDF /* SWRevealViewController.h in Sources */,
-				94D4F29F1B1CD37A0034F575 /* PictureMoment.swift in Sources */,
 				4F4EC5111B18D72600378DDF /* SWRevealViewController.m in Sources */,
-				871C2E7C1B1CB7E600CAA562 /* NetworkStatus.swift in Sources */,
 				4F4EC5121B18D72600378DDF /* triploka-Bridging-Header.h in Sources */,
 				4F4EC5131B18D72600378DDF /* AppDelegate.swift in Sources */,
 			);
@@ -581,20 +523,6 @@
 			};
 			name = Release;
 		};
-		4F9C505C1B1D002B000DA827 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		4F9C505D1B1D002B000DA827 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -612,15 +540,6 @@
 			buildConfigurations = (
 				3F8D997E1B1778290066504F /* Debug */,
 				3F8D997F1B1778290066504F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4F9C505B1B1D002B000DA827 /* Build configuration list for PBXAggregateTarget "MoGenerator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4F9C505C1B1D002B000DA827 /* Debug */,
-				4F9C505D1B1D002B000DA827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
