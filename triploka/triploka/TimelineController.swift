@@ -60,6 +60,10 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     var returnWidth = CGFloat(0)
     var returnHeight = CGFloat(0)
     
+    override func viewWillAppear(animated: Bool) {
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

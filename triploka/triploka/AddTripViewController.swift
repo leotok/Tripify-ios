@@ -98,22 +98,19 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         self.titleTextField.resignFirstResponder()
         cover.userInteractionEnabled = false
 
-        cinza = UIView(frame: CGRectMake(0, self.view.bounds.height, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3))
+        cinza = UIView(frame: CGRectMake(0, self.view.bounds.height, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.25))
         cinza.backgroundColor = UIColor.blackColor()
         cinza.alpha = 0.6
         
         camera = UIButton(frame: CGRectMake(0,0, 80, 80))
-        camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height )
         camera.setImage(UIImage(named: "Camera-50"), forState: UIControlState.Normal)
         camera.addTarget(self, action: Selector("cameraPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         
-        
         gallery = UIButton(frame: CGRectMake(0,0, 80, 80))
-        gallery.center = CGPointMake(self.cinza.bounds.width / 1.45 , self.view.frame.height)
         gallery.setImage(UIImage(named: "Picture-50"), forState: UIControlState.Normal)
         gallery.addTarget(self, action: Selector("galleryPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         
-        cancel = UIButton(frame: CGRectMake(10, self.view.bounds.height / 1.1 , self.view.bounds.width - 20, self.view.bounds.height / 10))
+        cancel = UIButton(frame: CGRectMake(0, self.view.bounds.height, self.view.bounds.width - 20, self.view.bounds.height / 10))
         cancel.setImage(UIImage(named: "Cancel-32"),forState: UIControlState.Normal)
         cancel.addTarget(self, action: Selector("cancelPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         
@@ -123,9 +120,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         self.view.addSubview(cancel)
         
         UIView.animateWithDuration(0.1, animations: {
-            self.cinza.frame = CGRectMake(0, self.view.bounds.height / 1.3, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3)
-            self.camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height - 80)
-            self.gallery.center = CGPointMake(self.cinza.bounds.width / 1.45 , self.view.frame.height - 80)
+            self.cinza.frame = CGRectMake(0, self.view.bounds.height / 1.25, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.25)
+            self.camera.center = CGPointMake(self.view.bounds.width / 4 , self.view.frame.height / 1.15 )
+            self.gallery.center = CGPointMake(self.cinza.bounds.width * 3 / 4 , self.view.frame.height / 1.15)
+            self.cancel.center = CGPointMake(self.view.center.x, self.view.bounds.height / 1.05 )
         })
         
     }
