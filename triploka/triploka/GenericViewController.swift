@@ -119,7 +119,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         // configuração navigation controller
         
-        var tripify = UIImageView(image: UIImage(named: "tripifyWhite"))
+        var tripify = UIImageView(image: UIImage(named: "TripifyTitle2"))
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.topItem?.titleView = tripify

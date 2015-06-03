@@ -17,7 +17,10 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     var addTripLabel: UILabel?
     
     override func viewWillAppear(animated: Bool) {
+        
         self.trips = LocalDAO.sharedInstance.getAllTrips()
+        self.trips.sort(sorterForTrips)
+        
         collectionJournal.reloadData()
         if( self.trips.count == 0)
         {
@@ -35,10 +38,14 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         }
     }
     
+    func sorterForTrips(trip1: Trip, trip2: Trip) -> Bool {
+        return trip1.beginDate.timeIntervalSinceNow > trip2.beginDate.timeIntervalSinceNow
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        LocalDAO.sharedInstance.deleteAllTrips()
+  //      LocalDAO.sharedInstance.deleteAllTrips()
         
         // Background
         
@@ -96,13 +103,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         self.view.addSubview(collectionJournal)
         
     }
-    
-//    func sortTrip(trips: [Trip]) -> [Trip]{
-//        
-//        var tripSorted: [Trip]
-//        
-//      //  tripSorted = sort(&trips, { (trip1: Trip, trip2: Trip) -> Bool in return trip1 > trip2 })
-//    }
     
     
     func addTrip()

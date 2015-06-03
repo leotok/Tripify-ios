@@ -27,12 +27,14 @@
 		3F65E9FA1B1F3AE900DF176D /* Food.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F71B1F3AE900DF176D /* Food.png */; };
 		3F65E9FB1B1F3AE900DF176D /* Meeting.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F81B1F3AE900DF176D /* Meeting.png */; };
 		3F65E9FC1B1F3AE900DF176D /* Suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F91B1F3AE900DF176D /* Suitcase.png */; };
+		3F65E9FF1B1F516000DF176D /* TripifyTitle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9FD1B1F516000DF176D /* TripifyTitle@3x.png */; };
+		3F65EA001B1F516000DF176D /* TripifyTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9FE1B1F516000DF176D /* TripifyTitle@2x.png */; };
+		3F65EA081B1F53D700DF176D /* TripifyTitle2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65EA071B1F53D700DF176D /* TripifyTitle2.png */; };
 		3F694CC31B1956A300F8D70E /* leoProfile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC21B1956A300F8D70E /* leoProfile.jpg */; };
 		3F694CC81B195DC600F8D70E /* Amatic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC51B195DC600F8D70E /* Amatic-Bold.ttf */; };
 		3F694CC91B195DC600F8D70E /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC61B195DC600F8D70E /* AmaticSC-Regular.ttf */; };
 		3F694CCA1B195DC600F8D70E /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC71B195DC600F8D70E /* SIL Open Font License.txt */; };
 		3F694CCE1B19638C00F8D70E /* tripify.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CCD1B19638C00F8D70E /* tripify.png */; };
-		3F694CD81B196D1D00F8D70E /* tripifyWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CD71B196D1D00F8D70E /* tripifyWhite.png */; };
 		3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F70EE471B1A385C004995B6 /* passport2.jpg */; };
 		4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
@@ -76,12 +78,14 @@
 		3F65E9F71B1F3AE900DF176D /* Food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Food.png; sourceTree = "<group>"; };
 		3F65E9F81B1F3AE900DF176D /* Meeting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meeting.png; sourceTree = "<group>"; };
 		3F65E9F91B1F3AE900DF176D /* Suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Suitcase.png; sourceTree = "<group>"; };
+		3F65E9FD1B1F516000DF176D /* TripifyTitle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TripifyTitle@3x.png"; sourceTree = "<group>"; };
+		3F65E9FE1B1F516000DF176D /* TripifyTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TripifyTitle@2x.png"; sourceTree = "<group>"; };
+		3F65EA071B1F53D700DF176D /* TripifyTitle2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TripifyTitle2.png; sourceTree = "<group>"; };
 		3F694CC21B1956A300F8D70E /* leoProfile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leoProfile.jpg; sourceTree = "<group>"; };
 		3F694CC51B195DC600F8D70E /* Amatic-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amatic-Bold.ttf"; sourceTree = "<group>"; };
 		3F694CC61B195DC600F8D70E /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		3F694CC71B195DC600F8D70E /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
 		3F694CCD1B19638C00F8D70E /* tripify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tripify.png; path = amatic/tripify.png; sourceTree = "<group>"; };
-		3F694CD71B196D1D00F8D70E /* tripifyWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tripifyWhite.png; path = amatic/tripifyWhite.png; sourceTree = "<group>"; };
 		3F70EE471B1A385C004995B6 /* passport2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = passport2.jpg; path = amatic/passport2.jpg; sourceTree = "<group>"; };
 		3F8D995B1B1778290066504F /* triploka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triploka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8D995F1B1778290066504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 		3F694CC41B195DC600F8D70E /* amatic */ = {
 			isa = PBXGroup;
 			children = (
+				3F65E9FD1B1F516000DF176D /* TripifyTitle@3x.png */,
+				3F65E9FE1B1F516000DF176D /* TripifyTitle@2x.png */,
 				3F694CC51B195DC600F8D70E /* Amatic-Bold.ttf */,
 				3F694CC61B195DC600F8D70E /* AmaticSC-Regular.ttf */,
 				3F694CC71B195DC600F8D70E /* SIL Open Font License.txt */,
@@ -194,11 +200,11 @@
 				3F694CC41B195DC600F8D70E /* amatic */,
 				3F694CC21B1956A300F8D70E /* leoProfile.jpg */,
 				3F65E9EE1B1F343300DF176D /* black.jpg */,
+				3F65EA071B1F53D700DF176D /* TripifyTitle2.png */,
 				3F65E9EC1B1F244B00DF176D /* blueBluer.jpg */,
-				3F694CCD1B19638C00F8D70E /* tripify.png */,
-				3F694CD71B196D1D00F8D70E /* tripifyWhite.png */,
-				3F65E9F61B1F3AE900DF176D /* statistics */,
 				3F70EE471B1A385C004995B6 /* passport2.jpg */,
+				3F694CCD1B19638C00F8D70E /* tripify.png */,
+				3F65E9F61B1F3AE900DF176D /* statistics */,
 				3F8D996A1B1778290066504F /* Images.xcassets */,
 				3F8D996C1B1778290066504F /* LaunchScreen.xib */,
 				3F8D995F1B1778290066504F /* Info.plist */,
@@ -358,18 +364,20 @@
 				3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */,
 				3F694CCE1B19638C00F8D70E /* tripify.png in Resources */,
 				3F65E9EF1B1F343300DF176D /* black.jpg in Resources */,
+				3F65EA081B1F53D700DF176D /* TripifyTitle2.png in Resources */,
 				3F65E9ED1B1F244B00DF176D /* blueBluer.jpg in Resources */,
 				3F694CC81B195DC600F8D70E /* Amatic-Bold.ttf in Resources */,
 				3F65E9FC1B1F3AE900DF176D /* Suitcase.png in Resources */,
 				3F65E9FA1B1F3AE900DF176D /* Food.png in Resources */,
 				3F694CCA1B195DC600F8D70E /* SIL Open Font License.txt in Resources */,
+				3F65EA001B1F516000DF176D /* TripifyTitle@2x.png in Resources */,
 				4F4EC5141B18D73D00378DDF /* Images.xcassets in Resources */,
 				4F4EC5151B18D73D00378DDF /* LaunchScreen.xib in Resources */,
+				3F65E9FF1B1F516000DF176D /* TripifyTitle@3x.png in Resources */,
 				3F65E9FB1B1F3AE900DF176D /* Meeting.png in Resources */,
 				3F694CC31B1956A300F8D70E /* leoProfile.jpg in Resources */,
 				4F4EC5161B18D73D00378DDF /* Info.plist in Resources */,
 				3F694CC91B195DC600F8D70E /* AmaticSC-Regular.ttf in Resources */,
-				3F694CD81B196D1D00F8D70E /* tripifyWhite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
