@@ -53,6 +53,7 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             sideMenuButton.target = self.revealViewController()
             sideMenuButton.action = Selector("revealToggle:")
+            revealController.viewDisabled = settingsTableView
         }
         
         settingsTableView.delegate = self
