@@ -81,7 +81,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         else
         {
-            newFrontController =  UINavigationController(rootViewController: GenericViewController())
+            newFrontController =  UINavigationController(rootViewController: SettingsViewController())
         }
         
         revealController.pushFrontViewController(newFrontController, animated: true)
@@ -93,7 +93,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -114,10 +114,6 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell?.textLabel?.text = "Journals"
         }
         else if (indexPath.row == 2)
-        {
-            cell?.textLabel?.text = "Friends"
-        }
-        else if (indexPath.row == 3)
         {
             cell?.textLabel?.text = "Settings"
         }

@@ -38,6 +38,7 @@
 		3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F70EE471B1A385C004995B6 /* passport2.jpg */; };
 		3F80CEAC1B1F73EB0077916A /* city-cars-traffic-lights.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAB1B1F73EB0077916A /* city-cars-traffic-lights.jpeg */; };
 		3F80CEB01B1F748E0077916A /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAF1B1F748E0077916A /* city.jpg */; };
+		3F80CEB21B271D0F0077916A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F80CEB11B271D0F0077916A /* SettingsViewController.swift */; };
 		4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
 		4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
@@ -91,6 +92,7 @@
 		3F70EE471B1A385C004995B6 /* passport2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = passport2.jpg; path = amatic/passport2.jpg; sourceTree = "<group>"; };
 		3F80CEAB1B1F73EB0077916A /* city-cars-traffic-lights.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "city-cars-traffic-lights.jpeg"; sourceTree = "<group>"; };
 		3F80CEAF1B1F748E0077916A /* city.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city.jpg; sourceTree = "<group>"; };
+		3F80CEB11B271D0F0077916A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3F8D995B1B1778290066504F /* triploka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triploka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8D995F1B1778290066504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F8D99601B1778290066504F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				3F8D99851B1778780066504F /* MenuViewController.swift */,
 				3F8D999F1B177B120066504F /* NewMomentController.swift */,
 				3F8D99A21B177B120066504F /* TimelineController.swift */,
+				3F80CEB11B271D0F0077916A /* SettingsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				4F4EC5081B18D72600378DDF /* Junction.swift in Sources */,
 				4F4EC5091B18D72600378DDF /* TestMoment.swift in Sources */,
 				94D4F29D1B1CD36F0034F575 /* AudioMoment.swift in Sources */,
+				3F80CEB21B271D0F0077916A /* SettingsViewController.swift in Sources */,
 				4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */,
 				3F65E9D61B1BE82C00DF176D /* GenericViewController.swift in Sources */,
 				4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */,
