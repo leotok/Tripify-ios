@@ -124,6 +124,21 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             //println(trips.count)
             trip = trips[indexPath.row]
             cell!.tripTitle.text = trip.destination
+
+            let cal = NSCalendar.currentCalendar()
+
+            let unit:NSCalendarUnit = .CalendarUnitDay
+            
+            let components = cal.components(unit, fromDate: trip.beginDate, toDate: NSDate(), options: nil)
+            
+            if components.day == 0
+            {
+                cell?.tripDate.text = "- \(components.day + 1 ) day -"
+            }
+            else
+            {
+                cell?.tripDate.text = "- \(components.day + 1 ) days -"
+            }
             
             var image: UIImage? = trip.getPresentationImage()
             if image != nil

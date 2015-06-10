@@ -137,6 +137,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             if i%2 == 0 {
                 
                 var momentTest = TestMoment()
+                momentTest.hidden = true
                 momentTest.frame = CGRectMake(x1, y, width, size)
                 momentTest.backgroundColor = UIColor.blackColor()
                 self.scrollView.addSubview(momentTest)
@@ -144,6 +145,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                 self.momentsTestArray.append(momentTest)
                 
                 var joinLine = JoinLine()
+                joinLine.hidden = true
                 joinLine.backgroundColor = UIColor.grayColor()
                 joinLine.frame = CGRectMake(xLine1, y + size/2, lineWidth, 1)
                 self.scrollView.addSubview(joinLine)
@@ -163,6 +165,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             else {
                 
                 var momentTest = TestMoment()
+                momentTest.hidden = true
                 momentTest.frame = CGRectMake(x2, y, width, size)
                 momentTest.backgroundColor = UIColor.blackColor()
                 self.scrollView.addSubview(momentTest)
@@ -170,6 +173,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                 self.momentsTestArray.append(momentTest)
                 
                 var joinLine = JoinLine()
+                joinLine.hidden = true
                 joinLine.backgroundColor = UIColor.grayColor()
                 joinLine.frame = CGRectMake(xLine2, y + size/2, lineWidth, 1)
                 self.scrollView.addSubview(joinLine)
@@ -185,6 +189,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                 
                 height = momentTest.deltaY
                 
+            
             }
             
             //            totalHeight += size + offset

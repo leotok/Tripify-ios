@@ -13,6 +13,7 @@ class TextMoment: UIView {
     var label = UILabel()
     
     override func drawRect(rect: CGRect) {
+
         
         var tap = UITapGestureRecognizer(target: self, action: "new:")
         

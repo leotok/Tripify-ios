@@ -12,7 +12,7 @@ class TripCollectionViewCell: UICollectionViewCell
 {
     
     var tripTitle:      UILabel!
-    var tripStatistics: UILabel!
+    var tripDate: UILabel!
     var tripCover:      UIImageView!
     var priority: Int = 0
     private var cinza: UIView!
@@ -20,26 +20,29 @@ class TripCollectionViewCell: UICollectionViewCell
     override init (frame: CGRect)
     {
         super.init(frame: frame)
-        
-        cinza = UIView()
-        cinza.frame.size = CGSizeMake( self.frame.width / 1.3 , 100)
-        cinza.center = CGPointMake( self.center.x, self.frame.height / 1.5)
 
         
         var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
-        effectView.frame.size = CGSizeMake( self.frame.width / 1.3 , 100)
-        effectView.center = CGPointMake( self.center.x, self.frame.height / 1.5)
-        effectView.layer.cornerRadius = 5
+        effectView.frame.size = CGSizeMake( self.frame.width  , 110)
+        effectView.center = CGPointMake( self.center.x, self.frame.height / 1.4)
+//        effectView.layer.cornerRadius = 5
         effectView.clipsToBounds = true
         
 
+        tripDate = UILabel()
+        tripDate.frame.size = CGSizeMake(self.frame.width / 1.2 , 60)
+        tripDate.center = CGPointMake(self.center.x, self.frame.height/1.18)
+        tripDate.textColor = UIColor.whiteColor()
+        tripDate.textAlignment = .Center
+        tripDate.numberOfLines = 2
+        tripDate.font = UIFont(name: "AmericanTypewriter-Light", size: 18)
+        tripDate.text = "- 1 day -"
         
         
         tripTitle = UILabel()
-        
-        tripTitle.frame.size = CGSizeMake(self.frame.width / 1.5 , 100)
-        tripTitle.center = CGPointMake(self.center.x, self.frame.height/1.5)
+        tripTitle.frame.size = CGSizeMake(self.frame.width / 1.2 , 100)
+        tripTitle.center = CGPointMake(self.center.x, self.frame.height/1.45)
         tripTitle.textColor = UIColor.whiteColor()
         tripTitle.textAlignment = .Center
         tripTitle.numberOfLines = 2
@@ -50,6 +53,7 @@ class TripCollectionViewCell: UICollectionViewCell
         self.addSubview(tripCover)
         self.addSubview(effectView)
         self.addSubview(tripTitle)
+        self.addSubview(tripDate)
         
 
     }

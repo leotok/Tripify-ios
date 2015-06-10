@@ -14,6 +14,7 @@ class RestaurantMoment: UIView {
     
     override func drawRect(rect: CGRect) {
         
+        
         var tap = UITapGestureRecognizer(target: self, action: "new:")
         
         label = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 100))

@@ -13,6 +13,12 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var tableViewMenu = UITableView(frame: CGRectZero, style: UITableViewStyle.Grouped)
     var userName = UILabel()
     var presentedRow = Int()
+    var profilePic = UIImageView()
+    
+    override func viewWillAppear(animated: Bool) {
+        profilePic.image = LocalDAO.sharedInstance.getUserProfileImage()
+        self.userName.text = LocalDAO.sharedInstance.getUserName()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +29,12 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.tableViewMenu.frame = CGRectMake(0, (self.view.frame.size.height) / 4, self.view.frame.size.width, self.view.frame.size.height)
         self.userName.frame = CGRectMake(30, 130, 200, 50)
         self.userName.center = CGPointMake(self.view.frame.width / (1.23 * 2), self.view.frame.height / 3.9)
-        self.userName.text = LocalDAO.sharedInstance.getUserName()
+
         self.userName.textColor = UIColor.whiteColor()
         self.userName.textAlignment = .Center
         self.userName.font = UIFont(name: "AmaticSC-Regular", size: 32)
         
-        var profilePic = UIImageView(image: LocalDAO.sharedInstance.getUserProfileImage())
+        
         profilePic.layer.borderColor = UIColor.whiteColor().CGColor
         profilePic.layer.borderWidth = 1
         profilePic.frame.size = CGSizeMake( 100, 100)
