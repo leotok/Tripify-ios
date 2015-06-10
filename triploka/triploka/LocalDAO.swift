@@ -179,12 +179,51 @@ class LocalDAO {
     }
     
     
+
     /*********************************************
     *
     *  MARK: Getter Methods
     *
     ***/
     
+    /**
+     *
+     *  Gets the username previously set by the user,
+     *  or a default username otherwise
+     *
+    */
+    func getUserName() -> String{
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let username: AnyObject = userDefaults.objectForKey("username"){
+            return username as! String
+        }
+        else{
+            return UIDevice.currentDevice().name
+        }
+    }
+    
+    /**
+     *
+     *  Gets the profile image previously set by the user,
+     *  or a default one otherwise
+     *
+    */
+    func getUserProfileImage() -> UIImage{
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let userProfileImage: NSData = userDefaults.dataForKey("userProfileImage"){
+            return UIImage(data: userProfileImage)!
+        }
+        else{
+            return UIImage(named: "defaultUserProfileImage")!
+        }
+    }
+    
+
+
     /**
      *
      *  Gets all the Trips stored on the CoreData Sersistent Store
@@ -263,6 +302,35 @@ class LocalDAO {
         let tripsArray = self.managedObjectContext?.executeFetchRequest(request, error: &error)
         
         return tripsArray!.count
+    }
+    
+    
+    
+    
+    /*********************************************
+    *
+    *  MARK: Getter Methods
+    *
+    ***/
+    
+    func setUserName(newUserName : String){
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        userDefaults.setObject(newUserName, forKey: "username")
+        
+        userDefaults.synchronize()
+    }
+    
+    func setUserProfileImage(newProfileImage: UIImage){
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let imageDataRepresentation = UIImageJPEGRepresentation(newProfileImage, 1.0)
+        
+        userDefaults.setObject(imageDataRepresentation, forKey: "userProfileImage")
+        
+        userDefaults.synchronize()
     }
     
     

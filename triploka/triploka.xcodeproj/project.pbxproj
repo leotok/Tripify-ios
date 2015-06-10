@@ -61,6 +61,7 @@
 		4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51D1B18E35E00378DDF /* Trip.swift */; };
 		4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51F1B18E35E00378DDF /* Photo.swift */; };
 		4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC5211B18E35F00378DDF /* Moment.swift */; };
+		4F609CED1B2882AD00A4A81F /* defaultUserProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F609CEC1B2882AD00A4A81F /* defaultUserProfileImage.png */; };
 		4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C50581B1CA695000DA827 /* LocalDAO.swift */; };
 		871C2E7C1B1CB7E600CAA562 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */; };
 		87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */; };
@@ -115,6 +116,7 @@
 		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		4F4EC51F1B18E35E00378DDF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		4F4EC5211B18E35F00378DDF /* Moment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
+		4F609CEC1B2882AD00A4A81F /* defaultUserProfileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultUserProfileImage.png; sourceTree = "<group>"; };
 		4F9C50581B1CA695000DA827 /* LocalDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDAO.swift; sourceTree = "<group>"; };
 		871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		871F38E21B1B8E1100EE725C /* Instructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = triplokaTests/Instructions.plist; sourceTree = SOURCE_ROOT; };
@@ -202,6 +204,7 @@
 				3F80CEAF1B1F748E0077916A /* city.jpg */,
 				3F65E9EC1B1F244B00DF176D /* blueBluer.jpg */,
 				3F80CEAB1B1F73EB0077916A /* city-cars-traffic-lights.jpeg */,
+				4F609CEC1B2882AD00A4A81F /* defaultUserProfileImage.png */,
 				3F70EE471B1A385C004995B6 /* passport2.jpg */,
 				3F65E9F61B1F3AE900DF176D /* statistics */,
 				3F8D996A1B1778290066504F /* Images.xcassets */,
@@ -361,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F609CED1B2882AD00A4A81F /* defaultUserProfileImage.png in Resources */,
 				3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */,
 				3F80CEB01B1F748E0077916A /* city.jpg in Resources */,
 				3F65E9EF1B1F343300DF176D /* black.jpg in Resources */,
