@@ -179,11 +179,30 @@ class LocalDAO {
     }
     
     
+
     /*********************************************
     *
     *  MARK: Getter Methods
     *
     ***/
+    
+    /**
+     *
+     *  Gets the username the user has set previously,
+     *  or a default username otherwise
+     *
+    */
+    func getUserName() -> String{
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let username: AnyObject = userDefaults.objectForKey("username"){
+            return username as! String
+        }
+        else{
+            return UIDevice.currentDevice().name
+        }
+    }
     
     /**
      *
@@ -263,6 +282,22 @@ class LocalDAO {
         let tripsArray = self.managedObjectContext?.executeFetchRequest(request, error: &error)
         
         return tripsArray!.count
+    }
+    
+    
+    
+    
+    /*********************************************
+    *
+    *  MARK: Getter Methods
+    *
+    ***/
+    
+    func setUserName(newUserName : String){
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        userDefaults.setObject(newUserName, forKey: "username")
     }
     
     
