@@ -29,6 +29,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     
     var newMoment: Bool = false
     var image: UIImage = UIImage()
+    var textLabel: UILabel = UILabel()
     var point: CGPoint = CGPoint()
     
     var moved: Bool = false
@@ -76,6 +77,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"holdNotificationHandler:", name: "ViewHold", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"scrollNotification:", name: "ScrollNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"newPicture:", name: "PictureMoment", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"newText:", name: "TextMoment", object: nil)
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -384,7 +386,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         self.image = notice.object as! UIImage
 //        self.organizeMoments(self.point.y, image: self.image)
         
-        self.substituteView()
+        self.substituteView( 0 )
         
     }
     
@@ -529,11 +531,22 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         
     }
     
-    func substituteView() {
+    
+    func newText(notice: NSNotification) {
+        
+        println("newText")
+        self.textLabel.text = "hello"
+        self.substituteView( 1 )
+    }
+    
+    func substituteView(type: Int) {
+        
+        if type == 0
+        {
         
         self.momentsTestArray[self.max].image.image = self.image
         self.momentsTestArray[self.max].image.alpha = 0
-        self.momentsTestArray[self.max].normalState()
+        self.momentsTestArray[self.max].normalState(0)
         
         UIView.animateWithDuration(0.5, animations: {
             
@@ -566,8 +579,48 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                     }
                     
                 })
-        })
-        
+            })
+        }
+        else if type == 1
+        {
+            self.momentsTestArray[self.max].textLabel.text = self.textLabel.text
+            self.momentsTestArray[self.max].textLabel.alpha = 0
+            self.momentsTestArray[self.max].normalState(1)
+            
+            UIView.animateWithDuration(0.5, animations: {
+                
+                self.momentsTestArray[self.max].textLabel.alpha = 1
+                self.momentsTestArray[self.max].layer.borderWidth = 0
+                self.pointJunction.center.x = self.scrollView.frame.width/2
+                
+                }, completion: {
+                    (value : Bool) in
+                    
+                    UIView.animateWithDuration(0.5, animations: {
+                        
+                        self.dashed.frame.origin.x = self.view.frame.width/2 - 22
+//                        self.momentsTestArray[self.max].frame = CGRect(x: self.returnX, y: self.returnY, width: self.returnWidth, height: self.returnHeight)
+//                        self.momentsTestArray[self.max].textLabel.frame.size = CGSize(width: self.returnWidth, height: self.returnHeight)
+//                        self.momentsTestArray[self.max].textLabel.center = self.momentsTestArray[self.max].center
+                        
+                        
+                        for var i = 0; i < self.momentsTestArray.count; i++ {
+                            
+                            self.lineTestArray[i].frame.origin.x += 2*self.momentsTestArray[i].frame.width
+                            self.junctionTestArray[i].frame.origin.x += 2*self.momentsTestArray[i].frame.width
+                            
+                            if i != self.max {
+                                
+                                self.momentsTestArray[i].frame.origin.x = self.momentsTestArray[i].originalFrame.x
+                                
+                            }
+                            
+                        }
+                        
+                    })
+            })
+
+        }
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
@@ -577,7 +630,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        self.substituteView()
+        self.substituteView( 0 )
         
     }
     

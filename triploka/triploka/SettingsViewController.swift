@@ -67,8 +67,15 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
     }
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        
+        //self.cancelPressed()
+        return true
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
         return true
     }
     
