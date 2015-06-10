@@ -11,6 +11,7 @@ import UIKit
 class TestMoment: UIView {
     
     var image: UIImageView = UIImageView()
+    var textLabel: UILabel = UILabel()
     var deltaY: CGFloat = 120
     var originalFrame: CGPoint = CGPoint()
     
@@ -71,20 +72,31 @@ class TestMoment: UIView {
         })
     
         self.image.frame = self.frame
+        self.textLabel.frame = self.frame
+        self.textLabel.textAlignment = .Center
+        self.textLabel.textColor = UIColor.blackColor()
         self.move = false
         
     }
     
-    func normalState() {
+    func normalState(type: Int) {
         
         self.audio.removeFromSuperview()
         self.text.removeFromSuperview()
         self.picture.removeFromSuperview()
         self.restaurant.removeFromSuperview()
         
-        self.image.frame.origin.x = self.frame.origin.x - 10
-        self.image.frame.origin.y = self.frame.origin.y - 10
-        self.addSubview(self.image)
+        if type == 0
+        {
+            self.image.frame.origin.x = self.frame.origin.x - 10
+            self.image.frame.origin.y = self.frame.origin.y - 10
+            self.addSubview(self.image)
+        }
+        else if type == 1
+        {
+            self.textLabel.center = self.center
+            self.addSubview(self.textLabel)
+        }
         
         self.move = true
         

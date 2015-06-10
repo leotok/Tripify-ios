@@ -52,7 +52,8 @@ class TextMoment: UIView {
     
     func new(recognizer: UITapGestureRecognizer) {
         
-        println("ok")
+        println("text")
+        NSNotificationCenter.defaultCenter().postNotificationName("TextMoment", object: self)
         
     }
     
