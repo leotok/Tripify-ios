@@ -70,17 +70,19 @@ class DAOCloudTrip: NSObject {
             trip.endDate = instruction.valueForKey("endDate") as! NSDate
             trip.destination = instruction.valueForKey("destination") as! String
             
+            let tripRecord: CKRecord = getTripRecord(trip)
+            
             if type == "Trip" {
                 
                 if action == "Save" {
                     
-                    trip.changePresentationImage(UIImage(contentsOfFile: (instruction.valueForKey("imgURL") as! String))!)
+                    trip.changePresentationImage(UIImage(data: instruction.valueForKey("presentationImage") as! NSData)!)
                     
-                    saveNewTrip(trip)
+                    saveTripRecord(tripRecord)
                 }
                 else if action == "Update" {
                     
-                    trip.changePresentationImage(UIImage(contentsOfFile: (instruction.valueForKey("imgURL") as! String))!)
+                    trip.changePresentationImage(UIImage(data: instruction.valueForKey("presentationImage") as! NSData)!)
                     
                     updateTrip(trip)
                 }
@@ -100,19 +102,27 @@ class DAOCloudTrip: NSObject {
                 
                 momentRecord.setValue(instruction.valueForKey("geoTag") as! CLLocation, forKey: "geoTag")
                 
-                momentRecord.setValue(CKReference(record: getTripRecord(trip), action: CKReferenceAction.DeleteSelf), forKey: "trip")
+                momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
+                
+                let nsnAmount : NSNumber = instruction.valueForKey("photosAmount") as! NSNumber
+                let amount : Int = nsnAmount.integerValue
+                
+                for var i : Int = 0; i < amount; i++ {
+                    
+                    momentRecord.setValue(instruction.valueForKey("photo\(i)") as! NSData, forKey: "photo\(i)")
+                }
                 
                 if action == "Save" {
                     
-                    saveNewMoment(index, trip: trip)
+                    saveMomentRecord(momentRecord)
                 }
                 else if action == "Update" {
                     
-                    updateMoment(index, trip: trip)
+                    updateMomentOperation(momentRecord)
                 }
                 else if action == "Delete" {
                     
-                    deleteMomentFrom(index, trip: trip)
+                    deleteMomentOperation(momentRecord)
                 }
             }
         }
@@ -167,6 +177,8 @@ class DAOCloudTrip: NSObject {
                 self.updateCloudKit()
             }
         }
+        
+        privateDB.addOperation(updateOperation)
     }
     
     func updateMoment(index: Int, trip: Trip) {
@@ -178,22 +190,7 @@ class DAOCloudTrip: NSObject {
         
         modifyMoment(index, moment: moment, momentRecord: momentRecord, tripRecord: tripRecord)
         
-        let updateOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [momentRecord], recordIDsToDelete: nil)
-        
-        updateOperation.savePolicy = CKRecordSavePolicy.ChangedKeys
-        
-        updateOperation.modifyRecordsCompletionBlock = { saved, _, error in
-            
-            if let err = error {
-                
-                println("Erro ao atualizar viagem. O erro foi: \(err)")
-            }
-            else {
-                
-                self.updatePlist()
-                self.updateCloudKit()
-            }
-        }
+        updateMomentOperation(momentRecord)
     }
     
     private func saveAllMoments(tripRecord: CKRecord, moments: [Moment]) {
@@ -345,9 +342,9 @@ class DAOCloudTrip: NSObject {
                         
                         let momentRecord : CKRecord = momentRecordObj as! CKRecord
                         
-                        moment.category = momentRecord.valueForKey("category") as! NSNumber
+                        moment.category = (momentRecord.valueForKey("category") as! NSNumber)
                         
-                        moment.comment = momentRecord.valueForKey("comment") as! String
+                        moment.comment = (momentRecord.valueForKey("comment") as! String)
                         
                         moment.changeGeoTag(momentRecord.valueForKey("geoTag") as! CLLocation)
                         
@@ -432,25 +429,8 @@ class DAOCloudTrip: NSObject {
                 if momentsRecords.count > 0 {
                     
                     let momentRecord : CKRecord = momentsRecords[0] as! CKRecord
-                    let deleteOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [momentRecord.recordID])
                     
-                    deleteOperation.savePolicy = CKRecordSavePolicy.AllKeys
-                    
-                    deleteOperation.modifyRecordsCompletionBlock = { added, deleted, error in
-                        
-                        if let err = error {
-                            
-                            println("Erro ao deletar momento. O erro foi: \(err)")
-                        }
-                        else {
-                            
-                            println("Momento deletado com sucesso")
-                            self.updatePlist()
-                            self.updateCloudKit()
-                        }
-                    }
-                    
-                    self.privateDB.addOperation(deleteOperation)
+                    self.deleteMomentOperation(momentRecord)
                 }
                 else {
                     
@@ -521,8 +501,80 @@ class DAOCloudTrip: NSObject {
         }
     }
     
-    private func saveNewMomentFromPlist(trip: Trip) {
+    private func updateMomentOperation(momentRecord: CKRecord) {
         
+        let updateOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [momentRecord], recordIDsToDelete: nil)
         
+        updateOperation.savePolicy = CKRecordSavePolicy.ChangedKeys
+        
+        updateOperation.modifyRecordsCompletionBlock = { saved, _, error in
+            
+            if let err = error {
+                
+                println("Erro ao atualizar momento. O erro foi: \(err)")
+            }
+            else {
+                
+                self.updatePlist()
+                self.updateCloudKit()
+            }
+        }
+        
+        privateDB.addOperation(updateOperation)
+    }
+    
+    private func deleteMomentOperation(momentRecord: CKRecord) {
+        
+        let deleteOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [momentRecord.recordID])
+        
+        deleteOperation.savePolicy = CKRecordSavePolicy.AllKeys
+        
+        deleteOperation.modifyRecordsCompletionBlock = { added, deleted, error in
+            
+            if let err = error {
+                
+                println("Erro ao deletar momento. O erro foi: \(err)")
+            }
+            else {
+                
+                println("Momento deletado com sucesso")
+                self.updatePlist()
+                self.updateCloudKit()
+            }
+        }
+        
+        self.privateDB.addOperation(deleteOperation)
+    }
+    
+    private func saveMomentRecord(momentRecord: CKRecord) {
+        
+        privateDB.saveRecord(momentRecord, completionHandler: { (recordReturned, error) -> Void in
+            
+            if let err = error {
+                
+                println("Erro ao salvar momento pegado da plist. O erro foi: \(err)")
+            }
+            else {
+                
+                self.updatePlist()
+                self.updateCloudKit()
+            }
+        })
+    }
+    
+    private func saveTripRecord(tripRecord: CKRecord) {
+        
+        privateDB.saveRecord(tripRecord, completionHandler: { (recordReturned, error) -> Void in
+            
+            if let err = error {
+                
+                println("Erro ao salvar momento pegado da plist. O erro foi: \(err)")
+            }
+            else {
+                
+                self.updatePlist()
+                self.updateCloudKit()
+            }
+        })
     }
 }
