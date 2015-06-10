@@ -599,9 +599,8 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                     UIView.animateWithDuration(0.5, animations: {
                         
                         self.dashed.frame.origin.x = self.view.frame.width/2 - 22
-//                        self.momentsTestArray[self.max].frame = CGRect(x: self.returnX, y: self.returnY, width: self.returnWidth, height: self.returnHeight)
-//                        self.momentsTestArray[self.max].textLabel.frame.size = CGSize(width: self.returnWidth, height: self.returnHeight)
-//                        self.momentsTestArray[self.max].textLabel.center = self.momentsTestArray[self.max].center
+                        self.momentsTestArray[self.max].frame = CGRect(x: self.returnX, y: self.returnY, width: self.returnWidth, height: self.returnHeight)
+                        self.momentsTestArray[self.max].textLabel.frame.size = CGSize(width: self.returnWidth, height: self.returnHeight)
                         
                         
                         for var i = 0; i < self.momentsTestArray.count; i++ {
