@@ -8,15 +8,18 @@
 
 import CoreData
 
-
+/**
+ *
+ *   This class is responsible for the configuration and management
+ *   of the CoreData Stack.
+ *
+*/
 class LocalDAO {
     
     static let sharedInstance = LocalDAO()
     
     
-    private init(){
-    }
-    
+
     /*********************************************
     *
     *  MARK: - CoreData Stack
@@ -97,12 +100,29 @@ class LocalDAO {
     }()
 
     
+    
     /*********************************************
     *
-    *  MARK:    CoreData Saving support
+    *  MARK: Initializer
     *
     ***/
     
+    private init(){
+    }
+    
+    
+    
+    /*********************************************
+    *
+    *  MARK: CoreData Saving support
+    *
+    ***/
+  
+    /**
+     *
+     *   Saves the ManagedObjectContext state to the Persistent Store.
+     *
+    */
     func saveContext () {
 
         if let moc = self.managedObjectContext {
@@ -114,7 +134,9 @@ class LocalDAO {
                 if moc.hasChanges && !moc.save(&error) {
                     
                     // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    // abort() causes the application to generate a crash log and terminate. 
+                    // You should not use this function in a shipping application, 
+                    // although it may be useful during development.
                     
                     println("Unresolved error \(error), \(error!.userInfo)")
                     abort()
@@ -122,11 +144,12 @@ class LocalDAO {
             }
         }
     }
+
     
     
     /*********************************************
     *
-    *  MARK:    CoreData Loading support
+    *  MARK: CoreData Loading support
     *
     ***/
     
@@ -156,12 +179,51 @@ class LocalDAO {
     }
     
     
+
     /*********************************************
     *
-    *  MARK:    Instance Methods
+    *  MARK: Getter Methods
     *
     ***/
     
+    /**
+     *
+     *  Gets the username previously set by the user,
+     *  or a default username otherwise
+     *
+    */
+    func getUserName() -> String{
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let username: AnyObject = userDefaults.objectForKey("username"){
+            return username as! String
+        }
+        else{
+            return UIDevice.currentDevice().name
+        }
+    }
+    
+    /**
+     *
+     *  Gets the profile image previously set by the user,
+     *  or a default one otherwise
+     *
+    */
+    func getUserProfileImage() -> UIImage{
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let userProfileImage: NSData = userDefaults.dataForKey("userProfileImage"){
+            return UIImage(data: userProfileImage)!
+        }
+        else{
+            return UIImage(named: "defaultUserProfileImage")!
+        }
+    }
+    
+
+
     /**
      *
      *  Gets all the Trips stored on the CoreData Sersistent Store
@@ -185,9 +247,9 @@ class LocalDAO {
     }
     
     /**
-    *
-    *  Gets the total number of different countries visited so far
-    *
+     *
+     *  Gets the total number of different countries visited so far
+     *
     */
     func getNumberOfVisitedCountries() -> Int{
         
@@ -211,9 +273,9 @@ class LocalDAO {
     }
 
     /**
-    *
-    *  Gets the total number of new friends met so far
-    *
+     *
+     *  Gets the total number of new friends met so far
+     *
     */
     func getNumberOfNewFriends() -> Int{
         
@@ -227,9 +289,9 @@ class LocalDAO {
     }
 
     /**
-    *
-    *  Gets the total number of restaurants visited so far
-    *
+     *
+     *  Gets the total number of restaurants visited so far
+     *
     */
     func getNumberOfRestaurants() -> Int{
 
@@ -240,5 +302,89 @@ class LocalDAO {
         let tripsArray = self.managedObjectContext?.executeFetchRequest(request, error: &error)
         
         return tripsArray!.count
+    }
+    
+    
+    
+    
+    /*********************************************
+    *
+    *  MARK: Getter Methods
+    *
+    ***/
+    
+    func setUserName(newUserName : String){
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        userDefaults.setObject(newUserName, forKey: "username")
+        
+        userDefaults.synchronize()
+    }
+    
+    func setUserProfileImage(newProfileImage: UIImage){
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let imageDataRepresentation = UIImageJPEGRepresentation(newProfileImage, 1.0)
+        
+        userDefaults.setObject(imageDataRepresentation, forKey: "userProfileImage")
+        
+        userDefaults.synchronize()
+    }
+    
+    
+    
+    /*********************************************
+    *
+    *  MARK: Deletion Methods
+    *
+    ***/
+    
+    /**
+     *
+     *  Deletes all the trips stored on the Persistent Store.
+     *  Use it wisely.
+     *
+    */
+    func deleteAllTrips(){
+        
+        let request = NSFetchRequest(entityName: "Trip")
+        var error : NSError?
+        
+        let tripsArray = self.managedObjectContext?.executeFetchRequest(request, error: &error) as! [Trip]
+        
+        for trip in tripsArray{
+            self.managedObjectContext?.deleteObject(trip)
+        }
+        
+        self.saveContext()
+    }
+    
+    
+    /**
+     *
+     *  Delete a specific Trip from the Persistent Store
+     *
+     *  :param: trip The trip to be deleted
+     *
+    */
+    func deleteTrip(trip: Trip){
+        
+        self.managedObjectContext?.deleteObject(trip)
+        self.saveContext()
+    }
+    
+    func deleteTrip(destination: String, withBeginDate beginDate: NSDate, andEndDate endDate: NSDate){
+        
+        let request = NSFetchRequest(entityName: "Trip")
+        var error : NSError?
+        
+        request.predicate = NSPredicate(format: "destination == %@ AND beginDate == %@ AND endDate == %@", destination, beginDate, endDate)
+        
+        let tripsArray = self.managedObjectContext?.executeFetchRequest(request, error: &error) as! [Trip]
+        
+        self.managedObjectContext?.deleteObject(tripsArray[0])
+        self.saveContext()
     }
 }

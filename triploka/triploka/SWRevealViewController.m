@@ -945,6 +945,8 @@ const int FrontViewPositionNone = 0xff;
 
 - (IBAction)revealToggle:(id)sender
 {
+        // desabilita o userInterection da view que foi para o lado no caso de action do MenuButton quando abre-se o leftMenu
+    
     if ( self.viewDisabled != nil ) {
         self.viewDisabled.userInteractionEnabled = !self.viewDisabled.userInteractionEnabled;
     }
@@ -1013,17 +1015,14 @@ const int FrontViewPositionNone = 0xff;
     
     if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:overProgress:)] )
     {
-        NSLog(@"1");
         [_delegate revealController:self panGestureEndedToLocation:xLocation progress:dragProgress overProgress:overProgress];
     }
     else if ( [_delegate respondsToSelector:@selector(revealController:panGestureEndedToLocation:progress:)] )
     {
-        NSLog(@"2");
         [_delegate revealController:self panGestureEndedToLocation:xLocation progress:dragProgress];
     }
     if ( [_delegate respondsToSelector:@selector(revealControllerPanGestureEnded:)] )
     {
-        NSLog(@"3");
         [_delegate revealControllerPanGestureEnded:self];
     }
 }
@@ -1301,7 +1300,9 @@ const int FrontViewPositionNone = 0xff;
     // initially we assume drag to left and default duration
     FrontViewPosition frontViewPosition = FrontViewPositionLeft;
     NSTimeInterval duration = _toggleAnimationDuration;
+    
 
+    
     // Velocity driven change:
     if (ABS(velocity) > _quickFlickVelocity)
     {
@@ -1326,7 +1327,7 @@ const int FrontViewPositionNone = 0xff;
     
     // Position driven change:
     else
-    {    
+    {
         // we may need to set the drag position        
         if (xLocation > revealWidth*0.5f)
         {
@@ -1341,6 +1342,27 @@ const int FrontViewPositionNone = 0xff;
             }
         }
     }
+    
+    
+    // desabilita o userInterection da view que foi para o lado no caso de UIPanGestureRecogniser quando abre-se o leftMenu
+    
+    int sinal = 0;
+    if (velocity > 0)
+        sinal = 1;
+    else
+        sinal = -1;
+    
+    NSLog(@"%f %f",xLocation, revealWidth*0.5f);
+
+    if (ABS(xLocation > revealWidth*0.5f) || ((ABS(velocity) > _quickFlickVelocity) && sinal != self.lastSinal) ) {
+       // NSLog(@" Sinal: %d Last Sinal: %d",sinal,self.lastSinal);
+        if ( self.viewDisabled != nil )
+        {
+            self.viewDisabled.userInteractionEnabled = !self.viewDisabled.userInteractionEnabled;
+        }
+        
+    }
+    self.lastSinal = sinal;
     
     // symetric replacement of frontViewPosition
     [self _getAdjustedFrontViewPosition:&frontViewPosition forSymetry:symetry];

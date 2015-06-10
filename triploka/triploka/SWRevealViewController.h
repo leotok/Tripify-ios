@@ -186,7 +186,10 @@ typedef NS_ENUM(NSInteger, SWRevealToggleAnimationType)
 
 /* Basic API */
 
+// Variáveis de controle do userInterection das views quando abre-se o leftMenu
+
 @property (nonatomic) UIView *viewDisabled;
+@property (nonatomic) int lastSinal;
 
 // Object instance init and rear view setting
 - (id)initWithRearViewController:(UIViewController *)rearViewController frontViewController:(UIViewController *)frontViewController;

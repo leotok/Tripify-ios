@@ -26,6 +26,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         // background
         
+        
+        
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
         bg.image = UIImage(named: "passport2.jpg")
@@ -76,43 +78,59 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
     }
     
+    // Delegates TextField
+        
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    func chooseCover() {
-        cover.userInteractionEnabled = false
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        println("oi")
-        cinza = UIView(frame: CGRectMake(0, self.view.bounds.height, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3))
+        let length = count(textField.text.utf16) + count(string.utf16) - range.length
+        
+        return length <= 20
+        
+    }
+    
+    // Camera e Gallery para cover
+    
+    func chooseCover() {
+        self.titleTextField.resignFirstResponder()
+        cover.userInteractionEnabled = false
+
+        cinza = UIView(frame: CGRectMake(0, self.view.bounds.height, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.25))
         cinza.backgroundColor = UIColor.blackColor()
         cinza.alpha = 0.6
         
-        camera = UIButton(frame: CGRectMake(0,0, 80, 80))
-        camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height )
+        camera = UIButton(frame: CGRectMake(self.view.bounds.width / 4,self.view.frame.height, 80, 80))
         camera.setImage(UIImage(named: "Camera-50"), forState: UIControlState.Normal)
         camera.addTarget(self, action: Selector("cameraPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         
-        
-        gallery = UIButton(frame: CGRectMake(0,0, 80, 80))
-        gallery.center = CGPointMake(self.cinza.bounds.width / 1.45 , self.view.frame.height)
+        gallery = UIButton(frame: CGRectMake(self.view.bounds.width * 3 / 4,self.view.frame.height, 80, 80))
         gallery.setImage(UIImage(named: "Picture-50"), forState: UIControlState.Normal)
         gallery.addTarget(self, action: Selector("galleryPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         
-        cancel = UIButton(frame: CGRectMake(10, self.view.bounds.height / 1.1 , self.view.bounds.width - 20, self.view.bounds.height / 10))
+        cancel = UIButton(frame: CGRectMake(self.view.center.x, self.view.bounds.height, self.view.bounds.width - 20, self.view.bounds.height / 10))
         cancel.setImage(UIImage(named: "Cancel-32"),forState: UIControlState.Normal)
         cancel.addTarget(self, action: Selector("cancelPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.camera.center = CGPointMake(self.view.bounds.width / 4 , self.view.frame.height)
+        self.gallery.center = CGPointMake(self.cinza.bounds.width * 3 / 4 , self.view.frame.height)
+        self.cancel.center = CGPointMake(self.view.center.x, self.view.bounds.height)
+        
         
         self.view.addSubview(cinza)
         self.view.addSubview(gallery)
         self.view.addSubview(camera)
         self.view.addSubview(cancel)
         
-        UIView.animateWithDuration(0.1, animations: {
-            self.cinza.frame = CGRectMake(0, self.view.bounds.height / 1.3, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3)
-            self.camera.center = CGPointMake(self.view.bounds.width / 3.5 , self.view.frame.height - 80)
-            self.gallery.center = CGPointMake(self.cinza.bounds.width / 1.45 , self.view.frame.height - 80)
+        UIView.animateWithDuration(0.2, animations: {
+            self.cinza.frame = CGRectMake(0, self.view.bounds.height / 1.25, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.25)
+            self.camera.center = CGPointMake(self.view.bounds.width / 4 , self.view.frame.height / 1.15 )
+            self.gallery.center = CGPointMake(self.cinza.bounds.width * 3 / 4 , self.view.frame.height / 1.15)
+            self.cancel.center = CGPointMake(self.view.center.x, self.view.bounds.height / 1.05 )
         })
         
     }
@@ -162,11 +180,26 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
     }
     
+    // volta e salva a trip criada
+    
     func doneButtonPressed() {
         
         var newTrip = Trip()
-        newTrip.changePresentationImage(self.cover.image!)
-        newTrip.destination = self.titleTextField.text!
+        if self.cover.image != nil {
+            newTrip.changePresentationImage(self.cover.image!)
+        }
+        else {
+            newTrip.changePresentationImage(UIImage(named:"city-cars-traffic-lights.jpeg")!)
+        }
+        
+        if self.titleTextField.text.isEmpty {
+            newTrip.destination = "Leo's Trip"
+        } else
+        {
+            newTrip.destination = self.titleTextField.text!
+        }
+        
+        
         newTrip.beginDate = NSDate()
         
         self.navigationController?.popViewControllerAnimated(true)

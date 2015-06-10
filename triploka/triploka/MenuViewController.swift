@@ -22,15 +22,17 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         self.tableViewMenu.frame = CGRectMake(0, (self.view.frame.size.height) / 4, self.view.frame.size.width, self.view.frame.size.height)
         self.userName.frame = CGRectMake(30, 130, 200, 50)
+        self.userName.center = CGPointMake(self.view.frame.width / (1.23 * 2), self.view.frame.height / 3.9)
         self.userName.text = "Leo Wajnsztok"
         self.userName.textColor = UIColor.whiteColor()
+        self.userName.textAlignment = .Center
         self.userName.font = UIFont(name: "AmaticSC-Regular", size: 32)
         
         var profilePic = UIImageView(image: UIImage(named: "leoProfile.jpg"))
         profilePic.layer.borderColor = UIColor.whiteColor().CGColor
         profilePic.layer.borderWidth = 1
         profilePic.frame.size = CGSizeMake( 100, 100)
-        profilePic.center = CGPointMake(self.view.frame.width/3.5, self.view.bounds.height / 8)
+        profilePic.center = CGPointMake(self.view.frame.width / (1.23 * 2) , self.view.bounds.height / 7.5)
         profilePic.layer.cornerRadius = 50
         profilePic.clipsToBounds = true
 
@@ -79,7 +81,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         else
         {
-            newFrontController =  UINavigationController(rootViewController: GenericViewController())
+            newFrontController =  UINavigationController(rootViewController: SettingsViewController())
         }
         
         revealController.pushFrontViewController(newFrontController, animated: true)
@@ -91,7 +93,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -112,10 +114,6 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell?.textLabel?.text = "Journals"
         }
         else if (indexPath.row == 2)
-        {
-            cell?.textLabel?.text = "Friends"
-        }
-        else if (indexPath.row == 3)
         {
             cell?.textLabel?.text = "Settings"
         }
