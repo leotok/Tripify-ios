@@ -74,6 +74,12 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if textField.text != "" {
+            
+            LocalDAO.sharedInstance.setUserName(textField.text)
+        }
+        
         textField.resignFirstResponder()
         
         return true
@@ -121,7 +127,7 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 cell?.selected = false
                 self.nameTextField.frame.size = CGSizeMake( self.view.frame.width / 2 , 40)
                 self.nameTextField.center = CGPointMake(self.view.center.x, self.view.bounds.height / 20)
-                self.nameTextField.placeholder = "Your name"
+                self.nameTextField.placeholder = LocalDAO.sharedInstance.getUserName()
                 self.nameTextField.delegate = self
                 self.nameTextField.borderStyle = UITextBorderStyle.None
                 cell!.addSubview(self.nameTextField)
@@ -298,6 +304,7 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
 
+        LocalDAO.sharedInstance.setUserProfileImage(image)
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
         
     }

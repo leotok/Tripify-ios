@@ -193,7 +193,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         }
         
         if self.titleTextField.text.isEmpty {
-            newTrip.destination = "Leo's Trip"
+            newTrip.destination = "\(LocalDAO.sharedInstance.getUserName())'s Trip"
         } else
         {
             newTrip.destination = self.titleTextField.text!

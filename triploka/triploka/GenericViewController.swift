@@ -43,7 +43,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         
         // info do profile
         
-        var profilePic = UIImageView(image: UIImage(named: "leoProfile.jpg"))
+        var profilePic = UIImageView(image: LocalDAO.sharedInstance.getUserProfileImage())
         profilePic.frame.size = CGSizeMake(150, 150)
         profilePic.center = CGPointMake(self.view.center.x, self.view.bounds.height / 6)
         profilePic.layer.cornerRadius = 75
@@ -54,7 +54,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         username.frame.size = CGSizeMake(200, 40)
         username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 3)
         username.textAlignment = .Center
-        username.text = "Leo Wajnsztok"
+        username.text = LocalDAO.sharedInstance.getUserName()
         username.font = UIFont(name: "AmaticSC-Regular", size: 40)
         self.view.addSubview(username)
         
