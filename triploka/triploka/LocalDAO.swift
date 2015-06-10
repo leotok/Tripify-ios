@@ -188,7 +188,7 @@ class LocalDAO {
     
     /**
      *
-     *  Gets the username the user has set previously,
+     *  Gets the username previously set by the user,
      *  or a default username otherwise
      *
     */
@@ -204,6 +204,26 @@ class LocalDAO {
         }
     }
     
+    /**
+     *
+     *  Gets the profile image previously set by the user,
+     *  or a default one otherwise
+     *
+    */
+    func getUserProfileImage() -> UIImage{
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let userProfileImage: NSData = userDefaults.dataForKey("userProfileImage"){
+            return UIImage(data: userProfileImage)!
+        }
+        else{
+            return UIImage(named: "defaultUserProfileImage")!
+        }
+    }
+    
+
+
     /**
      *
      *  Gets all the Trips stored on the CoreData Sersistent Store
@@ -298,6 +318,19 @@ class LocalDAO {
         var userDefaults = NSUserDefaults.standardUserDefaults()
         
         userDefaults.setObject(newUserName, forKey: "username")
+        
+        userDefaults.synchronize()
+    }
+    
+    func setUserProfileImage(newProfileImage: UIImage){
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let imageDataRepresentation = UIImageJPEGRepresentation(newProfileImage, 1.0)
+        
+        userDefaults.setObject(imageDataRepresentation, forKey: "userProfileImage")
+        
+        userDefaults.synchronize()
     }
     
     
