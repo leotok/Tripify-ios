@@ -152,8 +152,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             
             cell!.priority = 1
             
-            var tap = UITapGestureRecognizer(target: self, action: Selector("showTimeline"))
-            cell?.addGestureRecognizer(tap)
         }
         
         return cell!
@@ -161,9 +159,10 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     }
     
     
-    func showTimeline()
-    {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
         var timeline = TimelineController()
+        timeline.trip = self.trips[indexPath.row]
         self.navigationController?.pushViewController(timeline, animated: true)
     }
     

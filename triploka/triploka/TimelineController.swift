@@ -10,6 +10,7 @@ import UIKit
 
 class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var trip: Trip!
     var tapEvent: UITapGestureRecognizer = UITapGestureRecognizer()
     var tapHoldEvent: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
     var touchedPoint = CGFloat()
