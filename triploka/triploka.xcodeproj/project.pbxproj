@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3F07ADC61B29D42B001281CD /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07ADC51B29D42B001281CD /* AboutUsViewController.swift */; };
 		3F65E9D61B1BE82C00DF176D /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F65E9D51B1BE82C00DF176D /* GenericViewController.swift */; };
 		3F65E9ED1B1F244B00DF176D /* blueBluer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9EC1B1F244B00DF176D /* blueBluer.jpg */; };
 		3F65E9EF1B1F343300DF176D /* black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9EE1B1F343300DF176D /* black.jpg */; };
@@ -73,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F07ADC51B29D42B001281CD /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		3F65E9D51B1BE82C00DF176D /* GenericViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		3F65E9EC1B1F244B00DF176D /* blueBluer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueBluer.jpg; sourceTree = "<group>"; };
 		3F65E9EE1B1F343300DF176D /* black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = black.jpg; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				3F8D999F1B177B120066504F /* NewMomentController.swift */,
 				3F8D99A21B177B120066504F /* TimelineController.swift */,
 				3F80CEB11B271D0F0077916A /* SettingsViewController.swift */,
+				3F07ADC51B29D42B001281CD /* AboutUsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */,
 				3F65E9D61B1BE82C00DF176D /* GenericViewController.swift in Sources */,
 				4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */,
+				3F07ADC61B29D42B001281CD /* AboutUsViewController.swift in Sources */,
 				4F4EC50D1B18D72600378DDF /* MomentCategory.swift in Sources */,
 				4F4EC5101B18D72600378DDF /* SWRevealViewController.h in Sources */,
 				94D4F29F1B1CD37A0034F575 /* PictureMoment.swift in Sources */,

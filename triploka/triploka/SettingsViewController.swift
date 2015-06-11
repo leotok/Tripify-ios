@@ -212,6 +212,11 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 self.presentViewController(alertController, animated: true, completion: nil)
 
             }
+            else if indexPath.row == 1
+            {
+                var about = AboutUsViewController()
+                self.navigationController?.pushViewController(about, animated: true)
+            }
         }
         
     }
