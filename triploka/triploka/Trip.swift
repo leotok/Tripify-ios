@@ -95,8 +95,6 @@ class Trip: NSManagedObject {
         moment.index = nextIndex
         
         allMoments.addObject(moment)
-        
-        LocalDAO.sharedInstance.saveContext()
     }
     
     /**

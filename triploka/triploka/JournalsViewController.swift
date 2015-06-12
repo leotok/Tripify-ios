@@ -45,8 +45,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      //  LocalDAO.sharedInstance.deleteAllTrips()
-        
         // Background
         
         self.view.backgroundColor = UIColor.whiteColor()
@@ -117,8 +115,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     {
         var cell : TripCollectionViewCell? = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath:indexPath) as? TripCollectionViewCell
         
-        if cell == nil {
-            
+        if cell == nil{
             cell = TripCollectionViewCell()
         }
         
