@@ -28,6 +28,7 @@
 		3F65E9FA1B1F3AE900DF176D /* Food.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F71B1F3AE900DF176D /* Food.png */; };
 		3F65E9FB1B1F3AE900DF176D /* Meeting.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F81B1F3AE900DF176D /* Meeting.png */; };
 		3F65E9FC1B1F3AE900DF176D /* Suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F91B1F3AE900DF176D /* Suitcase.png */; };
+		3F65F7711B2B65A1000F1C8B /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F65F7701B2B65A1000F1C8B /* Media.xcassets */; };
 		3F694CC31B1956A300F8D70E /* leoProfile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC21B1956A300F8D70E /* leoProfile.jpg */; };
 		3F694CC81B195DC600F8D70E /* Amatic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC51B195DC600F8D70E /* Amatic-Bold.ttf */; };
 		3F694CC91B195DC600F8D70E /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC61B195DC600F8D70E /* AmaticSC-Regular.ttf */; };
@@ -81,6 +82,7 @@
 		3F65E9F71B1F3AE900DF176D /* Food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Food.png; sourceTree = "<group>"; };
 		3F65E9F81B1F3AE900DF176D /* Meeting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meeting.png; sourceTree = "<group>"; };
 		3F65E9F91B1F3AE900DF176D /* Suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Suitcase.png; sourceTree = "<group>"; };
+		3F65F7701B2B65A1000F1C8B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../Media.xcassets; sourceTree = "<group>"; };
 		3F694CC21B1956A300F8D70E /* leoProfile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leoProfile.jpg; sourceTree = "<group>"; };
 		3F694CC51B195DC600F8D70E /* Amatic-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Amatic-Bold.ttf"; sourceTree = "<group>"; };
 		3F694CC61B195DC600F8D70E /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				3F70EE471B1A385C004995B6 /* passport2.jpg */,
 				3F65E9F61B1F3AE900DF176D /* statistics */,
 				3F8D996A1B1778290066504F /* Images.xcassets */,
+				3F65F7701B2B65A1000F1C8B /* Media.xcassets */,
 				3F8D996C1B1778290066504F /* LaunchScreen.xib */,
 				3F8D995F1B1778290066504F /* Info.plist */,
 			);
@@ -383,6 +386,7 @@
 				3FF9C5E51B27612200EB546F /* tripifyGrande.png in Resources */,
 				4F4EC5161B18D73D00378DDF /* Info.plist in Resources */,
 				3F80CEAC1B1F73EB0077916A /* city-cars-traffic-lights.jpeg in Resources */,
+				3F65F7711B2B65A1000F1C8B /* Media.xcassets in Resources */,
 				3F694CC91B195DC600F8D70E /* AmaticSC-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
