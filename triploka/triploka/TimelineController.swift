@@ -658,7 +658,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         moment.category = NSNumber(int: MomentCategory.Image.rawValue)
         moment.addNewPhoto(image)
         
-        //self.trip.addNewMoment(moment)
+        self.trip.addNewMoment(moment)
         
         let currentView : MomentView = self.momentsViews[self.max]
         let momentView : MomentView = MomentView(frame: currentView.frame, moment: moment)
