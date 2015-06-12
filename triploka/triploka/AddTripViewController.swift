@@ -160,7 +160,6 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
-        LocalDAO.sharedInstance.setUserProfileImage(image)
         
         if LocalDAO.sharedInstance.shouldSaveToPhotoGallery()
         {
