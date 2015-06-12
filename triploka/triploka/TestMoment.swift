@@ -15,10 +15,10 @@ class TestMoment: UIView {
     var deltaY: CGFloat = 120
     var originalFrame: CGPoint = CGPoint()
     
-    var text = TextMoment()
-    var audio = AudioMoment()
-    var picture = PictureMoment()
-    var restaurant = RestaurantMoment()
+    var text : TextMoment! = nil
+    var audio : AudioMoment! = nil
+    var picture : PictureMoment! = nil
+    var restaurant : RestaurantMoment! = nil
     
     var move = Bool()
     
@@ -30,22 +30,20 @@ class TestMoment: UIView {
         var gesture = UILongPressGestureRecognizer(target: self, action: Selector("teste:"))
         self.addGestureRecognizer(gesture)
         
-//        text = TextMoment()
-//        audio = AudioMoment()
-//        picture = PictureMoment()
-//        restaurant = RestaurantMoment()
-        
         var width = self.frame.width/2 - 7.5
         
-        text.frame = CGRect(x: 5, y: 5, width: width, height: self.frame.height/2 - 7.5)
-        audio.frame = CGRect(x: self.frame.width/2 + 2.5, y: 5, width: width, height: self.frame.height/2 - 7.5)
-        picture.frame = CGRect(x: 5, y: self.frame.height/2 + 2.5, width: width, height: self.frame.height/2 - 7.5)
-        restaurant.frame = CGRect(x: self.frame.width/2 + 2.5, y: self.frame.height/2 + 2.5, width: width, height: self.frame.height/2 - 7.5)
+        text = TextMoment(frame: CGRect(x: 5, y: 5, width: width, height: self.frame.height/2 - 7.5))
+        audio = AudioMoment(frame: CGRect(x: self.frame.width/2 + 2.5, y: 5, width: width, height: self.frame.height/2 - 7.5))
+        picture = PictureMoment(frame: CGRect(x: 5, y: self.frame.height/2 + 2.5, width: width, height: self.frame.height/2 - 7.5))
+        restaurant = RestaurantMoment(frame: CGRect(x: self.frame.width/2 + 2.5, y: self.frame.height/2 + 2.5, width: width, height: self.frame.height/2 - 7.5))
         
         self.addSubview(text)
-        self.addSubview(audio)
         self.addSubview(picture)
+        self.addSubview(audio)
         self.addSubview(restaurant)
+        
+//        text.textMomentInit()
+//        picture.pictureMomentInit()
         
     }
     

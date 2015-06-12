@@ -10,15 +10,12 @@ import UIKit
 
 class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var trip: Trip!
     var tapEvent: UITapGestureRecognizer = UITapGestureRecognizer()
     var tapHoldEvent: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
     var touchedPoint = CGFloat()
     
     var offset = CGFloat(20)
     var size = CGFloat(100)
-    
-    var momentsArray: [TestMoment] = [TestMoment]()
     
     var momentsTestArray: [TestMoment] = [TestMoment]()
     var lineTestArray: [UIView] = [UIView]()
@@ -131,7 +128,6 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         y = offset
         lineWidth = self.view.frame.size.width/2 - (x1 + width)
         
-        //        var moments = momentsArray.count
         
         let moments : [Moment] = self.trip.getAllMoments()
         

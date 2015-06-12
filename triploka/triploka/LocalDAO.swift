@@ -139,7 +139,7 @@ class LocalDAO {
                     // although it may be useful during development.
                     
                     println("Unresolved error \(error), \(error!.userInfo)")
-                    abort()
+                    //abort()
                 }
             }
         }
