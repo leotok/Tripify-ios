@@ -128,20 +128,17 @@ class LocalDAO {
         if let moc = self.managedObjectContext {
         
             var error: NSError? = nil
-        
-            //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-          
-                if moc.hasChanges && !moc.save(&error) {
-                    
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. 
-                    // You should not use this function in a shipping application, 
-                    // although it may be useful during development.
-                    
-                    println("Unresolved error \(error), \(error!.userInfo)")
-                    //abort()
-                }
-           // }
+      
+            if moc.hasChanges && !moc.save(&error) {
+                
+                // Replace this implementation with code to handle the error appropriately.
+                // abort() causes the application to generate a crash log and terminate. 
+                // You should not use this function in a shipping application, 
+                // although it may be useful during development.
+                
+                println("Unresolved error \(error), \(error!.userInfo)")
+                abort()
+            }
         }
     }
 
@@ -153,6 +150,12 @@ class LocalDAO {
     *
     ***/
     
+    /**
+     *
+     *  Loads into the Managed Object Context all Trips
+     *  and Moments from the Persistent Store
+     *
+    */
     func loadObjectGraph(){
 
         let tripRequest = NSFetchRequest(entityName: "Trip")
