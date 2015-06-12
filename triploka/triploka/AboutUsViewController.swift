@@ -30,11 +30,12 @@ class AboutUsViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         
-        self.aboutLabel.frame = CGRectMake(0, 0, self.view.frame.width / 1.3, self.view.frame.height / 1.3 )
-        self.aboutLabel.center = CGPointMake(self.view.center.x, self.view.frame.height / 4)
+        self.aboutLabel.frame = CGRectMake(0, 0, self.view.frame.width / 1.2, self.view.frame.height  )
+        self.aboutLabel.center = self.view.center
         self.aboutLabel.numberOfLines = -1
-        self.aboutLabel.text = "Developed by:\n\nJordan Rodrigues\nLeonardo E. Wajnsztok\nVictor Souza\nVictor Yves"
+        self.aboutLabel.text = "Developed by:\n\n\n\nJordan Rodrigues\nLeonardo E. Wajnsztok\nVictor Souza\nVictor Yves\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Icons: https://icons8.com/"
         self.aboutLabel.textAlignment = .Center
+        self.aboutLabel.font = UIFont(name: "AmericanTypewriter", size: 18)
         
         self.view.addSubview(aboutLabel)
 
