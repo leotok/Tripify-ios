@@ -27,6 +27,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     
     var scrollView: UIScrollView = UIScrollView()
     
+    var testMoment : TestMoment = TestMoment()
     var newMoment: Bool = false
     var image: UIImage = UIImage()
     var textLabel: UILabel = UILabel()
@@ -52,7 +53,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     var dashed: DashedLine = DashedLine()
     var pointJunction: Junction = Junction()
     
-    var teste: TestMoment = TestMoment()
+    var teste: MomentView! = nil
     
     var max = Int()
     
@@ -60,6 +61,9 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     var returnY = CGFloat(0)
     var returnWidth = CGFloat(0)
     var returnHeight = CGFloat(0)
+    
+    var trip : Trip! = nil
+    var momentsViews : [MomentView] = []
     
     override func viewWillAppear(animated: Bool) {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
@@ -128,77 +132,66 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         
         //        var moments = momentsArray.count
         
-        var moments = 2
+        let moments : [Moment] = self.trip.getAllMoments()
         
-        for var i = 0; i < moments; i++ {
+        var momentsCount = 2 + moments.count
+        var momentsIterator = 0
+        
+        for var i = 0; i < momentsCount; i++ {
             
             var height = CGFloat(0)
+            var xSide = CGFloat(0)
+            var xLine = CGFloat(0)
             
             if i%2 == 0 {
                 
-                var momentTest = TestMoment()
-                momentTest.hidden = true
-                momentTest.frame = CGRectMake(x1, y, width, size)
-                momentTest.backgroundColor = UIColor.blackColor()
-                self.scrollView.addSubview(momentTest)
-                
-                self.momentsTestArray.append(momentTest)
-                
-                var joinLine = JoinLine()
-                joinLine.hidden = true
-                joinLine.backgroundColor = UIColor.grayColor()
-                joinLine.frame = CGRectMake(xLine1, y + size/2, lineWidth, 1)
-                self.scrollView.addSubview(joinLine)
-                self.lineTestArray.append(joinLine)
-                
-                var junction = Junction()
-                junction.backgroundColor = UIColor.whiteColor()
-                junction.frame = CGRectMake(xLine2-x1/3, y+size/2-x1/3, x1/1.5, x1/1.5)
-                self.scrollView.addSubview(junction)
-                self.junctionTestArray.append(junction)
-                
-                self.yArray.append(junction.frame.origin.y)
-                
-                height = momentTest.deltaY
+                xSide = x1
+                xLine = xLine1
             }
                 
             else {
                 
-                var momentTest = TestMoment()
-                momentTest.hidden = true
-                momentTest.frame = CGRectMake(x2, y, width, size)
-                momentTest.backgroundColor = UIColor.blackColor()
-                self.scrollView.addSubview(momentTest)
-                
-                self.momentsTestArray.append(momentTest)
-                
-                var joinLine = JoinLine()
-                joinLine.hidden = true
-                joinLine.backgroundColor = UIColor.grayColor()
-                joinLine.frame = CGRectMake(xLine2, y + size/2, lineWidth, 1)
-                self.scrollView.addSubview(joinLine)
-                self.lineTestArray.append(joinLine)
-                
-                var junction = Junction()
-                junction.backgroundColor = UIColor.whiteColor()
-                junction.frame = CGRectMake(xLine2-x1/3, y+size/2-x1/3, x1/1.5, x1/1.5)
-                self.scrollView.addSubview(junction)
-                self.junctionTestArray.append(junction)
-                
-                self.yArray.append(junction.frame.origin.y)
-                
-                height = momentTest.deltaY
-                
-            
+                xSide = x2
+                xLine = xLine2
             }
             
-            //            totalHeight += size + offset
+            let momentFrame : CGRect = CGRectMake(xSide, y, width, size)
+            var momentView : MomentView
             
-            //            y += size + offset
+            var joinLine = JoinLine()
+            joinLine.hidden = true
+            joinLine.backgroundColor = UIColor.grayColor()
+            joinLine.frame = CGRectMake(xLine, y + size/2, lineWidth, 1)
+            self.scrollView.addSubview(joinLine)
+            self.lineTestArray.append(joinLine)
+            
+            var junction = Junction()
+            junction.backgroundColor = UIColor.whiteColor()
+            junction.frame = CGRectMake(xLine2-x1/3, y+size/2-x1/3, x1/1.5, x1/1.5)
+            self.scrollView.addSubview(junction)
+            self.junctionTestArray.append(junction)
+            
+            self.yArray.append(junction.frame.origin.y)
+            
+            if i == 0 || (i == momentsCount-1) {
+                
+                momentView = MomentView(frame: momentFrame)
+                momentView.hidden = true
+            }
+            else {
+                
+                var moment : Moment = moments[momentsIterator++]
+                momentView = MomentView(frame: momentFrame, moment: moment)
+                momentView.hidden = false
+            }
+            
+            height = 120 // deltaY ??
             
             totalHeight += height
             y += height
             
+            self.scrollView.addSubview(momentView)
+            self.momentsViews.append(momentView)
         }
         
         totalHeight += 100
@@ -264,14 +257,14 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             maximo = aux
         }
         
-        var newMomentY = self.momentsTestArray[Int(maximo2)].frame.origin.y
-        var newMomentX = self.momentsTestArray[Int(maximo2)].frame.origin.x
+        var newMomentY = self.momentsViews[Int(maximo2)].frame.origin.y
+        var newMomentX = self.momentsViews[Int(maximo2)].frame.origin.x
         var newLineX = CGFloat(0)
         
-        for var k = Int(maximo2); k < self.momentsTestArray.count; k++ {
+        for var k = Int(maximo2); k < self.momentsViews.count; k++ {
             
-            var x = self.momentsTestArray[k].frame.origin.x
-            var y = self.momentsTestArray[k].frame.origin.y
+            var x = self.momentsViews[k].frame.origin.x
+            var y = self.momentsViews[k].frame.origin.y
             
             var newX = CGFloat(0)
             var lineX = CGFloat(0)
@@ -305,23 +298,23 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             self.yArray[k] += self.offset + self.size
             
             UIView.animateWithDuration(0.5, animations: {
-                    self.momentsTestArray[k].frame.origin = CGPoint(x: newX, y: y + self.offset + self.size)
+                    self.momentsViews[k].frame.origin = CGPoint(x: newX, y: y + self.offset + self.size)
                     self.lineTestArray[k].frame.origin.y += self.offset + self.size
                     self.lineTestArray[k].frame.origin.x = lineX
                     self.junctionTestArray[k].frame.origin.y += self.offset + self.size
                 })
             
-            self.momentsTestArray[k].originalFrame = self.momentsTestArray[k].frame.origin
+            self.momentsViews[k].lastOrigin = self.momentsViews[k].frame.origin
             
         }
         
-        var momentTest = TestMoment()
-        momentTest.frame = CGRectMake(self.view.bounds.width, newMomentY, self.width, self.size)
-        momentTest.backgroundColor = UIColor.whiteColor()
-        momentTest.layer.borderColor = UIColor.blackColor().CGColor!
-        momentTest.layer.borderWidth = 0.5
-        self.scrollView.addSubview(momentTest)
-        self.momentsTestArray.insert(momentTest, atIndex: Int(maximo2))
+        var momentView = MomentView()
+        momentView.frame = CGRectMake(self.view.bounds.width, newMomentY, self.width, self.size)
+        momentView.backgroundColor = UIColor.whiteColor()
+        momentView.layer.borderColor = UIColor.blackColor().CGColor!
+        momentView.layer.borderWidth = 0.5
+        self.scrollView.addSubview(momentView)
+        self.momentsViews.insert(momentView, atIndex: Int(maximo2))
         
         returnX = newMomentX
         returnY = newMomentY
@@ -344,46 +337,56 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         
         UIView.animateWithDuration(0.5, animations: {
             
-            momentTest.frame.origin.x = newMomentX
+            momentView.frame.origin.x = newMomentX
             
         })
         
-        self.max = Int(maximo2)
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            
+            momentView.frame.origin.x = newMomentX
+            
+        }) { (completedBool) -> Void in
+            
+            self.animation()
+        }
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "animation", userInfo: nil, repeats: false)
+        self.max = Int(maximo2)
         
     }
     
     func animation(){
         
         var frameExpansion = CGRect(x: 10, y: 10, width: self.view.frame.width - 20, height: self.view.frame.height/2)
-                
-        UIView.animateWithDuration(0.5, animations: {
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             
             self.pointJunction.frame.origin.x = -40
             
-            for var j = 0; j < self.momentsTestArray.count; j++ {
+            for var j = 0; j < self.momentsViews.count; j++ {
                 
-                self.lineTestArray[j].frame.origin.x -= 2*self.momentsTestArray[j].frame.width
-                self.junctionTestArray[j].frame.origin.x -= 2*self.momentsTestArray[j].frame.width
+                self.lineTestArray[j].frame.origin.x -= 2*self.momentsViews[j].frame.width
+                self.junctionTestArray[j].frame.origin.x -= 2*self.momentsViews[j].frame.width
                 
                 if j != Int(self.max) {
-                    self.momentsTestArray[j].frame.origin.x = -self.momentsTestArray[j].frame.width
+                    self.momentsViews[j].frame.origin.x = -self.momentsViews[j].frame.width
                 }
                     
                 else {
                     
-                    self.momentsTestArray[j].frame = frameExpansion
-                    self.momentsTestArray[j].image.frame = frameExpansion
-                    self.momentsTestArray[j].animate()
-                    
+                    self.momentsViews[j].frame = frameExpansion
+                    self.momentsViews[j].animate()
                 }
                 
             }
             
             self.dashed.frame.origin.x = -40
             
-            })
+        }) { (completedBool) -> Void in
+            
+            self.testMoment.frame = frameExpansion
+            self.testMoment.backgroundColor = UIColor.whiteColor()
+            self.view.addSubview(self.testMoment)
+        }
     }
     
     func yourNotificationHandler(notice: NSNotification) {
@@ -411,7 +414,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     
     func scrollNotification(notice: NSNotification) {
         
-        var object = notice.object as! TestMoment
+        var object = notice.object as! MomentView
         
         var visibleRect = CGRectMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y, self.scrollView.contentOffset.x + self.scrollView.bounds.size.width, self.scrollView.contentOffset.y + self.scrollView.bounds.size.height)
         
@@ -433,22 +436,22 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     
     func holdNotificationHandler(notice: NSNotification) {
         
-        self.teste = notice.object as! TestMoment
+        self.teste = notice.object as! MomentView
         self.moved = true
         var index = Int(0)
         var indexOriginal = Int(0)
         var center = CGPoint(x: self.teste.frame.midX, y: self.teste.frame.midY)
         
         
-        for var i = 0; i < self.momentsTestArray.count; i++ {
+        for var i = 0; i < self.momentsViews.count; i++ {
             
-            if CGRectContainsPoint(self.momentsTestArray[i].frame, center) && self.momentsTestArray[i].frame.origin != self.teste.frame.origin {
+            if CGRectContainsPoint(self.momentsViews[i].frame, center) && self.momentsViews[i].frame.origin != self.teste.frame.origin {
                 
                 index = i
                 
             }
                 
-            else if CGRectContainsPoint(self.momentsTestArray[i].frame, center) && self.momentsTestArray[i].frame.origin == self.teste.frame.origin {
+            else if CGRectContainsPoint(self.momentsViews[i].frame, center) && self.momentsViews[i].frame.origin == self.teste.frame.origin {
                 
                 indexOriginal = i
                 
@@ -463,13 +466,13 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     
     func swap(first: Int) {
         
-        var firstPoint = self.momentsTestArray[first].frame.origin
+        var firstPoint = self.momentsViews[first].frame.origin
         
-        if first > 0 && first < self.momentsTestArray.count-1 {
+        if first > 0 && first < self.momentsViews.count-1 {
             
             UIView.animateWithDuration(0.3, animations: {
                 
-                self.momentsTestArray[first].frame.origin = self.teste.originalFrame
+                self.momentsViews[first].frame.origin = self.teste.lastOrigin
                 self.teste.frame.origin = firstPoint
                 
             })
@@ -479,7 +482,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             
             UIView.animateWithDuration(0.3, animations: {
                 
-                self.teste.frame.origin = self.teste.originalFrame
+                self.teste.frame.origin = self.teste.lastOrigin
                 
             })
         }
@@ -487,15 +490,15 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     
     func changeOrder(first: Int, second: Int) {
         
-        var aux = self.momentsTestArray[second]
+        var aux = self.momentsViews[second]
         var yAux = self.yArray[second]
         var junctionAux = self.junctionTestArray[second]
         var lineAux = self.lineTestArray[second]
         
-        if first > 0 && first < self.momentsTestArray.count - 1 {
+        if first > 0 && first < self.momentsViews.count - 1 {
             
-            self.momentsTestArray[second] = self.momentsTestArray[first]
-            self.momentsTestArray[first] = aux
+            self.momentsViews[second] = self.momentsViews[first]
+            self.momentsViews[first] = aux
             
         }
     }
@@ -541,6 +544,23 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         
         println("newText")
         self.textLabel.text = "hello"
+        
+        let moment : Moment = Moment()
+        
+        moment.comment = self.textLabel.text
+        moment.category = NSNumber(int: MomentCategory.Text.rawValue)
+        
+        //self.trip.addNewMoment(moment)
+        
+        let currentView : MomentView = self.momentsViews[self.max]
+        let momentView : MomentView = MomentView(frame: currentView.frame, moment: moment)
+        
+        self.momentsViews[self.max] = momentView
+        
+        currentView.removeFromSuperview()
+        self.scrollView.addSubview(momentView)
+        self.testMoment.removeFromSuperview()
+        
         self.substituteView( 1 )
     }
     
@@ -549,14 +569,15 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         if type == 0
         {
         
-        self.momentsTestArray[self.max].image.image = self.image
-        self.momentsTestArray[self.max].image.alpha = 0
-        self.momentsTestArray[self.max].normalState(0)
+            let imageView : UIImageView = self.momentsViews[self.max].contentView as! UIImageView
+            imageView.image = self.image
+            imageView.alpha = 0
+            self.momentsViews[self.max].normalState(0)
         
         UIView.animateWithDuration(0.5, animations: {
             
-            self.momentsTestArray[self.max].image.alpha = 1
-            self.momentsTestArray[self.max].layer.borderWidth = 0
+            imageView.alpha = 1
+            self.momentsViews[self.max].layer.borderWidth = 0
             self.pointJunction.center.x = self.scrollView.frame.width/2
             
             }, completion: {
@@ -565,19 +586,19 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                 UIView.animateWithDuration(0.5, animations: {
                     
                     self.dashed.frame.origin.x = self.view.frame.width/2 - 22
-                    self.momentsTestArray[self.max].frame = CGRect(x: self.returnX, y: self.returnY, width: self.returnWidth, height: self.returnHeight)
-                    self.momentsTestArray[self.max].image.frame.origin = CGPoint(x: 0, y: 0)
-                    self.momentsTestArray[self.max].image.frame.size = CGSize(width: self.returnWidth, height: self.returnHeight)
+                    self.momentsViews[self.max].frame = CGRect(x: self.returnX, y: self.returnY, width: self.returnWidth, height: self.returnHeight)
+                    self.momentsViews[self.max].contentView.frame.origin = CGPoint(x: 0, y: 0)
+                    self.momentsViews[self.max].contentView.frame.size = CGSize(width: self.returnWidth, height: self.returnHeight)
                     
                     
-                    for var i = 0; i < self.momentsTestArray.count; i++ {
+                    for var i = 0; i < self.momentsViews.count; i++ {
                         
-                        self.lineTestArray[i].frame.origin.x += 2*self.momentsTestArray[i].frame.width
-                        self.junctionTestArray[i].frame.origin.x += 2*self.momentsTestArray[i].frame.width
+                        self.lineTestArray[i].frame.origin.x += 2*self.momentsViews[i].frame.width
+                        self.junctionTestArray[i].frame.origin.x += 2*self.momentsViews[i].frame.width
                         
                         if i != self.max {
                             
-                            self.momentsTestArray[i].frame.origin.x = self.momentsTestArray[i].originalFrame.x
+                            self.momentsViews[i].frame.origin.x = self.momentsViews[i].lastOrigin.x
                             
                         }
                         
@@ -588,14 +609,14 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         }
         else if type == 1
         {
-            self.momentsTestArray[self.max].textLabel.text = self.textLabel.text
-            self.momentsTestArray[self.max].textLabel.alpha = 0
-            self.momentsTestArray[self.max].normalState(1)
+            (self.momentsViews[self.max].contentView as! UILabel).text = self.textLabel.text
+            self.momentsViews[self.max].contentView.alpha = 0
+            self.momentsViews[self.max].normalState(1)
             
             UIView.animateWithDuration(0.5, animations: {
                 
-                self.momentsTestArray[self.max].textLabel.alpha = 1
-                self.momentsTestArray[self.max].layer.borderWidth = 0
+                self.momentsViews[self.max].contentView.alpha = 1
+                self.momentsViews[self.max].layer.borderWidth = 0
                 self.pointJunction.center.x = self.scrollView.frame.width/2
                 
                 }, completion: {
@@ -604,18 +625,18 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                     UIView.animateWithDuration(0.5, animations: {
                         
                         self.dashed.frame.origin.x = self.view.frame.width/2 - 22
-                        self.momentsTestArray[self.max].frame = CGRect(x: self.returnX, y: self.returnY, width: self.returnWidth, height: self.returnHeight)
-                        self.momentsTestArray[self.max].textLabel.frame.size = CGSize(width: self.returnWidth, height: self.returnHeight)
+                        self.momentsViews[self.max].frame = CGRect(x: self.returnX, y: self.returnY, width: self.returnWidth, height: self.returnHeight)
+                        self.momentsViews[self.max].contentView.frame.size = CGSize(width: self.returnWidth, height: self.returnHeight)
                         
                         
-                        for var i = 0; i < self.momentsTestArray.count; i++ {
+                        for var i = 0; i < self.momentsViews.count; i++ {
                             
-                            self.lineTestArray[i].frame.origin.x += 2*self.momentsTestArray[i].frame.width
-                            self.junctionTestArray[i].frame.origin.x += 2*self.momentsTestArray[i].frame.width
+                            self.lineTestArray[i].frame.origin.x += 2*self.momentsViews[i].frame.width
+                            self.junctionTestArray[i].frame.origin.x += 2*self.momentsViews[i].frame.width
                             
                             if i != self.max {
                                 
-                                self.momentsTestArray[i].frame.origin.x = self.momentsTestArray[i].originalFrame.x
+                                self.momentsViews[i].frame.origin.x = self.momentsViews[i].lastOrigin.x
                                 
                             }
                             
@@ -632,6 +653,21 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         let selectedImage : UIImage = image
         self.image = selectedImage
         
+        let moment : Moment = Moment()
+        
+        moment.category = NSNumber(int: MomentCategory.Image.rawValue)
+        moment.addNewPhoto(image)
+        
+        //self.trip.addNewMoment(moment)
+        
+        let currentView : MomentView = self.momentsViews[self.max]
+        let momentView : MomentView = MomentView(frame: currentView.frame, moment: moment)
+        
+        self.momentsViews[self.max] = momentView
+        
+        currentView.removeFromSuperview()
+        self.scrollView.addSubview(momentView)
+        self.testMoment.removeFromSuperview()
         self.dismissViewControllerAnimated(true, completion: nil)
         
         self.substituteView( 0 )
