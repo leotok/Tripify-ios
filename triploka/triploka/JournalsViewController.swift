@@ -117,11 +117,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     {
         var cell : TripCollectionViewCell? = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath:indexPath) as? TripCollectionViewCell
         
-        if cell == nil {
-            
-            cell = TripCollectionViewCell()
-        }
-        
         if trips.count > 0 {
             
             var trip: Trip
@@ -157,8 +152,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             
             cell!.priority = 1
             
-            var tap = UITapGestureRecognizer(target: self, action: Selector("showTimeline:"))
-            cell?.addGestureRecognizer(tap)
         }
         
         return cell!
@@ -166,20 +159,11 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     }
     
     
-    func showTimeline(sender: UITapGestureRecognizer)
-    {
-        if sender.state == UIGestureRecognizerState.Ended {
-            
-            let cellTapped : TripCollectionViewCell = sender.view as! TripCollectionViewCell
-            
-            let indexPath = collectionJournal.indexPathForCell(cellTapped)
-            let trip = trips[indexPath!.row]
-            
-            var timeline = TimelineController()
-            timeline.trip = trip
-            
-            self.navigationController?.pushViewController(timeline, animated: true)
-        }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        var timeline = TimelineController()
+        timeline.trip = self.trips[indexPath.row]
+        self.navigationController?.pushViewController(timeline, animated: true)
     }
     
     
