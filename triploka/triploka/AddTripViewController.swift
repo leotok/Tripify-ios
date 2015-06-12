@@ -161,7 +161,6 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
         LocalDAO.sharedInstance.setUserProfileImage(image)
-        self.input.removeFromSuperview()  
         
         if LocalDAO.sharedInstance.shouldSaveToPhotoGallery()
         {
@@ -170,7 +169,9 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
                 UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             }
         }
-      
+        
+        self.cover.image = image
+        self.input.removeFromSuperview()        
         
     }
     
