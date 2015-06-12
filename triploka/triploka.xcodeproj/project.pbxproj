@@ -38,12 +38,12 @@
 		3F80CEB01B1F748E0077916A /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAF1B1F748E0077916A /* city.jpg */; };
 		3F80CEB21B271D0F0077916A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F80CEB11B271D0F0077916A /* SettingsViewController.swift */; };
 		3FF9C5E51B27612200EB546F /* tripifyGrande.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF9C5E41B27612200EB546F /* tripifyGrande.png */; };
+		4F0BAD5C1B2B79700057ADF4 /* NewMomentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999F1B177B120066504F /* NewMomentController.swift */; };
 		4F248C121B2B550000D28039 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F248C111B2B550000D28039 /* CloudKit.framework */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
 		4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
 		4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999A1B177B120066504F /* LoginController.swift */; };
 		4F4EC5031B18D71800378DDF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99851B1778780066504F /* MenuViewController.swift */; };
-		4F4EC5041B18D71800378DDF /* NewMomentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999F1B177B120066504F /* NewMomentController.swift */; };
 		4F4EC5051B18D71800378DDF /* TimelineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99A21B177B120066504F /* TimelineController.swift */; };
 		4F4EC5061B18D72600378DDF /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99971B177B120066504F /* DashedLine.swift */; };
 		4F4EC5071B18D72600378DDF /* JoinLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99981B177B120066504F /* JoinLine.swift */; };
@@ -427,11 +427,11 @@
 				4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */,
 				4F4EC5031B18D71800378DDF /* MenuViewController.swift in Sources */,
 				94287AEB1B1C6F9E0086B6B6 /* MomentOptions.swift in Sources */,
-				4F4EC5041B18D71800378DDF /* NewMomentController.swift in Sources */,
 				4F4EC5051B18D71800378DDF /* TimelineController.swift in Sources */,
 				4F4EC5061B18D72600378DDF /* DashedLine.swift in Sources */,
 				4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */,
 				4F4EC51C1B18E29500378DDF /* triploka.xcdatamodeld in Sources */,
+				4F0BAD5C1B2B79700057ADF4 /* NewMomentController.swift in Sources */,
 				4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */,
 				4F4EC5071B18D72600378DDF /* JoinLine.swift in Sources */,
 				4F4EC5081B18D72600378DDF /* Junction.swift in Sources */,

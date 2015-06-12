@@ -55,6 +55,6 @@ class Photo: NSManagedObject {
     func setNewImage(newImage: UIImage){
         
         self.image = newImage
-        LocalDAO.sharedInstance.saveContext()
+        //LocalDAO.sharedInstance.saveContext()
     }
 }
