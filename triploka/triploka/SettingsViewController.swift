@@ -170,7 +170,7 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
             }
             else
             {
-                cell?.textLabel?.text = "Us"
+                cell?.textLabel?.text = "Info"
             }
         }
         
