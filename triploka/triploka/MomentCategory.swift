@@ -28,4 +28,7 @@ enum MomentCategory : Int32{
     case Party
     case NewPlace
     case Other
+    
+    case Text
+    case Image
 }

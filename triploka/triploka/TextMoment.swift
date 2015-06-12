@@ -10,45 +10,25 @@ import UIKit
 
 class TextMoment: UIView {
     
-    var label = UILabel()
+    var label : UILabel
     
-    override func drawRect(rect: CGRect) {
-
-        
-        var tap = UITapGestureRecognizer(target: self, action: "new:")
-        
-        label = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-        label.text = "Text"
-        label.sizeToFit()
-        
-        label.alpha = 0
-        
-        var width = label.frame.width
-        var height = label.frame.height
-        
-        label.frame.origin = CGPoint(x: self.frame.width/2 - width/2, y: self.frame.height/2 - height/2)
-        
-        label.textColor = UIColor.whiteColor()
-        self.addSubview(label)
-        
-        self.addGestureRecognizer(tap)
-        
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    
-    func centerText() {
+    override init(frame: CGRect) {
         
-        label.alpha = 1
-        
-        label.sizeToFit()
-        
-        var width = label.frame.width
-        var height = label.frame.height
-        
-        label.frame.origin = CGPoint(x: self.frame.width/2 - width/2, y: self.frame.height/2 - height/2)
-        
+        label = UILabel(frame: frame)
+        label.text = "Text"
+        label.textAlignment = NSTextAlignment.Center
         label.textColor = UIColor.whiteColor()
         
+        super.init(frame: frame)
+        
+        self.backgroundColor = UIColor.blackColor()
+        var tap = UITapGestureRecognizer(target: self, action: "new:")
+        self.addGestureRecognizer(tap)
+        self.addSubview(label)
     }
     
     func new(recognizer: UITapGestureRecognizer) {

@@ -30,10 +30,10 @@ class TestMoment: UIView {
         var gesture = UILongPressGestureRecognizer(target: self, action: Selector("teste:"))
         self.addGestureRecognizer(gesture)
         
-        text = TextMoment()
-        audio = AudioMoment()
-        picture = PictureMoment()
-        restaurant = RestaurantMoment()
+//        text = TextMoment()
+//        audio = AudioMoment()
+//        picture = PictureMoment()
+//        restaurant = RestaurantMoment()
         
         var width = self.frame.width/2 - 7.5
         
@@ -63,9 +63,9 @@ class TestMoment: UIView {
             self.audio.frame = expandAudio
             self.audio.centerText()
             self.text.frame = expandText
-            self.text.centerText()
+            //self.text.centerText()
             self.picture.frame = expandPicture
-            self.picture.centerText()
+            //self.picture.centerText()
             self.restaurant.frame = expandRestaurant
             self.restaurant.centerText()
             

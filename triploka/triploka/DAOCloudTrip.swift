@@ -49,10 +49,31 @@ class DAOCloudTrip: NSObject {
         return dao
     }
     
+    // Checa se tem internet. Se tiver, manda atualizar o CloudKit
+    
     func updateCloudKit() {
         
         NetworkStatus.checkNetworkConnection()
     }
+    
+    // Salva uma viagem na plist para que seja posteriormente enviada para a cloud
+    
+    func saveInstruction(trip: Trip) {
+        
+        var instructions : NSMutableArray! = NSMutableArray(contentsOfFile: plistPath)
+        
+        if instructions == nil {
+            
+            instructions = NSMutableArray(capacity: 1)
+        }
+        
+        let newInstruction : NSDictionary = NSDictionary(dictionary: ["type" : "Trip", "action" : "Save", "beginDate" : trip.beginDate, "endDate" : trip.endDate, "destination" : trip.destination, "presentationImage" : UIImageJPEGRepresentation(trip.getPresentationImage(), 1)])
+        
+        instructions.addObject(newInstruction)
+        instructions.writeToFile(plistPath, atomically: true)
+    }
+    
+    // Lê a próxima instrução na plist para atualizar a cloud
     
     func readNextInstruction() {
         
@@ -128,6 +149,8 @@ class DAOCloudTrip: NSObject {
         }
     }
     
+    // Salva uma nova viagem na cloud
+    
     func saveNewTrip(trip: Trip) {
         
         let tripRecord : CKRecord = getTripRecord(trip)
@@ -147,6 +170,8 @@ class DAOCloudTrip: NSObject {
         })
     }
     
+    // Salva o momento da posição index do vetor de momentos de trip na cloud
+    
     func saveNewMoment(index: Int, trip: Trip) {
         
         if index > 0 {
@@ -156,6 +181,8 @@ class DAOCloudTrip: NSObject {
             auxSaveNewMoment(index, moments: trip.getAllMoments(), tripRecord: tripRecord, callAgain: false)
         }
     }
+    
+    // Atualiza uma viagem já existente na cloud
     
     func updateTrip(trip: Trip) {
         
@@ -181,6 +208,8 @@ class DAOCloudTrip: NSObject {
         privateDB.addOperation(updateOperation)
     }
     
+    // Atualiza um momento já existente na cloud
+    
     func updateMoment(index: Int, trip: Trip) {
         
         let tripRecord : CKRecord = getTripRecord(trip)
@@ -193,6 +222,8 @@ class DAOCloudTrip: NSObject {
         updateMomentOperation(momentRecord)
     }
     
+    // Salva todos os momentos da array moments na cloud
+    
     private func saveAllMoments(tripRecord: CKRecord, moments: [Moment]) {
         
         if moments.count > 0 {
@@ -200,6 +231,8 @@ class DAOCloudTrip: NSObject {
             auxSaveNewMoment(0, moments: moments, tripRecord: tripRecord, callAgain: true)
         }
     }
+    
+    // Função auxiliar que salva um certo moment
     
     private func auxSaveNewMoment(index: Int, moments: [Moment], tripRecord: CKRecord, callAgain: Bool) {
         
@@ -240,6 +273,8 @@ class DAOCloudTrip: NSObject {
         }
     }
     
+    // Faz o download de uma certa viagem
+    
     func fetchTripWith(beginDate: NSDate, endDate: NSDate, destination: String) {
         
         let tripID : CKRecordID = CKRecordID(recordName: "\(DateFormatter.formattedDate(beginDate))bd\(DateFormatter.formattedDate(endDate))ed\(destination)dt")
@@ -274,6 +309,8 @@ class DAOCloudTrip: NSObject {
         })
     }
     
+    // Faz o download de todas as viagens
+    
     func fetchAllTrips() {
         
         let tripQuery : CKQuery = CKQuery(recordType: "Trip", predicate: NSPredicate(format: "TRUEPREDICATE"))
@@ -296,6 +333,8 @@ class DAOCloudTrip: NSObject {
         }
     }
     
+    // Função auxiliar que permite baixar todas as viagens
+    
     private func auxFetchAllTrips(index: Int, tripsRecords: [CKRecord]) {
         
         if index < tripsRecords.count {
@@ -316,10 +355,14 @@ class DAOCloudTrip: NSObject {
         }
     }
     
+    // Download de todos os momentos de uma viagem
+    
     func fetchMomentsFromTrip(trip: Trip) {
         
         auxFetchMomentsFromTrip(trip, nextIndex: -1, tripsRecords: [])
     }
+    
+    // Função auxiliar que permite baixar todos os momentos de uma viagem
     
     private func auxFetchMomentsFromTrip(trip: Trip, nextIndex: Int, tripsRecords: [CKRecord]) {
         
@@ -370,6 +413,8 @@ class DAOCloudTrip: NSObject {
         })
     }
     
+    // Deleta uma viagem que esteja na cloud
+    
     func deleteTrip(trip: Trip) {
         
         let deleteOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [dao.getTripID(trip)])
@@ -401,6 +446,8 @@ class DAOCloudTrip: NSObject {
         
         privateDB.addOperation(deleteOperation)
     }
+    
+    // Deleta um certo momento desta trip que esteja na cloud
     
     func deleteMomentFrom(index: Int, trip: Trip) {
         
@@ -441,15 +488,21 @@ class DAOCloudTrip: NSObject {
         }
     }
     
+    // Função auxiliar que cria o CKRecordID de uma trip
+    
     private func getTripID(trip: Trip) -> CKRecordID {
         
         return CKRecordID(recordName: "\(DateFormatter.formattedDate(trip.beginDate))bd\(DateFormatter.formattedDate(trip.endDate))ed\(trip.destination)dt")
     }
     
+    // Função auxiliar que cria o CKRecord de uma trip
+    
     private func getTripRecord(trip: Trip) -> CKRecord {
         
         return CKRecord(recordType: "Trip", recordID: getTripID(trip))
     }
+    
+    // Função auxiliar que inicializa um tripRecord a partir de uma trip
     
     private func modifyTrip(trip: Trip, tripRecord: CKRecord) {
         
@@ -458,6 +511,8 @@ class DAOCloudTrip: NSObject {
         tripRecord.setValue(trip.destination, forKey: "destination")
         tripRecord.setValue(UIImageJPEGRepresentation(trip.getPresentationImage(), 1), forKey: "presentationImage")
     }
+    
+    // Função auxiliar que inicializa um momentRecord a partir de um moment
     
     private func modifyMoment(index: Int, moment: Moment, momentRecord: CKRecord, tripRecord: CKRecord) {
         
@@ -478,6 +533,8 @@ class DAOCloudTrip: NSObject {
         }
     }
     
+    // Função auxiliar que cria CKQuery que procura todos os moments de uma certa trip
+    
     private func getMomentsQuery(tripID: CKRecordID) -> CKQuery {
         
         let tripReference : CKReference = CKReference(recordID: tripID, action: CKReferenceAction.None)
@@ -490,6 +547,8 @@ class DAOCloudTrip: NSObject {
         return momentsQuery
     }
     
+    // Função auxiliar que retira da plist a instrução que acabou de ser executada
+    
     private func updatePlist() {
         
         let instructions : NSMutableArray! = NSMutableArray(contentsOfFile: plistPath)
@@ -500,6 +559,8 @@ class DAOCloudTrip: NSObject {
             instructions.writeToFile(plistPath, atomically: true)
         }
     }
+    
+    // Função que atualiza um certo moment que já esteja na cloud
     
     private func updateMomentOperation(momentRecord: CKRecord) {
         
@@ -522,6 +583,8 @@ class DAOCloudTrip: NSObject {
         
         privateDB.addOperation(updateOperation)
     }
+    
+    // Deleta momento já presente na cloud
     
     private func deleteMomentOperation(momentRecord: CKRecord) {
         
@@ -546,6 +609,8 @@ class DAOCloudTrip: NSObject {
         self.privateDB.addOperation(deleteOperation)
     }
     
+    // Salva um certo momento na cloud
+    
     private func saveMomentRecord(momentRecord: CKRecord) {
         
         privateDB.saveRecord(momentRecord, completionHandler: { (recordReturned, error) -> Void in
@@ -561,6 +626,8 @@ class DAOCloudTrip: NSObject {
             }
         })
     }
+    
+    // Salva uma trip na cloud
     
     private func saveTripRecord(tripRecord: CKRecord) {
         

@@ -38,7 +38,7 @@
 		3F80CEB01B1F748E0077916A /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAF1B1F748E0077916A /* city.jpg */; };
 		3F80CEB21B271D0F0077916A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F80CEB11B271D0F0077916A /* SettingsViewController.swift */; };
 		3FF9C5E51B27612200EB546F /* tripifyGrande.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF9C5E41B27612200EB546F /* tripifyGrande.png */; };
-		4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */; };
+		4F248C121B2B550000D28039 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F248C111B2B550000D28039 /* CloudKit.framework */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
 		4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
 		4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999A1B177B120066504F /* LoginController.swift */; };
@@ -66,6 +66,7 @@
 		4F609CED1B2882AD00A4A81F /* defaultUserProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F609CEC1B2882AD00A4A81F /* defaultUserProfileImage.png */; };
 		4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C50581B1CA695000DA827 /* LocalDAO.swift */; };
 		871C2E7C1B1CB7E600CAA562 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */; };
+		875B373B1B2B0E3D002BAAA6 /* MomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B373A1B2B0E3D002BAAA6 /* MomentView.swift */; };
 		87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */; };
 		94287AEB1B1C6F9E0086B6B6 /* MomentOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */; };
 		94D4F29B1B1CD3640034F575 /* TextMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29A1B1CD3640034F575 /* TextMoment.swift */; };
@@ -115,7 +116,7 @@
 		3F8D99A21B177B120066504F /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
 		3F8D99B51B1780FA0066504F /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		3FF9C5E41B27612200EB546F /* tripifyGrande.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tripifyGrande.png; sourceTree = "<group>"; };
-		4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		4F248C111B2B550000D28039 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4F4EC51B1B18E29500378DDF /* triploka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = triploka.xcdatamodel; sourceTree = "<group>"; };
 		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		4F4EC51F1B18E35E00378DDF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		4F9C50581B1CA695000DA827 /* LocalDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDAO.swift; sourceTree = "<group>"; };
 		871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		871F38E21B1B8E1100EE725C /* Instructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = triplokaTests/Instructions.plist; sourceTree = SOURCE_ROOT; };
+		875B373A1B2B0E3D002BAAA6 /* MomentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentView.swift; sourceTree = "<group>"; };
 		87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentOptions.swift; sourceTree = "<group>"; };
 		94387AAD1B1912E700051D08 /* triploka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = triploka.entitlements; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */,
+				4F248C121B2B550000D28039 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +170,7 @@
 		3F8D99521B1778290066504F = {
 			isa = PBXGroup;
 			children = (
-				4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */,
+				4F248C111B2B550000D28039 /* CloudKit.framework */,
 				3F8D995D1B1778290066504F /* triploka */,
 				3F8D99761B1778290066504F /* triplokaTests */,
 				3F8D995C1B1778290066504F /* Products */,
@@ -299,6 +301,7 @@
 				94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */,
 				94D4F29E1B1CD37A0034F575 /* PictureMoment.swift */,
 				94D4F2A01B1CD3870034F575 /* RestaurantMoment.swift */,
+				875B373A1B2B0E3D002BAAA6 /* MomentView.swift */,
 			);
 			name = Type;
 			sourceTree = "<group>";
@@ -334,7 +337,7 @@
 				TargetAttributes = {
 					3F8D995A1B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 6ZQ4CB9ZL9;
+						DevelopmentTeam = D4QEWF5RB3;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -436,6 +439,7 @@
 				94D4F29D1B1CD36F0034F575 /* AudioMoment.swift in Sources */,
 				3F80CEB21B271D0F0077916A /* SettingsViewController.swift in Sources */,
 				4F4EC50A1B18D72600378DDF /* TripCollectionViewCell.swift in Sources */,
+				875B373B1B2B0E3D002BAAA6 /* MomentView.swift in Sources */,
 				3F65E9D61B1BE82C00DF176D /* GenericViewController.swift in Sources */,
 				4F4EC50B1B18D72600378DDF /* DAOCloudTrip.swift in Sources */,
 				3F07ADC61B29D42B001281CD /* AboutUsViewController.swift in Sources */,

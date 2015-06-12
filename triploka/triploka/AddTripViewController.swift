@@ -192,7 +192,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
             newTrip.changePresentationImage(UIImage(named:"city-cars-traffic-lights.jpeg")!)
         }
         
-        if self.titleTextField.text.isEmpty {
+        if self.titleTextField.text != nil && self.titleTextField.text.isEmpty {
             newTrip.destination = "\(LocalDAO.sharedInstance.getUserName())'s Trip"
         } else
         {
