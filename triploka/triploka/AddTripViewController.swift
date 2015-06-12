@@ -25,9 +25,6 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         super.viewDidLoad()
         
         // background
-        
-        
-        
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
         bg.image = UIImage(named: "passport2.jpg")

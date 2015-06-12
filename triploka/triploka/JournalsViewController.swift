@@ -45,8 +45,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      //  LocalDAO.sharedInstance.deleteAllTrips()
-        
         // Background
         
         self.view.backgroundColor = UIColor.whiteColor()

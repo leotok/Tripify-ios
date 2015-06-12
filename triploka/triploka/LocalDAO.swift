@@ -162,7 +162,7 @@ class LocalDAO {
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
 
-            let teste = self.managedObjectContext?.executeFetchRequest(tripRequest, error: &error) as! [Photo]
+            self.managedObjectContext?.executeFetchRequest(tripRequest, error: &error)
             
             if error != nil{
                 println("Erro no fetch inicial: viagens não carregadas")
