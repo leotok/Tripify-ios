@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     var sideMenuButton = UIBarButtonItem()
+    var checkButotn = UIImageView()
     var settingsTableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Grouped)
     var nameTextField = UITextField()
     var coverPicker: UIImagePickerController!
@@ -143,6 +144,18 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
             if indexPath.row == 0
             {
                 cell?.textLabel?.text = "Save pictures taken"
+                checkButotn.frame.size = CGSizeMake(30, 30)
+                checkButotn.center = CGPointMake(self.view.frame.width / 1.2, self.view.frame.height / 24 )
+                println("\(self.view.frame.height)")
+                if LocalDAO.sharedInstance.shouldSaveToPhotoGallery()
+                {
+                     checkButotn.image = UIImage(named: "Checked")
+                }
+                else
+                {
+                     checkButotn.image = UIImage(named: "Unchecked")
+                }
+                cell?.addSubview(self.checkButotn)
             }
             else
             {
@@ -184,7 +197,16 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         {
             if indexPath.row == 0
             {
-                
+                if LocalDAO.sharedInstance.shouldSaveToPhotoGallery()
+                {
+                    checkButotn.image = UIImage(named: "Unchecked")
+                    LocalDAO.sharedInstance.changePhotoGallerySavingPolicy(false)
+                }
+                else
+                {
+                    checkButotn.image = UIImage(named: "Checked")
+                    LocalDAO.sharedInstance.changePhotoGallerySavingPolicy(true)
+                }
             }
             else
             {
@@ -309,14 +331,16 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
 
-        LocalDAO.sharedInstance.setUserProfileImage(image)
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
+        LocalDAO.sharedInstance.setUserProfileImage(image)
         
-        if picker.sourceType == UIImagePickerControllerSourceType.Camera
-        {
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        if LocalDAO.sharedInstance.shouldSaveToPhotoGallery()
+        {   
+            if picker.sourceType == UIImagePickerControllerSourceType.Camera
+            {
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            }
         }
-        
     }
     
     func cancelPressed() {
