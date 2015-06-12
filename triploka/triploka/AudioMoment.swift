@@ -21,7 +21,7 @@ class AudioMoment: UIView {
         label.text = "Audio"
         label.sizeToFit()
         
-        label.alpha = 0
+        //label.alpha = 0
         
         var width = label.frame.width
         var height = label.frame.height

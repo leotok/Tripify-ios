@@ -121,10 +121,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         
         if trips.count > 0 {
             
-            var trip: Trip
-        
-            //println(trips.count)
-            trip = trips[indexPath.row]
+            var trip: Trip = trips[indexPath.row]
             cell!.tripTitle.text = trip.destination
 
             let cal = NSCalendar.currentCalendar()
@@ -164,6 +161,28 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var timeline = TimelineController()
+        
+        for tempTrip in self.trips {
+            
+            println(tempTrip.destination)
+            
+            let moments = tempTrip.getAllMoments()
+            
+            for tempMoment in moments {
+                
+                let category : Int32 = tempMoment.category!.intValue
+                
+                if category == MomentCategory.Text.rawValue {
+                    
+                    println(tempMoment.comment!)
+                }
+                else if category == MomentCategory.Image.rawValue {
+                    
+                    println(tempMoment.getAllPhotos()[0].description)
+                }
+            }
+        }
+        
         timeline.trip = self.trips[indexPath.row]
         self.navigationController?.pushViewController(timeline, animated: true)
     }

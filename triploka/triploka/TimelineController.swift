@@ -63,6 +63,8 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     var trip : Trip! = nil
     var momentsViews : [MomentView] = []
     
+    var didAppearOnce : Bool = false
+    
     override func viewWillAppear(animated: Bool) {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     }
@@ -187,7 +189,6 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             totalHeight += height
             y += height
             
-            self.scrollView.addSubview(momentView)
             self.momentsViews.append(momentView)
         }
         
@@ -195,6 +196,30 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         
         self.updateContentSize(totalHeight)
         
+        if !didAppearOnce {
+            
+            for var i = 1; i < momentsViews.count-1; i++ {
+                
+                let tempMoment = momentsViews[i].moment
+                let category : Int32 = tempMoment.category!.intValue
+                
+                momentsViews[i].hidden = false
+                //self.view.addSubview(momentsViews[i])
+                self.scrollView.addSubview(momentsViews[i])
+                momentsViews[i].backgroundColor = UIColor.greenColor()
+                
+                if category == MomentCategory.Text.rawValue {
+                    
+                    println(tempMoment.comment)
+                }
+                else if category == MomentCategory.Image.rawValue {
+                    
+                    println(tempMoment.getAllPhotos()[0])
+                }
+            }
+        }
+        
+        didAppearOnce = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -547,7 +572,7 @@ class TimelineController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         moment.comment = self.textLabel.text
         moment.category = NSNumber(int: MomentCategory.Text.rawValue)
         
-        //self.trip.addNewMoment(moment)
+        self.trip.addNewMoment(moment)
         
         let currentView : MomentView = self.momentsViews[self.max]
         let momentView : MomentView = MomentView(frame: currentView.frame, moment: moment)

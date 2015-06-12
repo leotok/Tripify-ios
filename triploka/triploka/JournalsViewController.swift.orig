@@ -45,8 +45,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      //  LocalDAO.sharedInstance.deleteAllTrips()
-        
         // Background
         
         self.view.backgroundColor = UIColor.whiteColor()
@@ -117,8 +115,12 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     {
         var cell : TripCollectionViewCell? = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath:indexPath) as? TripCollectionViewCell
         
+<<<<<<< HEAD
         if cell == nil {
             
+=======
+        if cell == nil{
+>>>>>>> 0c6bad2b20e5a396e4f2daf3ab2dd0eb08b710d5
             cell = TripCollectionViewCell()
         }
         
@@ -157,11 +159,6 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             
             cell!.priority = 1
             
-<<<<<<< HEAD
-            var tap = UITapGestureRecognizer(target: self, action: Selector("showTimeline:"))
-            cell?.addGestureRecognizer(tap)
-=======
->>>>>>> efb43d4c2294e44b169a847f285fbfbb3810aa2b
         }
         
         return cell!
@@ -169,28 +166,11 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     }
     
     
-<<<<<<< HEAD
-    func showTimeline(sender: UITapGestureRecognizer)
-    {
-        if sender.state == UIGestureRecognizerState.Ended {
-            
-            let cellTapped : TripCollectionViewCell = sender.view as! TripCollectionViewCell
-            
-            let indexPath = collectionJournal.indexPathForCell(cellTapped)
-            let trip = trips[indexPath!.row]
-            
-            var timeline = TimelineController()
-            timeline.trip = trip
-            
-            self.navigationController?.pushViewController(timeline, animated: true)
-        }
-=======
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var timeline = TimelineController()
         timeline.trip = self.trips[indexPath.row]
         self.navigationController?.pushViewController(timeline, animated: true)
->>>>>>> efb43d4c2294e44b169a847f285fbfbb3810aa2b
     }
     
     
