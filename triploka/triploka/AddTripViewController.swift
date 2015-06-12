@@ -159,9 +159,18 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        self.cover.image = image
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
-        self.input.removeFromSuperview()        
+        LocalDAO.sharedInstance.setUserProfileImage(image)
+        self.input.removeFromSuperview()  
+        
+        if LocalDAO.sharedInstance.shouldSaveToPhotoGallery()
+        {
+            if picker.sourceType == UIImagePickerControllerSourceType.Camera
+            {
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            }
+        }
+      
         
     }
     

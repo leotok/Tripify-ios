@@ -60,7 +60,7 @@ class Trip: NSManagedObject {
         
         self.presentationImage = newImage
         
-        LocalDAO.sharedInstance.saveContext()
+        //LocalDAO.sharedInstance.saveContext()
     }
     
     /**
@@ -143,7 +143,7 @@ class Trip: NSManagedObject {
             LocalDAO.sharedInstance.managedObjectContext?.deleteObject(moment as! Moment)
         }
         
-        LocalDAO.sharedInstance.saveContext()
+        //LocalDAO.sharedInstance.saveContext()
     }
     
     /**
@@ -156,6 +156,6 @@ class Trip: NSManagedObject {
     func deleteMoment(moment: Moment){
         
         LocalDAO.sharedInstance.managedObjectContext?.deleteObject(moment)
-        LocalDAO.sharedInstance.saveContext()
+        //LocalDAO.sharedInstance.saveContext()
     }
 }

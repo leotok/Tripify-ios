@@ -90,7 +90,7 @@ class Moment: NSManagedObject {
         
         self.geoTag = newGeoTag
         
-        LocalDAO.sharedInstance.saveContext()
+        //LocalDAO.sharedInstance.saveContext()
     }
     
     /**
@@ -124,6 +124,6 @@ class Moment: NSManagedObject {
         
         photoAlbum.addObject(newPhoto)
         
-        LocalDAO.sharedInstance.saveContext()
+       //LocalDAO.sharedInstance.saveContext()
     }
 }
