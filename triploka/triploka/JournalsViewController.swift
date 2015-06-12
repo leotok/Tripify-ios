@@ -117,6 +117,10 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     {
         var cell : TripCollectionViewCell? = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath:indexPath) as? TripCollectionViewCell
         
+        if cell == nil{
+            cell = TripCollectionViewCell()
+        }
+        
         if trips.count > 0 {
             
             var trip: Trip
