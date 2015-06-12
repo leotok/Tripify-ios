@@ -312,6 +312,11 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         LocalDAO.sharedInstance.setUserProfileImage(image)
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
         
+        if picker.sourceType == UIImagePickerControllerSourceType.Camera
+        {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+        
     }
     
     func cancelPressed() {
