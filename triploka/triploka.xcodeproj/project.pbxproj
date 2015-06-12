@@ -37,7 +37,7 @@
 		3F80CEB01B1F748E0077916A /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAF1B1F748E0077916A /* city.jpg */; };
 		3F80CEB21B271D0F0077916A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F80CEB11B271D0F0077916A /* SettingsViewController.swift */; };
 		3FF9C5E51B27612200EB546F /* tripifyGrande.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF9C5E41B27612200EB546F /* tripifyGrande.png */; };
-		4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */; };
+		4F248C121B2B550000D28039 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F248C111B2B550000D28039 /* CloudKit.framework */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
 		4F4EC5011B18D71800378DDF /* JournalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99841B1778780066504F /* JournalsViewController.swift */; };
 		4F4EC5021B18D71800378DDF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999A1B177B120066504F /* LoginController.swift */; };
@@ -113,7 +113,7 @@
 		3F8D99A21B177B120066504F /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
 		3F8D99B51B1780FA0066504F /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		3FF9C5E41B27612200EB546F /* tripifyGrande.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tripifyGrande.png; sourceTree = "<group>"; };
-		4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		4F248C111B2B550000D28039 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4F4EC51B1B18E29500378DDF /* triploka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = triploka.xcdatamodel; sourceTree = "<group>"; };
 		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		4F4EC51F1B18E35E00378DDF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F16FD551B1BDC8D00FB4BA7 /* CloudKit.framework in Frameworks */,
+				4F248C121B2B550000D28039 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +166,7 @@
 		3F8D99521B1778290066504F = {
 			isa = PBXGroup;
 			children = (
-				4F16FD541B1BDC8D00FB4BA7 /* CloudKit.framework */,
+				4F248C111B2B550000D28039 /* CloudKit.framework */,
 				3F8D995D1B1778290066504F /* triploka */,
 				3F8D99761B1778290066504F /* triplokaTests */,
 				3F8D995C1B1778290066504F /* Products */,
@@ -331,7 +331,7 @@
 				TargetAttributes = {
 					3F8D995A1B1778290066504F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 6ZQ4CB9ZL9;
+						DevelopmentTeam = D4QEWF5RB3;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;

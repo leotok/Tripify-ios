@@ -7,10 +7,8 @@
 //
 
 import UIKit
-
 import CoreData
 import CoreLocation
-
 
 
 class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
@@ -22,9 +20,32 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
 
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
+    
+        setupBackground()
+        setupProfile()
+        setupUserStats()
+        setupNavigationController()
         
-        // background
+        //self.test()
+        
+    }
+    
+    private func applyBlurEffect(image: UIImage) -> UIImage{
+        
+        var imageToBlur = CIImage(image: image)
+        var blurfilter = CIFilter(name: "CIGaussianBlur")
+        blurfilter.setValue(imageToBlur, forKey: "inputImage")
+        var resultImage = blurfilter.valueForKey("outputImage") as! CIImage
+        var blurredImage = UIImage(CIImage: resultImage)
+        return blurredImage!
+        
+    }
+    
+    
+    private func setupBackground(){
+        
         
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
@@ -38,10 +59,10 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         bg2.image = UIImage(named: "passport2.jpg")
         bg2.alpha = 0.1
         self.view.addSubview(bg2)
-
         
-        
-        // info do profile
+    }
+    
+    private func setupProfile(){
         
         var profilePic = UIImageView(image: LocalDAO.sharedInstance.getUserProfileImage())
         profilePic.frame.size = CGSizeMake(150, 150)
@@ -57,9 +78,10 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         username.text = LocalDAO.sharedInstance.getUserName()
         username.font = UIFont(name: "AmaticSC-Regular", size: 40)
         self.view.addSubview(username)
+    }
+    
+    private func setupUserStats(){
         
-        
-        // estatísticas das viagens
         
         var cinza = UIView(frame: CGRectMake(0, 0, self.view.frame.width , self.view.frame.height / 2.8))
         cinza.backgroundColor = UIColor.blackColor()
@@ -79,25 +101,25 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         suitcase.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.25)
         self.view.addSubview(suitcase)
         
-//        var numContries = LocalDAO.sharedInstance.getNumberOfVisitedCountries()
+        //        var numContries = LocalDAO.sharedInstance.getNumberOfVisitedCountries()
         self.statistic1 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.0)
         self.statistic1.textAlignment = .Center
-        self.statistic1.text = "3 different countries"
+        self.statistic1.text = "0 different countries"
         self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 18)
-      //  self.statistic1.textColor = UIColor.whiteColor()
+        //  self.statistic1.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic1)
-
+        
         var meeting = UIImageView(frame: CGRectMake(0, 0, 30, 30))
         meeting.image = UIImage(named: "Meeting")
         meeting.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.8)
         self.view.addSubview(meeting)
         
-//        var numFriends = LocalDAO.sharedInstance.getNumberOfNewFriends()
+        //        var numFriends = LocalDAO.sharedInstance.getNumberOfNewFriends()
         self.statistic2 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.65)
         self.statistic2.textAlignment = .Center
-        self.statistic2.text = "5 new friends"
+        self.statistic2.text = "0 new friends"
         self.statistic2.font = UIFont(name: "AmericanTypewriter", size: 18)
         //self.statistic2.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic2)
@@ -107,18 +129,18 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         food.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.5)
         self.view.addSubview(food)
         
-//        var numRest = LocalDAO.sharedInstance.getNumberOfOfRestaurants()
+        //        var numRest = LocalDAO.sharedInstance.getNumberOfOfRestaurants()
         self.statistic3 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.4)
         self.statistic3.textAlignment = .Center
-        self.statistic3.text = "11 restaurants"
+        self.statistic3.text = "0 new restaurants"
         self.statistic3.font = UIFont(name: "AmericanTypewriter", size: 18)
         //self.statistic3.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic3)
         
-        
-        // configuração navigation controller
-        
+    }
+    
+    private func setupNavigationController(){
         var tripify = UIImageView(image: UIImage(named: "TripifyTitle2"))
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
@@ -143,22 +165,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
             sideMenuButton.action = Selector("revealToggle:")
             
         }
-        
-        //self.test()
-        
     }
-    
-    func applyBlurEffect(image: UIImage) -> UIImage{
-        
-        var imageToBlur = CIImage(image: image)
-        var blurfilter = CIFilter(name: "CIGaussianBlur")
-        blurfilter.setValue(imageToBlur, forKey: "inputImage")
-        var resultImage = blurfilter.valueForKey("outputImage") as! CIImage
-        var blurredImage = UIImage(CIImage: resultImage)
-        return blurredImage!
-        
-    }
-    
     
     //    func test(){
     //
