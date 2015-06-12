@@ -222,7 +222,26 @@ class LocalDAO {
         }
     }
     
-
+    /**
+     *
+     *  Returns the user defined preference for saving photos
+     *  to the Photo Gallery. The default is false
+     *
+     *  :returns:   - true if the user wants to save photos to the gallery
+     *              - false if not
+     *
+    */
+    func shouldSaveToPhotoGallery() -> Bool{
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let galleryPhotoSavingOption: AnyObject = userDefaults.objectForKey("galleryPhotoSavingOption"){
+            return galleryPhotoSavingOption as! Bool
+        }
+        else{
+            return false
+        }
+    }
 
     /**
      *
@@ -306,10 +325,9 @@ class LocalDAO {
     
     
     
-    
     /*********************************************
     *
-    *  MARK: Getter Methods
+    *  MARK: Setter Methods
     *
     ***/
     
@@ -333,6 +351,14 @@ class LocalDAO {
         userDefaults.synchronize()
     }
     
+    func changePhotoGallerySavingPolicy(shouldSave: Bool){
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        userDefaults.setObject(shouldSave, forKey: "galleryPhotoSavingOption")
+        
+        userDefaults.synchronize()
+    }
     
     
     /*********************************************
@@ -375,7 +401,7 @@ class LocalDAO {
         self.saveContext()
     }
     
-    func deleteTrip(destination: String, withBeginDate beginDate: NSDate, andEndDate endDate: NSDate){
+    func deleteTrip(destination: String, withBeginDate beginDate: NSDate, andEndDate endDate: NSDate) {
         
         let request = NSFetchRequest(entityName: "Trip")
         var error : NSError?
