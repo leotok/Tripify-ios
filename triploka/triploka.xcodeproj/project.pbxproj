@@ -60,7 +60,6 @@
 		4F4EC5131B18D72600378DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99601B1778290066504F /* AppDelegate.swift */; };
 		4F4EC5141B18D73D00378DDF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996A1B1778290066504F /* Images.xcassets */; };
 		4F4EC5151B18D73D00378DDF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D996C1B1778290066504F /* LaunchScreen.xib */; };
-		4F4EC5161B18D73D00378DDF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F8D995F1B1778290066504F /* Info.plist */; };
 		4F4EC51C1B18E29500378DDF /* triploka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51A1B18E29500378DDF /* triploka.xcdatamodeld */; };
 		4F4EC51E1B18E35E00378DDF /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51D1B18E35E00378DDF /* Trip.swift */; };
 		4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4EC51F1B18E35E00378DDF /* Photo.swift */; };
@@ -404,7 +403,6 @@
 				3F65E9FB1B1F3AE900DF176D /* Meeting.png in Resources */,
 				3F694CC31B1956A300F8D70E /* leoProfile.jpg in Resources */,
 				3FF9C5E51B27612200EB546F /* tripifyGrande.png in Resources */,
-				4F4EC5161B18D73D00378DDF /* Info.plist in Resources */,
 				3F80CEAC1B1F73EB0077916A /* city-cars-traffic-lights.jpeg in Resources */,
 				3F65F7711B2B65A1000F1C8B /* Media.xcassets in Resources */,
 				3F694CC91B195DC600F8D70E /* AmaticSC-Regular.ttf in Resources */,

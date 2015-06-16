@@ -14,7 +14,6 @@ class MomentView : UIView {
     var lastOrigin : CGPoint = CGPoint()
     var contentView : UIView! = nil
     var move = Bool()
-    var didappearOnce : Bool = false
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -30,46 +29,38 @@ class MomentView : UIView {
         self.moment = moment
         
         super.init(frame: frame)
-    }
-    
-    override func didMoveToSuperview() {
         
-        if moment != nil && !didappearOnce {
-            didappearOnce = true
-            self.clipsToBounds = true
+        self.clipsToBounds = true
+        
+        let category : Int32 = moment.category!.intValue
+        
+        if category == MomentCategory.Text.rawValue {
             
-            let category : Int32 = moment.category!.intValue
+            var label : UILabel = UILabel(frame: CGRectMake(0, 0, frame.width, frame.height))
+            label.text = moment.comment!
+            label.textAlignment = NSTextAlignment.Center
+            label.numberOfLines = 0
+            label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            label.backgroundColor = UIColor.whiteColor()
+            label.textColor = UIColor.blackColor()
+            //label.center = self.center
             
-            if category == MomentCategory.Text.rawValue {
-                
-                var label : UILabel = UILabel(frame: frame)
-                label.text = moment.comment!
-                label.textAlignment = NSTextAlignment.Center
-                label.numberOfLines = 0
-                label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-                label.backgroundColor = UIColor.whiteColor()
-                label.textColor = UIColor.blackColor()
-                //label.center = self.center
-                
-                self.contentView = label
-                //self.addSubview(label)
-            }
-            else if category == MomentCategory.Image.rawValue {
-                
-                var imageView : UIImageView = UIImageView(image: moment.getAllPhotos()[0])
-                imageView.frame = frame
-                //imageView.center = self.center
-                
-                self.contentView = imageView
-                //self.addSubview(imageView)
-            }
-            
-            var gesture = UILongPressGestureRecognizer(target: self, action: Selector("longPressToSwapMoment:"))
-            self.addGestureRecognizer(gesture)
-            self.lastOrigin = self.frame.origin
-            self.addSubview(contentView)
-            println(contentView)
+            self.contentView = label
         }
+        else if category == MomentCategory.Image.rawValue {
+            
+            var imageView : UIImageView = UIImageView(image: moment.getAllPhotos()[0])
+            imageView.frame = CGRectMake(0, 0, frame.width, frame.height)
+            //imageView.center = self.center
+            
+            self.contentView = imageView
+        }
+        
+        var gesture = UILongPressGestureRecognizer(target: self, action: Selector("longPressToSwapMoment:"))
+        self.addGestureRecognizer(gesture)
+        self.lastOrigin = self.frame.origin
+        self.addSubview(contentView)
+        println(contentView)
     }
     
     func animate() {
