@@ -61,7 +61,8 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         settingsTableView.dataSource = self
         settingsTableView.frame = self.view.frame
         settingsTableView.backgroundColor = UIColor.clearColor()
-        settingsTableView.scrollEnabled = false
+//        settingsTableView.contentSize = CGSizeMake(self.view.frame.width, self.view.frame.height * 1.5)
+        settingsTableView.scrollEnabled = true
         
         self.view.addSubview(settingsTableView)
     
@@ -144,8 +145,8 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
             if indexPath.row == 0
             {
                 cell?.textLabel?.text = "Save pictures taken"
-                checkButotn.frame.size = CGSizeMake(30, 30)
-                checkButotn.center = CGPointMake(self.view.frame.width / 1.2, self.view.frame.height / 24 )
+                checkButotn.frame.size = CGSizeMake( self.view.frame.width / 12.5, self.view.frame.width / 12.5)
+                checkButotn.center = CGPointMake(self.view.frame.width / 1.2, self.view.frame.width / 13.4892)
                 println("\(self.view.frame.height)")
                 if LocalDAO.sharedInstance.shouldSaveToPhotoGallery()
                 {

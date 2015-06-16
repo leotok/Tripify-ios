@@ -65,18 +65,18 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
     private func setupProfile(){
         
         var profilePic = UIImageView(image: LocalDAO.sharedInstance.getUserProfileImage())
-        profilePic.frame.size = CGSizeMake(150, 150)
+        profilePic.frame.size = CGSizeMake( self.view.frame.width / 2.5 , self.view.frame.width / 2.5)
         profilePic.center = CGPointMake(self.view.center.x, self.view.bounds.height / 6)
-        profilePic.layer.cornerRadius = 75
+        profilePic.layer.cornerRadius = self.view.frame.width / 5
         profilePic.clipsToBounds = true
         self.view.addSubview(profilePic)
         
         var username = UILabel()
-        username.frame.size = CGSizeMake(200, 40)
+        username.frame.size = CGSizeMake(self.view.frame.width / 1.875,self.view.frame.height / 16.675)
         username.center =  CGPointMake(self.view.center.x, self.view.frame.height / 3)
         username.textAlignment = .Center
         username.text = LocalDAO.sharedInstance.getUserName()
-        username.font = UIFont(name: "AmaticSC-Regular", size: 40)
+        username.font = UIFont(name: "AmaticSC-Regular", size: self.view.frame.width / 9.375 )
         self.view.addSubview(username)
     }
     
@@ -96,7 +96,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         effectView2.alpha = 0.2
         self.view.addSubview(effectView2)
         
-        var suitcase = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        var suitcase = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width / 12.5 , self.view.frame.height / 22.233))
         suitcase.image = UIImage(named: "Suitcase")
         suitcase.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.25)
         self.view.addSubview(suitcase)
@@ -106,11 +106,11 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.0)
         self.statistic1.textAlignment = .Center
         self.statistic1.text = "0 different countries"
-        self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 18)
+        self.statistic1.font = UIFont(name: "AmericanTypewriter", size: self.view.frame.width / 20.833)
         //  self.statistic1.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic1)
         
-        var meeting = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        var meeting = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width / 12.5 , self.view.frame.height / 22.233))
         meeting.image = UIImage(named: "Meeting")
         meeting.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.8)
         self.view.addSubview(meeting)
@@ -120,11 +120,11 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.65)
         self.statistic2.textAlignment = .Center
         self.statistic2.text = "0 new friends"
-        self.statistic2.font = UIFont(name: "AmericanTypewriter", size: 18)
+        self.statistic2.font = UIFont(name: "AmericanTypewriter", size: self.view.frame.width / 20.833)
         //self.statistic2.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic2)
         
-        var food = UIImageView(frame: CGRectMake(0, 0, 30, 30))
+        var food = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width / 12.5 , self.view.frame.height / 22.233))
         food.image = UIImage(named: "Food")
         food.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.5)
         self.view.addSubview(food)
@@ -134,7 +134,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.4)
         self.statistic3.textAlignment = .Center
         self.statistic3.text = "0 new restaurants"
-        self.statistic3.font = UIFont(name: "AmericanTypewriter", size: 18)
+        self.statistic3.font = UIFont(name: "AmericanTypewriter", size: self.view.frame.width / 20.833)
         //self.statistic3.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic3)
         
