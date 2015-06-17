@@ -28,7 +28,6 @@
 		3F65E9FA1B1F3AE900DF176D /* Food.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F71B1F3AE900DF176D /* Food.png */; };
 		3F65E9FB1B1F3AE900DF176D /* Meeting.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F81B1F3AE900DF176D /* Meeting.png */; };
 		3F65E9FC1B1F3AE900DF176D /* Suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65E9F91B1F3AE900DF176D /* Suitcase.png */; };
-		3F65F7711B2B65A1000F1C8B /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F65F7701B2B65A1000F1C8B /* Media.xcassets */; };
 		3F65F7751B2B7A1C000F1C8B /* Checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65F7731B2B7A1C000F1C8B /* Checked.png */; };
 		3F65F7761B2B7A1C000F1C8B /* Unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F65F7741B2B7A1C000F1C8B /* Unchecked.png */; };
 		3F694CC31B1956A300F8D70E /* leoProfile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC21B1956A300F8D70E /* leoProfile.jpg */; };
@@ -36,6 +35,7 @@
 		3F694CC91B195DC600F8D70E /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC61B195DC600F8D70E /* AmaticSC-Regular.ttf */; };
 		3F694CCA1B195DC600F8D70E /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F694CC71B195DC600F8D70E /* SIL Open Font License.txt */; };
 		3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F70EE471B1A385C004995B6 /* passport2.jpg */; };
+		3F7CBE641B31DF5000CDE275 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7CBE631B31DF5000CDE275 /* Media.xcassets */; };
 		3F80CEAC1B1F73EB0077916A /* city-cars-traffic-lights.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAB1B1F73EB0077916A /* city-cars-traffic-lights.jpeg */; };
 		3F80CEB01B1F748E0077916A /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAF1B1F748E0077916A /* city.jpg */; };
 		3F80CEB21B271D0F0077916A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F80CEB11B271D0F0077916A /* SettingsViewController.swift */; };
@@ -84,7 +84,6 @@
 		3F65E9F71B1F3AE900DF176D /* Food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Food.png; sourceTree = "<group>"; };
 		3F65E9F81B1F3AE900DF176D /* Meeting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meeting.png; sourceTree = "<group>"; };
 		3F65E9F91B1F3AE900DF176D /* Suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Suitcase.png; sourceTree = "<group>"; };
-		3F65F7701B2B65A1000F1C8B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../Media.xcassets; sourceTree = "<group>"; };
 		3F65F7731B2B7A1C000F1C8B /* Checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checked.png; sourceTree = "<group>"; };
 		3F65F7741B2B7A1C000F1C8B /* Unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unchecked.png; sourceTree = "<group>"; };
 		3F694CC21B1956A300F8D70E /* leoProfile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leoProfile.jpg; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		3F694CC61B195DC600F8D70E /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		3F694CC71B195DC600F8D70E /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
 		3F70EE471B1A385C004995B6 /* passport2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = passport2.jpg; path = amatic/passport2.jpg; sourceTree = "<group>"; };
+		3F7CBE631B31DF5000CDE275 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		3F80CEAB1B1F73EB0077916A /* city-cars-traffic-lights.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "city-cars-traffic-lights.jpeg"; sourceTree = "<group>"; };
 		3F80CEAF1B1F748E0077916A /* city.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city.jpg; sourceTree = "<group>"; };
 		3F80CEB11B271D0F0077916A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 				3F70EE471B1A385C004995B6 /* passport2.jpg */,
 				3F65E9F61B1F3AE900DF176D /* statistics */,
 				3F8D996A1B1778290066504F /* Images.xcassets */,
-				3F65F7701B2B65A1000F1C8B /* Media.xcassets */,
+				3F7CBE631B31DF5000CDE275 /* Media.xcassets */,
 				3F8D996C1B1778290066504F /* LaunchScreen.xib */,
 				3F8D995F1B1778290066504F /* Info.plist */,
 			);
@@ -394,6 +394,7 @@
 				3F65E9EF1B1F343300DF176D /* black.jpg in Resources */,
 				3F65E9ED1B1F244B00DF176D /* blueBluer.jpg in Resources */,
 				3F694CC81B195DC600F8D70E /* Amatic-Bold.ttf in Resources */,
+				3F7CBE641B31DF5000CDE275 /* Media.xcassets in Resources */,
 				3F65E9FC1B1F3AE900DF176D /* Suitcase.png in Resources */,
 				3F65E9FA1B1F3AE900DF176D /* Food.png in Resources */,
 				3F694CCA1B195DC600F8D70E /* SIL Open Font License.txt in Resources */,
@@ -404,7 +405,6 @@
 				3F694CC31B1956A300F8D70E /* leoProfile.jpg in Resources */,
 				3FF9C5E51B27612200EB546F /* tripifyGrande.png in Resources */,
 				3F80CEAC1B1F73EB0077916A /* city-cars-traffic-lights.jpeg in Resources */,
-				3F65F7711B2B65A1000F1C8B /* Media.xcassets in Resources */,
 				3F694CC91B195DC600F8D70E /* AmaticSC-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
