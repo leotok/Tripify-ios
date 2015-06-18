@@ -61,7 +61,7 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         settingsTableView.dataSource = self
         settingsTableView.frame = self.view.frame
         settingsTableView.backgroundColor = UIColor.clearColor()
-        settingsTableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0)
+        settingsTableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0)
         settingsTableView.scrollEnabled = true
         
         self.view.addSubview(settingsTableView)
@@ -97,7 +97,7 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if section == 0
+        if section == 0 
         {
             return "Profile"
         }
