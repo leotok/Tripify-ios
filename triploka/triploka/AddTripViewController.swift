@@ -11,7 +11,10 @@ import UIKit
 class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var titleTextField : UITextField!
+    var titleLabel: UILabel!
     var cover: UIImageView!
+    var dateLabel: UILabel!
+    var datePicker: UIDatePicker!
     var coverPicker: UIImagePickerController!
     var cinza: UIView!
     var camera: UIButton!
@@ -46,31 +49,56 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         // inputs da trip
         
-        self.input = UILabel()
+        titleLabel = UILabel()
+        titleLabel.text = "Title:"
+        titleLabel.frame.size = CGSizeMake(self.view.frame.width / 4.7, self.view.frame.width / 9.4 )
+        titleLabel.center = CGPointMake(self.view.frame.width / 5, self.view.frame.width / 6.4)
+        titleLabel.textColor = UIColor(red:0.1882, green:0.1922, blue:0.2157, alpha:1)
+        self.view.addSubview(self.titleLabel)
+        
+        titleTextField = UITextField(frame: CGRectMake(0, 0, self.view.bounds.width / 1.7, 30))
+        titleTextField!.center = CGPointMake(self.view.frame.width / 1.7, self.view.bounds.width / 6.4)
+        titleTextField!.placeholder = "\(LocalDAO.sharedInstance.getUserName())'s Trip"
+        titleTextField!.delegate = self
+        titleTextField!.borderStyle = UITextBorderStyle.None
+        titleTextField.textColor = UIColor(red:0.1882, green:0.1922, blue:0.2157, alpha:1)
+        self.view.addSubview(titleTextField!)
+        
+        dateLabel = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 4.7, self.view.frame.width / 9.4))
+        dateLabel.text = "Began:"
+        dateLabel.center = CGPointMake(self.view.frame.width / 5, self.view.frame.width / 4)
+        dateLabel.textColor = UIColor(red:0.1882, green:0.1922, blue:0.2157, alpha:1)
+        self.view.addSubview(self.dateLabel)
+        
+        datePicker = UIDatePicker()
+        datePicker.frame = CGRectMake(0, 160, 320, 160)
+        datePicker.transform = CGAffineTransformMakeScale( 0.8, 0.8)
+        datePicker.center = CGPointMake(self.view.frame.width / 2, self.view.frame.width / 2)
+        datePicker.datePickerMode = UIDatePickerMode.Date
+        let currentDate = NSDate()
+        datePicker.maximumDate = currentDate
+        datePicker.date = currentDate
+        self.view.addSubview(datePicker)
+
         cover = UIImageView(frame: CGRectMake(0, 0, self.view.bounds.width / 1.4, self.view.bounds.height / 2.8))
-        cover.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.5)
+        cover.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.7)
         cover.userInteractionEnabled = true
         cover.backgroundColor = UIColor.whiteColor()
+        cover.layer.borderWidth = 1
+        cover.layer.borderColor = UIColor.grayColor().CGColor
+        var coverTap = UITapGestureRecognizer(target: self, action: Selector("chooseCover"))
+        self.cover.addGestureRecognizer(coverTap)
+        
+        input = UILabel()
         input.text = "Add Cover"
         input.font = UIFont(name: "AmaticSC-Regular", size: 30)
         input.frame.size = CGSizeMake(120, 40)
         input.center = cover.center
         input.textAlignment = .Center
-        cover.layer.borderWidth = 1
-        cover.layer.borderColor = UIColor.grayColor().CGColor
-        
-        var coverTap = UITapGestureRecognizer(target: self, action: Selector("chooseCover"))
-        self.cover.addGestureRecognizer(coverTap)
         
         self.view.addSubview(cover)
         self.view.addSubview(input)
         
-        titleTextField = UITextField(frame: CGRectMake(0, 0, self.view.bounds.width / 1.5, 30))
-        titleTextField!.center = CGPointMake(self.view.center.x, self.view.bounds.height / 8)
-        titleTextField!.placeholder = "Trip Title"
-        titleTextField!.delegate = self
-        titleTextField!.borderStyle = UITextBorderStyle.RoundedRect
-        self.view.addSubview(titleTextField!)
         
         
     }
@@ -206,7 +234,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         }
         
         
-        newTrip.beginDate = NSDate()
+        newTrip.beginDate = datePicker.date
         
         self.navigationController?.popViewControllerAnimated(true)
     
