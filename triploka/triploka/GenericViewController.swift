@@ -105,7 +105,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic1 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic1.center = CGPointMake(self.view.center.x, self.view.frame.height / 2.0)
         self.statistic1.textAlignment = .Center
-        self.statistic1.text = "0 different countries"
+        self.statistic1.text = "5 different countries"
         self.statistic1.font = UIFont(name: "AmericanTypewriter", size: 18)
         //  self.statistic1.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic1)
@@ -119,7 +119,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic2 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic2.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.65)
         self.statistic2.textAlignment = .Center
-        self.statistic2.text = "0 new friends"
+        self.statistic2.text = "15 new friends"
         self.statistic2.font = UIFont(name: "AmericanTypewriter", size: 18)
         //self.statistic2.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic2)
@@ -133,7 +133,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.statistic3 = UILabel(frame: CGRectMake(0, 0, self.view.frame.width / 1.5, 50))
         self.statistic3.center = CGPointMake(self.view.center.x, self.view.frame.height / 1.4)
         self.statistic3.textAlignment = .Center
-        self.statistic3.text = "0 new restaurants"
+        self.statistic3.text = "25 new restaurants"
         self.statistic3.font = UIFont(name: "AmericanTypewriter", size: 18)
         //self.statistic3.textColor = UIColor.whiteColor()
         self.view.addSubview(self.statistic3)
