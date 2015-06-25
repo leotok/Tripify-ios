@@ -68,6 +68,7 @@
 		4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C50581B1CA695000DA827 /* LocalDAO.swift */; };
 		871C2E7C1B1CB7E600CAA562 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */; };
 		875B373B1B2B0E3D002BAAA6 /* MomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B373A1B2B0E3D002BAAA6 /* MomentView.swift */; };
+		8766DE2C1B3208C600A70580 /* Instructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 871F38E21B1B8E1100EE725C /* Instructions.plist */; };
 		87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */; };
 		94287AEB1B1C6F9E0086B6B6 /* MomentOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */; };
 		94D4F29B1B1CD3640034F575 /* TextMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29A1B1CD3640034F575 /* TextMoment.swift */; };
@@ -387,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8766DE2C1B3208C600A70580 /* Instructions.plist in Resources */,
 				4F609CED1B2882AD00A4A81F /* defaultUserProfileImage.png in Resources */,
 				3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */,
 				3F65F7761B2B7A1C000F1C8B /* Unchecked.png in Resources */,

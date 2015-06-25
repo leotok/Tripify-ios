@@ -207,6 +207,10 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         
         newTrip.beginDate = NSDate()
+        newTrip.endDate = NSDate()
+        
+        DAOCloudTrip.getInstance().saveInstruction(newTrip)
+        DAOCloudTrip.getInstance().updateCloudKit()
         
         self.navigationController?.popViewControllerAnimated(true)
     
