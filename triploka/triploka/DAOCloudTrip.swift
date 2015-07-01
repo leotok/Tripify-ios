@@ -9,16 +9,17 @@
 import UIKit
 import CloudKit
 
-private var dao : DAOCloudTrip = DAOCloudTrip()
+private var dao : DAOCloudTrip! = nil
 
-class DAOCloudTrip: NSObject {
+class DAOCloudTrip {
     
     private var container : CKContainer
     private var privateDB : CKDatabase
     private var rootPath : String
     private var plistPath : String
+    private var tempURL : NSURL!
     
-    override init() {
+    init() {
         
         container = CKContainer.defaultContainer()
         privateDB = container.privateCloudDatabase
@@ -28,6 +29,24 @@ class DAOCloudTrip: NSObject {
         plistPath = rootPath.stringByAppendingPathComponent("Instructions.plist")
         
         var fileManager = NSFileManager.defaultManager()
+        
+        let tempDirectoryStr : String! = NSTemporaryDirectory()
+        
+        if tempDirectoryStr == nil {
+            
+            var errorPointer : NSErrorPointer! = nil
+            
+            tempURL = fileManager.URLForDirectory(NSSearchPathDirectory.ItemReplacementDirectory, inDomain: NSSearchPathDomainMask.UserDomainMask, appropriateForURL: NSURL(fileURLWithPath: rootPath)!, create: true, error: errorPointer)
+            
+            if errorPointer != nil {
+                
+                //implementar
+            }
+        }
+        else {
+            
+            tempURL = NSURL(fileURLWithPath: tempDirectoryStr.stringByAppendingPathComponent("tempPhotoAsset.jpeg"))
+        }
         
         if !fileManager.fileExistsAtPath(plistPath) {
             
@@ -40,11 +59,14 @@ class DAOCloudTrip: NSObject {
                 println("Erro ao copiar plist para bundle")
             }
         }
-        
-        super.init()
     }
     
     class func getInstance() -> DAOCloudTrip {
+        
+        if dao == nil {
+            
+            dao = DAOCloudTrip()
+        }
         
         return dao
     }
@@ -67,7 +89,49 @@ class DAOCloudTrip: NSObject {
             instructions = NSMutableArray(capacity: 1)
         }
         
-        let newInstruction : NSDictionary = NSDictionary(dictionary: ["type" : "Trip", "action" : "Save", "beginDate" : trip.beginDate, "endDate" : trip.endDate, "destination" : trip.destination, "presentationImage" : UIImageJPEGRepresentation(trip.getPresentationImage(), 1)])
+        let newInstruction : NSMutableDictionary = NSMutableDictionary()
+        
+        newInstruction.setValue("Trip", forKey: "type")
+        newInstruction.setValue("Save", forKey: "action")
+        
+        newInstruction.setValue(trip.beginDate, forKey: "beginDate")
+        newInstruction.setValue(trip.endDate, forKey: "endDate")
+        newInstruction.setValue(trip.destination, forKey: "destination")
+        newInstruction.setValue(UIImageJPEGRepresentation(trip.getPresentationImage(), 1), forKey: "presentationImage")
+        
+        instructions.addObject(newInstruction)
+        instructions.writeToFile(plistPath, atomically: true)
+    }
+    
+    // Salva um momento na plist para que seja posteriormente enviada para a cloud
+    
+    func saveInstruction(moment: Moment) {
+        
+        var instructions : NSMutableArray! = NSMutableArray(contentsOfFile: plistPath)
+        let trip = moment.trip!
+        let photos = moment.getAllPhotos()
+        
+        //let newInstruction : NSMutableDictionary = NSMutableDictionary(dictionary: ["type" : "Moment", "action" : "Save", "beginDate" : trip.beginDate, "endDate" : trip.endDate, "destination" : trip.destination, "index" : moment.index!, "category" : moment.category!, "comment" : moment.comment!, "geoTag" : moment.getGeoTag(), "photosAmount" : photos.count])
+        
+        let newInstruction : NSMutableDictionary = NSMutableDictionary()
+        
+        newInstruction.setValue("Trip", forKey: "type")
+        newInstruction.setValue("Save", forKey: "action")
+        
+        newInstruction.setValue(trip.beginDate, forKey: "beginDate")
+        newInstruction.setValue(trip.endDate, forKey: "endDate")
+        newInstruction.setValue(trip.destination, forKey: "destination")
+        
+        newInstruction.setValue(moment.index!, forKey: "index")
+        newInstruction.setValue(moment.category!, forKey: "category")
+        newInstruction.setValue(moment.comment!, forKey: "comment")
+        newInstruction.setValue(moment.getGeoTag(), forKey: "geoTag")
+        newInstruction.setValue(NSNumber(integer: photos.count), forKey: "photosAmount")
+        
+        if photos.count > 0 {
+            
+            newInstruction.setValue(self.getMomentPhotosArray(photos, isAsset: false), forKey: "photos")
+        }
         
         instructions.addObject(newInstruction)
         instructions.writeToFile(plistPath, atomically: true)
@@ -85,65 +149,48 @@ class DAOCloudTrip: NSObject {
             let type : String = instruction["type"] as! String
             let action : String = instruction["action"] as! String
             
-            var trip : Trip = Trip()
-            
-            trip.beginDate = instruction.valueForKey("beginDate") as! NSDate
-            trip.endDate = instruction.valueForKey("endDate") as! NSDate
-            trip.destination = instruction.valueForKey("destination") as! String
-            
-            let tripRecord: CKRecord = getTripRecord(trip)
+            let tripRecord: CKRecord = createTripRecord(instruction)
             
             if type == "Trip" {
                 
-                if action == "Save" {
+                if action == "Delete" {
                     
-                    trip.changePresentationImage(UIImage(data: instruction.valueForKey("presentationImage") as! NSData)!)
-                    
-                    saveTripRecord(tripRecord)
+                    deleteRecord(tripRecord, wasReadFromPlist: true, isTripRecord: true)
                 }
-                else if action == "Update" {
+                else {
                     
-                    trip.changePresentationImage(UIImage(data: instruction.valueForKey("presentationImage") as! NSData)!)
+                    modifyTripRecord(instruction, tripRecord: tripRecord)
                     
-                    updateTrip(trip)
-                }
-                else if action == "Delete" {
-                    
-                    deleteTrip(trip)
+                    if action == "Save" {
+                     
+                        saveRecord(tripRecord, wasReadFromPlist: true, isTripRecord: true)
+                    }
+                    else if action == "Update" {
+                        
+                        updateRecord(tripRecord, wasReadFromPlist: true, isTripRecord: true)
+                    }
                 }
             }
             else if action == "Moment" {
                 
-                let index : Int = (instruction.valueForKey("index") as! NSNumber).integerValue
-                let momentRecord : CKRecord = CKRecord(recordType: "Moment")
+                let momentRecord = createMomentRecord(instruction)
                 
-                momentRecord.setValue(instruction.valueForKey("comment") as! String, forKey: "comment")
-                
-                momentRecord.setValue(instruction.valueForKey("category") as! NSNumber, forKey: "category")
-                
-                momentRecord.setValue(instruction.valueForKey("geoTag") as! CLLocation, forKey: "geoTag")
-                
-                momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
-                
-                let nsnAmount : NSNumber = instruction.valueForKey("photosAmount") as! NSNumber
-                let amount : Int = nsnAmount.integerValue
-                
-                for var i : Int = 0; i < amount; i++ {
+                if action == "Delete" {
                     
-                    momentRecord.setValue(instruction.valueForKey("photo\(i)") as! NSData, forKey: "photo\(i)")
+                    deleteRecord(momentRecord, wasReadFromPlist: true, isTripRecord: false)
                 }
-                
-                if action == "Save" {
+                else {
                     
-                    saveMomentRecord(momentRecord)
-                }
-                else if action == "Update" {
+                    modifyMomentRecord(instruction, momentRecord: momentRecord, tripRecord: tripRecord)
                     
-                    updateMomentOperation(momentRecord)
-                }
-                else if action == "Delete" {
-                    
-                    deleteMomentOperation(momentRecord)
+                    if action == "Update" {
+                        
+                        updateRecord(momentRecord, wasReadFromPlist: true, isTripRecord: false)
+                    }
+                    else if action == "Save" {
+                        
+                        saveRecord(momentRecord, wasReadFromPlist: true, isTripRecord: false)
+                    }
                 }
             }
         }
@@ -153,160 +200,36 @@ class DAOCloudTrip: NSObject {
     
     func saveNewTrip(trip: Trip) {
         
-        let tripRecord : CKRecord = getTripRecord(trip)
-        modifyTrip(trip, tripRecord: tripRecord)
+        let tripRecord : CKRecord = createTripRecord(trip.beginDate, endDate: trip.endDate)
         
-        privateDB.saveRecord(tripRecord, completionHandler: { (recordReturned, error) -> Void in
-            
-            if let err = error {
-                
-                println("Erro ao salvar uma viagem. O erro foi: \(err)")
-            }
-            else {
-                
-                println("Viagem salva com sucesso!")
-                self.saveAllMoments(tripRecord, moments: trip.getAllMoments())
-            }
-        })
+        modifyTripRecord(trip, tripRecord: tripRecord)
+        saveRecord(tripRecord, wasReadFromPlist: false, isTripRecord: true)
     }
     
-    // Salva o momento da posição index do vetor de momentos de trip na cloud
-    
-    func saveNewMoment(index: Int, trip: Trip) {
+    func saveNewMoment(moment: Moment) {
         
-        if index > 0 {
-            
-            let tripRecord : CKRecord = getTripRecord(trip)
-            
-            auxSaveNewMoment(index, moments: trip.getAllMoments(), tripRecord: tripRecord, callAgain: false)
-        }
+        let (momentRecord, tripRecord) : (CKRecord, CKRecord) = createMomentRecord(moment)
+        
+        modifyMomentRecord(moment, momentRecord: momentRecord, tripRecord: tripRecord)
+        saveRecord(momentRecord, wasReadFromPlist: false, isTripRecord: false)
     }
     
     // Atualiza uma viagem já existente na cloud
     
     func updateTrip(trip: Trip) {
         
-        let tripRecord : CKRecord = getTripRecord(trip)
-        modifyTrip(trip, tripRecord: tripRecord)
-        let updateOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [tripRecord], recordIDsToDelete: nil)
+        let tripRecord : CKRecord = createTripRecord(trip)
         
-        updateOperation.savePolicy = CKRecordSavePolicy.ChangedKeys
-        
-        updateOperation.modifyRecordsCompletionBlock = { saved, _, error in
-            
-            if let err = error {
-                
-                println("Erro ao atualizar viagem. O erro foi: \(err)")
-            }
-            else {
-                
-                self.updatePlist()
-                self.updateCloudKit()
-            }
-        }
-        
-        privateDB.addOperation(updateOperation)
+        modifyTripRecord(trip, tripRecord: tripRecord)
+        updateRecord(tripRecord, wasReadFromPlist: false, isTripRecord: true)
     }
     
-    // Atualiza um momento já existente na cloud
-    
-    func updateMoment(index: Int, trip: Trip) {
+    func updateMoment(moment: Moment) {
         
-        let tripRecord : CKRecord = getTripRecord(trip)
-        let momentRecord : CKRecord = CKRecord(recordType: "Moment")
-        let moments : [Moment] = trip.getAllMoments()
-        let moment : Moment = moments[index]
+        let (momentRecord, tripRecord) : (CKRecord, CKRecord) = createMomentRecord(moment)
         
-        modifyMoment(index, moment: moment, momentRecord: momentRecord, tripRecord: tripRecord)
-        
-        updateMomentOperation(momentRecord)
-    }
-    
-    // Salva todos os momentos da array moments na cloud
-    
-    private func saveAllMoments(tripRecord: CKRecord, moments: [Moment]) {
-        
-        if moments.count > 0 {
-            
-            auxSaveNewMoment(0, moments: moments, tripRecord: tripRecord, callAgain: true)
-        }
-    }
-    
-    // Função auxiliar que salva um certo moment
-    
-    private func auxSaveNewMoment(index: Int, moments: [Moment], tripRecord: CKRecord, callAgain: Bool) {
-        
-        if index < moments.count {
-            
-            let moment : Moment = moments[index]
-            let momentRecord : CKRecord = CKRecord(recordType: "Moment")
-            
-            modifyMoment(index, moment: moment, momentRecord: momentRecord, tripRecord: tripRecord)
-            
-            privateDB.saveRecord(momentRecord, completionHandler: { (recordReturned, error) -> Void in
-                
-                if let err = error {
-                    
-                    println("Erro ao salvar um momento. O erro foi: \(err)")
-                }
-                else {
-                    
-                    if callAgain {
-                        
-                        self.auxSaveNewMoment(index+1, moments: moments, tripRecord: tripRecord, callAgain: callAgain)
-                    }
-                    else {
-                        
-                        self.updatePlist()
-                        self.updateCloudKit()
-                    }
-                }
-            })
-        }
-        else {
-            
-            if callAgain {
-                
-                self.updatePlist()
-                self.updateCloudKit()
-            }
-        }
-    }
-    
-    // Faz o download de uma certa viagem
-    
-    func fetchTripWith(beginDate: NSDate, endDate: NSDate, destination: String) {
-        
-        let tripID : CKRecordID = CKRecordID(recordName: "\(DateFormatter.formattedDate(beginDate))bd\(DateFormatter.formattedDate(endDate))ed\(destination)dt")
-        
-        privateDB.fetchRecordWithID(tripID, completionHandler: { (recordReturned, error) -> Void in
-            
-            if let err = error {
-                
-                println("Erro ao pegar uma viagem. O erro foi: \(err)")
-            }
-            else {
-                
-                if recordReturned == nil {
-                    
-                    println("Viagem não existe na cloud.")
-                    self.updateCloudKit()
-                }
-                else {
-                    
-                    var trip : Trip = Trip()
-                    
-                    trip.beginDate = recordReturned.valueForKey("beginDate") as! NSDate
-                    trip.endDate = recordReturned.valueForKey("endDate") as! NSDate
-                    trip.destination = recordReturned.valueForKey("destination") as! String
-                    
-                    let data : NSData = recordReturned.valueForKey("presentationImage") as! NSData
-                    
-                    trip.changePresentationImage(UIImage(data: data)!)
-                    dao.fetchMomentsFromTrip(trip)
-                }
-            }
-        })
+        modifyMomentRecord(moment, momentRecord: momentRecord, tripRecord: tripRecord)
+        updateRecord(momentRecord, wasReadFromPlist: false, isTripRecord: false)
     }
     
     // Faz o download de todas as viagens
@@ -347,11 +270,10 @@ class DAOCloudTrip: NSObject {
             trip.destination = tripRecord.valueForKey("destination") as! String
             
             let photoAsset : CKAsset = tripRecord.valueForKey("presentationImage") as! CKAsset
-            var error : NSErrorPointer! = nil
-            let data : NSData = tripRecord.valueForKey("presentationImage") as! NSData
+            let data : NSData = NSData(contentsOfURL: photoAsset.fileURL)!
             
             trip.changePresentationImage(UIImage(data: data)!)
-            self.auxFetchMomentsFromTrip(trip, nextIndex: index+1, tripsRecords: tripsRecords)
+            self.auxFetchMomentsFromTrip(trip, index: index, tripsRecords: tripsRecords)
         }
     }
     
@@ -359,14 +281,14 @@ class DAOCloudTrip: NSObject {
     
     func fetchMomentsFromTrip(trip: Trip) {
         
-        auxFetchMomentsFromTrip(trip, nextIndex: -1, tripsRecords: [])
+        auxFetchMomentsFromTrip(trip, index: -1, tripsRecords: [])
     }
     
     // Função auxiliar que permite baixar todos os momentos de uma viagem
     
-    private func auxFetchMomentsFromTrip(trip: Trip, nextIndex: Int, tripsRecords: [CKRecord]) {
+    private func auxFetchMomentsFromTrip(trip: Trip, index: Int, tripsRecords: [CKRecord]) {
         
-        let tripID : CKRecordID = dao.getTripID(trip)
+        let tripID : CKRecordID = getTripID(trip.beginDate, endDate: trip.endDate)
         let momentsQuery : CKQuery = dao.getMomentsQuery(tripID)
         
         self.privateDB.performQuery(momentsQuery, inZoneWithID: CKRecordZone.defaultRecordZone().zoneID, completionHandler: { (momentsRecords, error) -> Void in
@@ -385,26 +307,38 @@ class DAOCloudTrip: NSObject {
                         
                         let momentRecord : CKRecord = momentRecordObj as! CKRecord
                         
-                        moment.category = (momentRecord.valueForKey("category") as! NSNumber)
+                        moment.category = momentRecord.valueForKey("category") as? NSNumber
                         
-                        moment.comment = (momentRecord.valueForKey("comment") as! String)
+                        moment.comment = momentRecord.valueForKey("comment") as? String
                         
                         moment.changeGeoTag(momentRecord.valueForKey("geoTag") as! CLLocation)
                         
-                        let amount : Int = (momentRecord.valueForKey("photosAmount") as! NSNumber).integerValue
+                        moment.index = momentRecord.valueForKey("index") as? NSNumber
                         
-                        for var i : Int = 0; i < amount; i++ {
+                        moment.trip = trip
+                        
+                        let nPhotosAmount = momentRecord.valueForKey("photosAmount") as! NSNumber
+                        let photosAmount = nPhotosAmount.integerValue
+                        
+                        if photosAmount > 0 {
                             
-                            moment.addNewPhoto(UIImage(data: (momentRecord.valueForKey("photo\(i)") as! NSData))!)
+                            let photosAssets : NSArray = momentRecord.valueForKey("photos") as! NSArray
+                            
+                            for element in photosAssets {
+                                
+                                let photoAsset : CKAsset = element as! CKAsset
+                                
+                                moment.addNewPhoto(UIImage(data: NSData(contentsOfURL: photoAsset.fileURL)!)!)
+                            }
                         }
                         
                         trip.addNewMoment(moment)
                     }
                 }
                 
-                if nextIndex > 0 {
+                if index > -1 {
                     
-                    self.auxFetchAllTrips(nextIndex, tripsRecords: tripsRecords)
+                    self.auxFetchAllTrips(index+1, tripsRecords: tripsRecords)
                 }
                 
                 println("Viagem obtida com sucesso!")
@@ -417,94 +351,90 @@ class DAOCloudTrip: NSObject {
     
     func deleteTrip(trip: Trip) {
         
-        let deleteOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [dao.getTripID(trip)])
-        
-        deleteOperation.savePolicy = CKRecordSavePolicy.AllKeys
-        
-        deleteOperation.modifyRecordsCompletionBlock = { added, deleted, error in
-            
-            if let err = error {
-                
-                println("Erro ao deletar viagem. O erro foi: \(err)")
-            }
-            else {
-                
-                if deleted.count < 1 {
-                    
-                    println("Não existe esta viagem na cloud para que possa ser deletada")
-                }
-                else {
-                    
-                    println("Viagem deletada com sucesso!")
-                    // não precisa deletar os moments, pois já são deletados automaticamente
-                }
-                
-                self.updatePlist()
-                self.updateCloudKit()
-            }
-        }
-        
-        privateDB.addOperation(deleteOperation)
+        let tripRecord = createTripRecord(trip)
+        deleteRecord(tripRecord, wasReadFromPlist: false, isTripRecord: true)
     }
     
-    // Deleta um certo momento desta trip que esteja na cloud
+    func deleteMoment(moment: Moment) {
+        
+        let (momentRecord, tripRecord) : (CKRecord, CKRecord) = createMomentRecord(moment)
+        
+        deleteRecord(momentRecord, wasReadFromPlist: false, isTripRecord: false)
+    }
     
-    func deleteMomentFrom(index: Int, trip: Trip) {
+    private func getTripIDString(beginDate: NSDate, endDate: NSDate) -> String {
         
-        let count: Int = trip.getAllMoments().count
-        
-        if count < 1 || index >= count {
-            
-            return
-        }
-        
-        let tripID : CKRecordID = dao.getTripID(trip)
-        let tripReference : CKReference = CKReference(recordID: tripID, action: CKReferenceAction.None)
-        
-        let momentsPredicate : NSPredicate = NSPredicate(format: "trip == %@ AND index == %@", tripReference, NSNumber(integer: index))
-        
-        let momentsQuery : CKQuery = CKQuery(recordType: "Moment", predicate: momentsPredicate)
-        
-        privateDB.performQuery(momentsQuery, inZoneWithID: CKRecordZone.defaultRecordZone().zoneID) { (momentsRecords, error) -> Void in
-            
-            if let err = error {
-                
-                println("Erro ao deletar ")
-            }
-            else {
-                
-                if momentsRecords.count > 0 {
-                    
-                    let momentRecord : CKRecord = momentsRecords[0] as! CKRecord
-                    
-                    self.deleteMomentOperation(momentRecord)
-                }
-                else {
-                    
-                    self.updatePlist()
-                    self.updateCloudKit()
-                }
-            }
-        }
+        return "\(DateFormatter.formattedDate(beginDate))bd\(DateFormatter.formattedDate(endDate))ed"
     }
     
     // Função auxiliar que cria o CKRecordID de uma trip
     
-    private func getTripID(trip: Trip) -> CKRecordID {
+    private func getTripID(beginDate: NSDate, endDate: NSDate) -> CKRecordID {
         
-        return CKRecordID(recordName: "\(DateFormatter.formattedDate(trip.beginDate))bd\(DateFormatter.formattedDate(trip.endDate))ed\(trip.destination)dt")
+        return CKRecordID(recordName: getTripIDString(beginDate, endDate: endDate))
+    }
+    
+    private func getTripID(tripRecordIDString: String) -> CKRecordID {
+        
+        return CKRecordID(recordName: tripRecordIDString)
     }
     
     // Função auxiliar que cria o CKRecord de uma trip
     
-    private func getTripRecord(trip: Trip) -> CKRecord {
+    private func createTripRecord(beginDate: NSDate, endDate: NSDate) -> CKRecord {
         
-        return CKRecord(recordType: "Trip", recordID: getTripID(trip))
+        return CKRecord(recordType: "Trip", recordID: getTripID(beginDate, endDate: endDate))
+    }
+    
+    private func createTripRecord(tripRecordIDString: String) -> CKRecord {
+        
+        return CKRecord(recordType: "Trip", recordID: getTripID(tripRecordIDString))
+    }
+    
+    private func createTripRecord(trip: Trip) -> CKRecord {
+        
+        return createTripRecord(trip.beginDate, endDate: trip.endDate)
+    }
+    
+    private func createTripRecord(trip: NSDictionary) -> CKRecord {
+        
+        return createTripRecord(trip.valueForKey("beginDate") as! NSDate, endDate: trip.valueForKey("beginDate") as! NSDate)
+    }
+    
+    private func getMomentID(moment: Moment) -> (CKRecordID, CKRecord) {
+    
+        let trip : Trip = moment.trip!
+        let tripIDString : String = getTripIDString(trip.beginDate, endDate: trip.endDate)
+        
+        return (CKRecordID(recordName: "\(tripIDString)\(moment.index!)"), createTripRecord(tripIDString))
+    }
+    
+    private func createMomentRecord(moment: Moment) -> (CKRecord, CKRecord) {
+        
+        let (momentRecordID, tripRecord) = getMomentID(moment)
+        
+        return (CKRecord(recordType: "Moment", recordID: momentRecordID), tripRecord)
+    }
+    
+    private func createMomentRecord(index: NSNumber, beginDate: NSDate, endDate: NSDate) -> CKRecord {
+        
+        let tripIDString : String = getTripIDString(beginDate, endDate: endDate)
+        
+        return CKRecord(recordType: "Moment", recordID: CKRecordID(recordName: "\(tripIDString)\(index)"))
+    }
+    
+    private func createMomentRecord(moment: NSDictionary) -> CKRecord {
+        
+        let tripIDString : String = getTripIDString(moment.valueForKey("beginDate") as! NSDate, endDate: moment.valueForKey("beginDate") as! NSDate)
+        
+        let index = moment.valueForKey("index") as! NSNumber
+        
+        return CKRecord(recordType: "Moment", recordID: CKRecordID(recordName: "\(tripIDString)\(index)"))
     }
     
     // Função auxiliar que inicializa um tripRecord a partir de uma trip
     
-    private func modifyTrip(trip: Trip, tripRecord: CKRecord) {
+    private func modifyTripRecord(trip: Trip, tripRecord: CKRecord) {
         
         tripRecord.setValue(trip.beginDate, forKey: "beginDate")
         tripRecord.setValue(trip.endDate, forKey: "endDate")
@@ -512,13 +442,23 @@ class DAOCloudTrip: NSObject {
         tripRecord.setValue(UIImageJPEGRepresentation(trip.getPresentationImage(), 1), forKey: "presentationImage")
     }
     
+    // Função auxiliar que inicializa um tripRecord a partir de uma trip num NSDictionary
+    
+    private func modifyTripRecord(trip: NSDictionary, tripRecord: CKRecord) {
+        
+        tripRecord.setValue(trip.objectForKey("beginDate"), forKey: "beginDate")
+        tripRecord.setValue(trip.objectForKey("endDate"), forKey: "endDate")
+        tripRecord.setValue(trip.objectForKey("destination"), forKey: "destination")
+        tripRecord.setValue(trip.objectForKey("presentationImage"), forKey: "presentationImage")
+    }
+    
     // Função auxiliar que inicializa um momentRecord a partir de um moment
     
-    private func modifyMoment(index: Int, moment: Moment, momentRecord: CKRecord, tripRecord: CKRecord) {
+    private func modifyMomentRecord(index: Int, moment: Moment, momentRecord: CKRecord, tripRecord: CKRecord) {
         
         momentRecord.setValue(moment.category, forKey: "category")
         momentRecord.setValue(moment.comment, forKey: "comment")
-        momentRecord.setValue(moment.getGeoTag(), forKey: "geoTrag")
+        momentRecord.setValue(moment.getGeoTag(), forKey: "geoTag")
         momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
         momentRecord.setValue(NSNumber(integer: index), forKey: "index")
         
@@ -533,11 +473,40 @@ class DAOCloudTrip: NSObject {
         }
     }
     
+    private func modifyMomentRecord(moment: Moment, momentRecord: CKRecord, tripRecord: CKRecord) {
+        
+        momentRecord.setValue(moment.category, forKey: "category")
+        momentRecord.setValue(moment.comment, forKey: "comment")
+        momentRecord.setValue(moment.getGeoTag(), forKey: "geoTag")
+        momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
+        momentRecord.setValue(moment.index!, forKey: "index")
+        
+        let photos : [UIImage] = moment.getAllPhotos()
+        
+        momentRecord.setValue(photos.count, forKey: "photosAmount")
+        
+        if photos.count > 0 {
+            
+            momentRecord.setValue(self.getMomentPhotosArray(photos, isAsset: true), forKey: "photos")
+        }
+    }
+    
+    private func modifyMomentRecord(moment: NSDictionary, momentRecord: CKRecord, tripRecord: CKRecord) {
+        
+        momentRecord.setValue(moment.valueForKey("category"), forKey: "category")
+        momentRecord.setValue(moment.valueForKey("comment"), forKey: "comment")
+        momentRecord.setValue(moment.valueForKey("geoTag"), forKey: "geoTag")
+        momentRecord.setValue(CKReference(record: tripRecord, action: CKReferenceAction.DeleteSelf), forKey: "trip")
+        momentRecord.setValue(moment.valueForKey("index"), forKey: "index")
+        momentRecord.setValue(moment.valueForKey("photosAmount"), forKey: "photosAmount")
+        momentRecord.setValue(moment.valueForKey("photos"), forKey: "photos")
+    }
+    
     // Função auxiliar que cria CKQuery que procura todos os moments de uma certa trip
     
     private func getMomentsQuery(tripID: CKRecordID) -> CKQuery {
         
-        let tripReference : CKReference = CKReference(recordID: tripID, action: CKReferenceAction.None)
+        let tripReference : CKReference = CKReference(recordID: tripID, action: CKReferenceAction.DeleteSelf)
         
         let momentsPredicate : NSPredicate = NSPredicate(format: "trip == %@", tripReference)
         let momentsQuery : CKQuery = CKQuery(recordType: "Moment", predicate: momentsPredicate)
@@ -559,12 +528,44 @@ class DAOCloudTrip: NSObject {
             instructions.writeToFile(plistPath, atomically: true)
         }
     }
+
     
-    // Função que atualiza um certo moment que já esteja na cloud
-    
-    private func updateMomentOperation(momentRecord: CKRecord) {
+    private func saveRecord(record: CKRecord, wasReadFromPlist: Bool, isTripRecord: Bool) {
         
-        let updateOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [momentRecord], recordIDsToDelete: nil)
+        privateDB.saveRecord(record, completionHandler: { (recordReturned, error) -> Void in
+            
+            if let err = error {
+                
+                if isTripRecord {
+                    
+                    println("Erro ao salvar trip. O erro foi: \(err)")
+                }
+                else {
+                    
+                    println("Erro ao salvar momento. O erro foi: \(err)")
+                }
+                
+                if !wasReadFromPlist {
+                    
+                    //self.saveInstruction(<#trip: Trip#>) tem que fazer uma versão que aceite receber uma tripRecord
+                    //self.saveInstruction(moment: Moment) tem que fazer uma versão que aceite receber uma momentRecord
+                    //tem que chamar esses métodos nos if's acima
+                }
+            }
+            else {
+                
+                if wasReadFromPlist {
+                    
+                    self.updatePlist()
+                    self.updateCloudKit()
+                }
+            }
+        })
+    }
+    
+    private func updateRecord(record: CKRecord, wasReadFromPlist: Bool, isTripRecord: Bool) {
+        
+        let updateOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
         
         updateOperation.savePolicy = CKRecordSavePolicy.ChangedKeys
         
@@ -572,76 +573,83 @@ class DAOCloudTrip: NSObject {
             
             if let err = error {
                 
-                println("Erro ao atualizar momento. O erro foi: \(err)")
+                if isTripRecord {
+                    
+                    println("Erro ao atualizar trip. O erro foi: \(err)")
+                }
+                else {
+                    
+                    println("Erro ao atualizar momento. O erro foi: \(err)")
+                }
+                
+                if !wasReadFromPlist {
+                    
+                    //implementar
+                }
             }
             else {
                 
-                self.updatePlist()
-                self.updateCloudKit()
+                if wasReadFromPlist {
+                    
+                    self.updatePlist()
+                    self.updateCloudKit()
+                }
             }
         }
         
         privateDB.addOperation(updateOperation)
     }
     
-    // Deleta momento já presente na cloud
-    
-    private func deleteMomentOperation(momentRecord: CKRecord) {
+    private func deleteRecord(record: CKRecord, wasReadFromPlist: Bool, isTripRecord: Bool) {
         
-        let deleteOperation : CKModifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [momentRecord.recordID])
-        
-        deleteOperation.savePolicy = CKRecordSavePolicy.AllKeys
-        
-        deleteOperation.modifyRecordsCompletionBlock = { added, deleted, error in
+        privateDB.deleteRecordWithID(record.recordID, completionHandler: { (recordReturned, error) -> Void in
             
             if let err = error {
                 
-                println("Erro ao deletar momento. O erro foi: \(err)")
+                if isTripRecord {
+                    
+                    println("Erro ao deletar trip. O erro foi: \(err)")
+                }
+                else {
+                    
+                    println("Erro ao deletar momento. O erro foi: \(err)")
+                }
+                
+                if !wasReadFromPlist {
+                    
+                    //implementar
+                }
             }
             else {
                 
-                println("Momento deletado com sucesso")
-                self.updatePlist()
-                self.updateCloudKit()
+                if wasReadFromPlist {
+                    NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.CachesDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask)
+                    self.updatePlist()
+                    self.updateCloudKit()
+                }
+            }
+        })
+    }
+    
+    private func getMomentPhotosArray(photos: [UIImage], isAsset: Bool) -> NSMutableArray {
+        
+        var photosAssets : NSMutableArray = NSMutableArray(capacity: photos.count)
+        
+        for img in photos {
+            
+            let data : NSData = UIImageJPEGRepresentation(img, 1)
+            
+            if isAsset {
+                
+                photosAssets.addObject(data)
+            }
+            else {
+                
+                data.writeToURL(tempURL, atomically: false)
+                photosAssets.addObject(CKAsset(fileURL: tempURL))
             }
         }
         
-        self.privateDB.addOperation(deleteOperation)
-    }
-    
-    // Salva um certo momento na cloud
-    
-    private func saveMomentRecord(momentRecord: CKRecord) {
-        
-        privateDB.saveRecord(momentRecord, completionHandler: { (recordReturned, error) -> Void in
-            
-            if let err = error {
-                
-                println("Erro ao salvar momento pegado da plist. O erro foi: \(err)")
-            }
-            else {
-                
-                self.updatePlist()
-                self.updateCloudKit()
-            }
-        })
-    }
-    
-    // Salva uma trip na cloud
-    
-    private func saveTripRecord(tripRecord: CKRecord) {
-        
-        privateDB.saveRecord(tripRecord, completionHandler: { (recordReturned, error) -> Void in
-            
-            if let err = error {
-                
-                println("Erro ao salvar momento pegado da plist. O erro foi: \(err)")
-            }
-            else {
-                
-                self.updatePlist()
-                self.updateCloudKit()
-            }
-        })
+        return photosAssets
     }
 }

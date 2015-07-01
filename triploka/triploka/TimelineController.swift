@@ -225,6 +225,8 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         moment.category = NSNumber(int: MomentCategory.Image.rawValue)
         moment.addNewPhoto(image)
+        moment.comment = "img"
+        moment.trip = self.trip
         
         self.trip.addNewMoment(moment)
         
@@ -465,12 +467,12 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.yArray.insert(junction.frame.origin.y, atIndex: Int(maximo2))
         
-        UIView.animateWithDuration(0.5, animations: {
-            
-            momentView.frame.origin.x = newMomentX
-            
-        })
-        
+//        UIView.animateWithDuration(0.5, animations: {
+//            
+//            momentView.frame.origin.x = newMomentX
+//            
+//        })
+//        
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             
             momentView.frame.origin.x = newMomentX
@@ -478,6 +480,8 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
             }) { (completedBool) -> Void in
                 
                 self.animation()
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("PictureMoment", object: self)
         }
         
         self.max = Int(maximo2)
@@ -519,9 +523,9 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             }) { (completedBool) -> Void in
                 
-                self.testMoment.frame = frameExpansion
-                self.testMoment.backgroundColor = UIColor.whiteColor()
-                self.view.addSubview(self.testMoment)
+//                self.testMoment.frame = frameExpansion
+//                self.testMoment.backgroundColor = UIColor.whiteColor()
+//                self.view.addSubview(self.testMoment)
         }
     }
     
