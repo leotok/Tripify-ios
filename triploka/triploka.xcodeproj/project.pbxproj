@@ -67,10 +67,10 @@
 		4F9C50591B1CA695000DA827 /* LocalDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9C50581B1CA695000DA827 /* LocalDAO.swift */; };
 		871C2E7C1B1CB7E600CAA562 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */; };
 		875B373B1B2B0E3D002BAAA6 /* MomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B373A1B2B0E3D002BAAA6 /* MomentView.swift */; };
-		8766DE2C1B3208C600A70580 /* Instructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 871F38E21B1B8E1100EE725C /* Instructions.plist */; };
 		87D4771E1B1DE8E800F4A60A /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */; };
 		94287AEB1B1C6F9E0086B6B6 /* MomentOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */; };
 		942C8C471B38D86A00BECD1C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942C8C461B38D86A00BECD1C /* CloudKit.framework */; };
+		94892C891B45A50A002E9FBC /* Instructions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94892C881B45A50A002E9FBC /* Instructions.plist */; };
 		94D4F29B1B1CD3640034F575 /* TextMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29A1B1CD3640034F575 /* TextMoment.swift */; };
 		94D4F29D1B1CD36F0034F575 /* AudioMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */; };
 		94D4F29F1B1CD37A0034F575 /* PictureMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D4F29E1B1CD37A0034F575 /* PictureMoment.swift */; };
@@ -127,12 +127,12 @@
 		4F609CEC1B2882AD00A4A81F /* defaultUserProfileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultUserProfileImage.png; sourceTree = "<group>"; };
 		4F9C50581B1CA695000DA827 /* LocalDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDAO.swift; sourceTree = "<group>"; };
 		871C2E7B1B1CB7E600CAA562 /* NetworkStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
-		871F38E21B1B8E1100EE725C /* Instructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = triplokaTests/Instructions.plist; sourceTree = SOURCE_ROOT; };
 		875B373A1B2B0E3D002BAAA6 /* MomentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentView.swift; sourceTree = "<group>"; };
 		87D4771D1B1DE8E800F4A60A /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		94287AEA1B1C6F9E0086B6B6 /* MomentOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentOptions.swift; sourceTree = "<group>"; };
 		942C8C461B38D86A00BECD1C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		94387AAD1B1912E700051D08 /* triploka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = triploka.entitlements; sourceTree = "<group>"; };
+		94892C881B45A50A002E9FBC /* Instructions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Instructions.plist; path = "statistics-2/Instructions.plist"; sourceTree = "<group>"; };
 		94D4F29A1B1CD3640034F575 /* TextMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMoment.swift; sourceTree = "<group>"; };
 		94D4F29C1B1CD36F0034F575 /* AudioMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioMoment.swift; sourceTree = "<group>"; };
 		94D4F29E1B1CD37A0034F575 /* PictureMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureMoment.swift; sourceTree = "<group>"; };
@@ -216,8 +216,8 @@
 		3F8D995E1B1778290066504F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				94892C881B45A50A002E9FBC /* Instructions.plist */,
 				3F65F7721B2B7A1C000F1C8B /* checkbox */,
-				871F38E21B1B8E1100EE725C /* Instructions.plist */,
 				3F694CC41B195DC600F8D70E /* amatic */,
 				3F694CC21B1956A300F8D70E /* leoProfile.jpg */,
 				3FF9C5E41B27612200EB546F /* tripifyGrande.png */,
@@ -388,7 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8766DE2C1B3208C600A70580 /* Instructions.plist in Resources */,
+				94892C891B45A50A002E9FBC /* Instructions.plist in Resources */,
 				4F609CED1B2882AD00A4A81F /* defaultUserProfileImage.png in Resources */,
 				3F70EE481B1A385C004995B6 /* passport2.jpg in Resources */,
 				3F65F7761B2B7A1C000F1C8B /* Unchecked.png in Resources */,

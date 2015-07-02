@@ -244,6 +244,9 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+    }
     
     
     /*********************************************
@@ -304,8 +307,8 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
             let momentFrame : CGRect = CGRectMake(xSide, y, width, size)
             var momentView : MomentView
             
+            
             var joinLine = JoinLine()
-            joinLine.hidden = true
             joinLine.backgroundColor = UIColor.grayColor()
             joinLine.frame = CGRectMake(xLine, y + size/2, lineWidth, 1)
             self.scrollView.addSubview(joinLine)
@@ -323,6 +326,7 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
                 
                 momentView = MomentView(frame: momentFrame)
                 momentView.hidden = true
+                joinLine.hidden = true
             }
             else {
                 
