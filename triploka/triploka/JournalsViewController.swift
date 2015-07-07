@@ -122,6 +122,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
         if trips.count > 0 {
             
             var trip: Trip = trips[indexPath.row]
+            cell!.trip = trip
             cell!.tripTitle.text = trip.destination
 
             let cal = NSCalendar.currentCalendar()
@@ -152,6 +153,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             cell!.priority = 1
             
         }
+        
         
         return cell!
         

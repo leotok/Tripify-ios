@@ -72,6 +72,9 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         datePicker = UIDatePicker()
         datePicker.frame = CGRectMake(0, 160, 320, 160)
+        datePicker.layer.borderWidth = 1
+        datePicker.layer.borderColor = UIColor.grayColor().CGColor
+        datePicker.backgroundColor = UIColor.whiteColor()
         datePicker.transform = CGAffineTransformMakeScale( 0.8, 0.8)
         datePicker.center = CGPointMake(self.view.frame.width / 2, self.view.frame.width / 2)
         datePicker.datePickerMode = UIDatePickerMode.Date

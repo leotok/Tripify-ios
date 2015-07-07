@@ -17,12 +17,9 @@ class AboutUsViewController: UIViewController {
 
         self.view.backgroundColor = UIColor.whiteColor()
         var bg = UIImageView(frame: self.view.frame)
-        bg.image = UIImage(named: "passport2.jpg")
+        bg.backgroundColor = UIColor(red:0.2588, green:0.2706, blue:0.3137, alpha:0.9)
+        //bg.image = UIImage(named: "passport2.jpg")
         self.view.addSubview(bg)
-        var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-        var effectView:UIVisualEffectView = UIVisualEffectView (effect: blur)
-        effectView.frame = self.view.frame
-        self.view.addSubview(effectView)
         
         
         self.navigationItem.title = "About Us"
@@ -30,12 +27,13 @@ class AboutUsViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         
-        self.aboutLabel.frame = CGRectMake(0, 0, self.view.frame.width / 1.2, self.view.frame.height  )
+        self.aboutLabel.frame = self.view.frame
+        self.aboutLabel.textColor = UIColor(red:0.8588, green:0.8588, blue:0.8588, alpha:1)
         self.aboutLabel.center = self.view.center
         self.aboutLabel.numberOfLines = -1
         self.aboutLabel.text = "Developed by:\n\n\n\nJordan Rodrigues\nLeonardo E. Wajnsztok\nVictor Souza\nVictor Yves\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Icons: https://icons8.com/"
         self.aboutLabel.textAlignment = .Center
-        self.aboutLabel.font = UIFont(name: "AmericanTypewriter", size: 18)
+        self.aboutLabel.font = UIFont(name: "", size: 16)
         
         self.view.addSubview(aboutLabel)
 
