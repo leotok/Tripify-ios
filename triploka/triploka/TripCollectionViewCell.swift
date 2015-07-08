@@ -83,9 +83,26 @@ class TripCollectionViewCell: UICollectionViewCell, UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         tripTextField.hidden = true
-        trip.destination = tripTextField.text
-        tripTitle.text = tripTextField.text
+        
+
+        var stringWithoutWhitespace = tripTextField.text.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        let length = count(stringWithoutWhitespace.utf16)
+        
+        println("\(stringWithoutWhitespace)")
+        
+        if length != 0 {
+        
+            trip.destination = tripTextField.text
+            tripTitle.text = tripTextField.text
+        }
+        else {
+            tripTextField.text = trip.destination
+            tripTitle.text = trip.destination
+        }
+        
         tripTitle.hidden = false
+        
         return true
     }
     
@@ -101,8 +118,9 @@ class TripCollectionViewCell: UICollectionViewCell, UITextFieldDelegate
     func longPressToEdit() {
      
         tripTitle.hidden = true
-//        tripTextField.text = tripTitle.text
+        tripTextField.text = tripTitle.text
         tripTextField.hidden = false
+        tripTextField.becomeFirstResponder()
         
         
     }
