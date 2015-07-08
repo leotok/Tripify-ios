@@ -110,6 +110,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+
         return true
     }
     
@@ -229,9 +230,17 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
             newTrip.changePresentationImage(UIImage(named:"city-cars-traffic-lights.jpeg")!)
         }
         
-        if self.titleTextField.text != nil && self.titleTextField.text.isEmpty {
+        
+        var stringWithoutWhitespace = titleTextField.text.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        let length = count(stringWithoutWhitespace.utf16)
+        
+        if self.titleTextField.text != nil || self.titleTextField.text.isEmpty || length == 0 {
+            
             newTrip.destination = "\(LocalDAO.sharedInstance.getUserName())'s Trip"
-        } else
+            
+        }
+        else
         {
             newTrip.destination = self.titleTextField.text!
         }
