@@ -39,6 +39,7 @@
 		3F80CEAC1B1F73EB0077916A /* city-cars-traffic-lights.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAB1B1F73EB0077916A /* city-cars-traffic-lights.jpeg */; };
 		3F80CEB01B1F748E0077916A /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F80CEAF1B1F748E0077916A /* city.jpg */; };
 		3F80CEB21B271D0F0077916A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F80CEB11B271D0F0077916A /* SettingsViewController.swift */; };
+		3FCE76C01B4F002200C8D0A1 /* FlatImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE76BF1B4F002200C8D0A1 /* FlatImagePickerViewController.swift */; };
 		3FF9C5E51B27612200EB546F /* tripifyGrande.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF9C5E41B27612200EB546F /* tripifyGrande.png */; };
 		4F0BAD5C1B2B79700057ADF4 /* NewMomentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D999F1B177B120066504F /* NewMomentController.swift */; };
 		4F4EC4FF1B18D71800378DDF /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8D99B51B1780FA0066504F /* AddTripViewController.swift */; };
@@ -119,6 +120,7 @@
 		3F8D99A01B177B120066504F /* TestMoment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMoment.swift; sourceTree = "<group>"; };
 		3F8D99A21B177B120066504F /* TimelineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineController.swift; sourceTree = "<group>"; };
 		3F8D99B51B1780FA0066504F /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
+		3FCE76BF1B4F002200C8D0A1 /* FlatImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatImagePickerViewController.swift; sourceTree = "<group>"; };
 		3FF9C5E41B27612200EB546F /* tripifyGrande.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tripifyGrande.png; sourceTree = "<group>"; };
 		4F4EC51B1B18E29500378DDF /* triploka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = triploka.xcdatamodel; sourceTree = "<group>"; };
 		4F4EC51D1B18E35E00378DDF /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				3F8D99911B177AA90066504F /* Controller */,
 				3F8D99901B177AA40066504F /* View */,
 				3F8D998F1B177AA00066504F /* Model */,
+				3FCE76C11B4F002E00C8D0A1 /* FlatImagePicker */,
 				3F8D99921B177AB60066504F /* SWReveal */,
 				3F8D99601B1778290066504F /* AppDelegate.swift */,
 				3F8D995E1B1778290066504F /* Supporting Files */,
@@ -306,6 +309,14 @@
 				3F8D998B1B1778840066504F /* triploka-Bridging-Header.h */,
 			);
 			name = SWReveal;
+			sourceTree = "<group>";
+		};
+		3FCE76C11B4F002E00C8D0A1 /* FlatImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				3FCE76BF1B4F002200C8D0A1 /* FlatImagePickerViewController.swift */,
+			);
+			name = FlatImagePicker;
 			sourceTree = "<group>";
 		};
 		94D4F2A21B1CF3C00034F575 /* Type */ = {
@@ -447,6 +458,7 @@
 				4F4EC5051B18D71800378DDF /* TimelineController.swift in Sources */,
 				4F4EC5061B18D72600378DDF /* DashedLine.swift in Sources */,
 				4F4EC5221B18E35F00378DDF /* Moment.swift in Sources */,
+				3FCE76C01B4F002200C8D0A1 /* FlatImagePickerViewController.swift in Sources */,
 				4F4EC51C1B18E29500378DDF /* triploka.xcdatamodeld in Sources */,
 				4F0BAD5C1B2B79700057ADF4 /* NewMomentController.swift in Sources */,
 				4F4EC5201B18E35E00378DDF /* Photo.swift in Sources */,

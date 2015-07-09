@@ -8,13 +8,14 @@
 
 import UIKit
 
-class JournalsViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+class JournalsViewController: UIViewController , FlatImagePickerViewControllerDelegate , UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var sideMenuButton = UIBarButtonItem()
     var addButton : UIBarButtonItem?
     var trips = [Trip]()
     var collectionJournal: UICollectionView!
     var addTripLabel: UILabel?
+    var longPressIndex = 0
     
     override func viewWillAppear(animated: Bool) {
         
@@ -109,6 +110,7 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
     func addTrip()
     {
         let addvc = AddTripViewController()
+
         self.navigationController?.pushViewController(addvc, animated: true)
     }
     
@@ -154,14 +156,34 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             }
             
             cell!.priority = 1
+            cell!.tag = indexPath.row
+            
+            var longPressCover = UILongPressGestureRecognizer(target: self, action: Selector("longPressToEditCover:"))
+            cell!.addGestureRecognizer(longPressCover)
             
         }
-        
         
         return cell!
         
     }
     
+    
+    func longPressToEditCover(gesture: UILongPressGestureRecognizer) {
+        
+        println("oi")
+        
+        var flat = FlatImagePickerViewController(shouldSaveImage: false)
+        flat.delegate = self
+        var cell = gesture.view as! TripCollectionViewCell
+        self.longPressIndex = cell.tag
+        self.presentViewController(flat, animated: false, completion: nil)
+        
+    }
+    
+    func FlatimagePickerViewController(imagePicker: FlatImagePickerViewController, didSelectImage image: UIImage) {
+     
+        trips[self.longPressIndex].presentationImage = image
+    }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         

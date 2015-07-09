@@ -64,10 +64,7 @@ class TripCollectionViewCell: UICollectionViewCell, UITextFieldDelegate
         
         var longPressTitle = UILongPressGestureRecognizer(target: self, action: Selector("longPressToEditTitle"))
         effectView.addGestureRecognizer(longPressTitle)
-        
-        var longPressCover = UILongPressGestureRecognizer(target: self, action: Selector("longPressToEditCover"))
-        self.addGestureRecognizer(longPressCover)
-        
+            
         
         self.addSubview(tripCover)
         self.addSubview(effectView)
@@ -126,9 +123,5 @@ class TripCollectionViewCell: UICollectionViewCell, UITextFieldDelegate
         tripTextField.becomeFirstResponder()
     }
 
-    func longPressToEditCover() {
-        
-       println("oi")
-    }
     
 }
