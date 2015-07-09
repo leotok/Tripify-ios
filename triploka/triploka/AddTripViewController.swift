@@ -22,7 +22,9 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
     var cancel: UIButton!
     var input: UILabel!
     
-    
+    override func viewWillAppear(animated: Bool) {
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -235,8 +237,9 @@ class AddTripViewController: UIViewController, UITextFieldDelegate , UIImagePick
         
         let length = count(stringWithoutWhitespace.utf16)
         
-        if self.titleTextField.text != nil || self.titleTextField.text.isEmpty || length == 0 {
+        if self.titleTextField.text == nil || self.titleTextField.text.isEmpty || length == 0 {
             
+            println("\(length)")
             newTrip.destination = "\(LocalDAO.sharedInstance.getUserName())'s Trip"
             
         }

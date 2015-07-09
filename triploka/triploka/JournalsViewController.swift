@@ -36,11 +36,14 @@ class JournalsViewController: UIViewController , UICollectionViewDataSource, UIC
             self.addTripLabel?.removeFromSuperview()
     
         }
+        
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     }
     
     func sorterForTrips(trip1: Trip, trip2: Trip) -> Bool {
         return trip1.beginDate.timeIntervalSinceNow > trip2.beginDate.timeIntervalSinceNow
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

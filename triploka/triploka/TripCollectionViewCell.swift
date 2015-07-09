@@ -62,8 +62,11 @@ class TripCollectionViewCell: UICollectionViewCell, UITextFieldDelegate
         tripTextField.font = UIFont(name: "AmericanTypewriter-Light", size: self.frame.height / 9)
         tripTextField.hidden = true
         
-        var gesture = UILongPressGestureRecognizer(target: self, action: Selector("longPressToEdit"))
-        self.addGestureRecognizer(gesture)
+        var longPressTitle = UILongPressGestureRecognizer(target: self, action: Selector("longPressToEditTitle"))
+        effectView.addGestureRecognizer(longPressTitle)
+        
+        var longPressCover = UILongPressGestureRecognizer(target: self, action: Selector("longPressToEditCover"))
+        self.addGestureRecognizer(longPressCover)
         
         
         self.addSubview(tripCover)
@@ -115,14 +118,17 @@ class TripCollectionViewCell: UICollectionViewCell, UITextFieldDelegate
         
     }
     
-    func longPressToEdit() {
+    func longPressToEditTitle() {
      
         tripTitle.hidden = true
         tripTextField.text = tripTitle.text
         tripTextField.hidden = false
         tripTextField.becomeFirstResponder()
+    }
+
+    func longPressToEditCover() {
         
-        
+       println("oi")
     }
     
 }
