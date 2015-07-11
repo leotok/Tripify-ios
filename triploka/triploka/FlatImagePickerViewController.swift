@@ -117,12 +117,10 @@ class FlatImagePickerViewController: UIViewController, UIImagePickerControllerDe
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        
         self.coverPicker.dismissViewControllerAnimated(true, completion: nil)
-        
         self.cancelPressed()
-        
-        self.delegate?.FlatimagePickerViewController(self, didSelectImage: image)
-        
+    
         if self.shouldSaveImage
         {
             if picker.sourceType == UIImagePickerControllerSourceType.Camera
@@ -131,6 +129,7 @@ class FlatImagePickerViewController: UIViewController, UIImagePickerControllerDe
             }
         }
         
+        self.delegate?.FlatimagePickerViewController(self, didSelectImage: image)
     }
     
     func cancelPressed() {
