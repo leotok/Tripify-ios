@@ -206,7 +206,7 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
     *
     ***/
     
-     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
         let selectedImage : UIImage = image
         self.image = selectedImage
@@ -235,6 +235,9 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        self.returnMoments()
         
     }
     
@@ -323,6 +326,7 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
                 var moment : Moment = moments[momentsIterator++]
                 momentView = MomentView(frame: momentFrame, moment: moment)
                 momentView.hidden = false
+                momentView.userInteractionEnabled = true
             }
             
             height = 120 // deltaY ??
@@ -473,7 +477,7 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             }) { (completedBool) -> Void in
                 
-                self.animation()
+                self.animation(1.0)
                 
                 NSNotificationCenter.defaultCenter().postNotificationName("PictureMoment", object: self)
         }
@@ -488,40 +492,98 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-     private func animation(){
+     private func returnMoments() {
+        
+        totalHeight -= self.size + self.offset
+        self.updateContentSize(totalHeight)
+        
+        self.junctionTestArray[self.max].removeFromSuperview()
+        self.momentsViews[self.max].removeFromSuperview()
+        self.lineTestArray[self.max].removeFromSuperview()
+        
+        var returningX = CGFloat(0)
+        var returningLine = CGFloat(0)
+        var returningY = self.offset + self.size
+        
+        self.animation(-1.0)
+        
+        for var i = self.max+1; i < self.momentsViews.count; i++ {
+            
+            if self.momentsViews[i].frame.origin.x == self.x1 {
+                returningX = self.x2
+                returningLine = self.xLine2
+            }
+            else {
+                returningX = self.x1
+                returningLine = self.xLine1
+            }
+            
+            UIView.animateWithDuration(0.5, animations: {
+                
+                println(returningX)
+                
+                self.momentsViews[i].frame.origin.x = returningX
+                self.momentsViews[i].frame.origin.y -= returningY
+                
+                self.junctionTestArray[i].frame.origin.y -= returningY
+                
+                self.lineTestArray[i].frame.origin.x = returningLine
+                self.lineTestArray[i].frame.origin.y -= returningY
+                
+                self.momentsViews[i].lastOrigin = self.momentsViews[i].frame.origin
+                
+            })
+            
+        }
+        
+        
+        self.junctionTestArray.removeAtIndex(self.max)
+        self.momentsViews.removeAtIndex(self.max)
+        self.lineTestArray.removeAtIndex(self.max)
+        
+     }
+    
+     private func animation(signal: CGFloat) {
         
         var frameExpansion = CGRect(x: 10, y: 10, width: self.view.frame.width - 20, height: self.view.frame.height/2)
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             
-            self.pointJunction.frame.origin.x = -40
+            
             
             for var j = 0; j < self.momentsViews.count; j++ {
                 
-                self.lineTestArray[j].frame.origin.x -= 2*self.momentsViews[j].frame.width
-                self.junctionTestArray[j].frame.origin.x -= 2*self.momentsViews[j].frame.width
+                self.lineTestArray[j].frame.origin.x -= 2*self.momentsViews[j].frame.width * signal
+                self.junctionTestArray[j].frame.origin.x -= 2*self.momentsViews[j].frame.width * signal
                 
                 if j != Int(self.max) {
-                    self.momentsViews[j].frame.origin.x = -self.momentsViews[j].frame.width
+                    self.momentsViews[j].frame.origin.x -= signal*2*self.momentsViews[j].frame.width
                 }
                     
                 else {
                     
-                    self.momentsViews[j].frame = frameExpansion
-                    self.momentsViews[j].animate()
+                    if signal == 1.0 {
+                        
+                        self.momentsViews[j].frame = frameExpansion
+                        self.momentsViews[j].animate()
+                    }
                 }
                 
             }
             
-            self.dashed.frame.origin.x = -40
+            if signal == 1.0 {
+                self.dashed.frame.origin.x = -40
+                self.pointJunction.frame.origin.x = -40
+            }
             
             }) { (completedBool) -> Void in
                 
-//                self.testMoment.frame = frameExpansion
-//                self.testMoment.backgroundColor = UIColor.whiteColor()
-//                self.view.addSubview(self.testMoment)
+                //                self.testMoment.frame = frameExpansion
+                //                self.testMoment.backgroundColor = UIColor.whiteColor()
+                //                self.view.addSubview(self.testMoment)
         }
-    }
+        
+     }
     
      func addEvent(recognizer: UITapGestureRecognizer) {
         
