@@ -10,7 +10,9 @@ import UIKit
 
 protocol FlatImagePickerViewControllerDelegate: NSObjectProtocol{
     
-     func FlatimagePickerViewController(imagePicker:FlatImagePickerViewController, didSelectImage image: UIImage)
+    func FlatimagePickerViewController(imagePicker:FlatImagePickerViewController, didSelectImage image: UIImage)
+    
+    func FlatimagePickerViewControllerDidCancel(imagePicker:FlatImagePickerViewController)
     
 }
 
@@ -21,33 +23,32 @@ class FlatImagePickerViewController: UIViewController, UIImagePickerControllerDe
     var camera: UIButton!
     var gallery: UIButton!
     var cancel: UIButton!
-    var coverPicker: UIImagePickerController!
-    var image: UIImage!
     var shouldSaveImage: Bool = false
+    private var coverPicker: UIImagePickerController!
+    private var didShow = 0
     
     override func viewDidAppear(animated: Bool) {
         
         super.viewDidAppear(false)
-
-        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        self.chooseCover()
-       
+        
+        if didShow == 0
+        {
+            self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            self.chooseCover()
+            didShow++
+        }
+        
     }
     
     init(shouldSaveImage: Bool) {
         super.init(nibName: nil, bundle: nil)
         
-            self.shouldSaveImage = shouldSaveImage
-
-        
+        self.shouldSaveImage = shouldSaveImage
         self.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        
     }
-
+    
     required init(coder: NSCoder) {
-
         super.init(coder: coder)
-        
     }
     
     func chooseCover() {
@@ -98,7 +99,7 @@ class FlatImagePickerViewController: UIViewController, UIImagePickerControllerDe
         self.coverPicker.allowsEditing = true
         
         self.presentViewController(coverPicker, animated: true, completion: nil)
-
+        
     }
     
     func cameraPressed() {
@@ -136,20 +137,27 @@ class FlatImagePickerViewController: UIViewController, UIImagePickerControllerDe
         
         UIView.animateWithDuration(0.2, animations: {
             
-            self.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+            self.view.backgroundColor = UIColor(red: 1, green: 1 , blue: 1, alpha: 0)
             
             self.cinza.frame = CGRectMake(0, self.view.bounds.height, self.view.bounds.width, self.view.bounds.height - self.view.bounds.height / 1.3)
-            self.camera.removeFromSuperview()
-            self.gallery.removeFromSuperview()
-            self.cancel.removeFromSuperview()
+            
+            self.camera.center = CGPointMake(self.view.bounds.width / 4 , self.view.frame.height + 40)
+            self.gallery.center = CGPointMake(self.cinza.bounds.width * 3 / 4 , self.view.frame.height + 40)
+            self.cancel.center = CGPointMake(self.view.center.x, self.view.bounds.height + 40)
+            
             }, completion: {
                 (value: Bool) in
+                
+                println("Cancel1")
+                
+                self.cinza.removeFromSuperview()
+                self.camera.removeFromSuperview()
+                self.gallery.removeFromSuperview()
+                self.cancel.removeFromSuperview()
+                
+                self.delegate?.FlatimagePickerViewControllerDidCancel(self)
                 self.dismissViewControllerAnimated(false, completion: nil)
         })
-        
-        
-        
     }
-    
 }
 

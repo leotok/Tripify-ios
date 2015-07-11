@@ -16,9 +16,15 @@ class JournalsViewController: UIViewController , FlatImagePickerViewControllerDe
     var collectionJournal: UICollectionView!
     var addTripLabel: UILabel?
     var longPressIndex = 0
+    var didLongPress = 0
+    
+    override func viewDidAppear(animated: Bool) {
+        didLongPress = 0
+    }
     
     override func viewWillAppear(animated: Bool) {
         
+        didLongPress = 0
         self.trips = LocalDAO.sharedInstance.getAllTrips()
         self.trips.sort(sorterForTrips)
         
@@ -169,20 +175,28 @@ class JournalsViewController: UIViewController , FlatImagePickerViewControllerDe
     
     
     func longPressToEditCover(gesture: UILongPressGestureRecognizer) {
-        
-        println("oi")
-        
-        var flat = FlatImagePickerViewController(shouldSaveImage: false)
-        flat.delegate = self
-        var cell = gesture.view as! TripCollectionViewCell
-        self.longPressIndex = cell.tag
-        self.presentViewController(flat, animated: false, completion: nil)
-        
+
+        if didLongPress == 0
+        {
+            var flat = FlatImagePickerViewController(shouldSaveImage: false)
+            flat.delegate = self
+            var cell = gesture.view as! TripCollectionViewCell
+            self.longPressIndex = cell.tag
+            self.presentViewController(flat, animated: false, completion: nil)
+        }
+        didLongPress = 1
     }
     
     func FlatimagePickerViewController(imagePicker: FlatImagePickerViewController, didSelectImage image: UIImage) {
      
         trips[self.longPressIndex].presentationImage = image
+    }
+    
+    
+    func FlatimagePickerViewControllerDidCancel(imagePicker:FlatImagePickerViewController) {
+        
+        // longPress era chamado 2 vzs
+        didLongPress = 0
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -222,23 +236,7 @@ class JournalsViewController: UIViewController , FlatImagePickerViewControllerDe
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
-        //pegar do DAO as prioritys de cada journal, tem q ser antes de criar as cells pq nao tem acesso a elas daqui
-        //return CGSizeMake(self.view.frame.width , self.view.frame.height/2)
-        
-     
         var cellSize = CGSizeMake( self.view.frame.width, self.view.frame.height / 2 )
-        
-//        if indexPath.row == 0 || indexPath.row == 3
-//        {
-//            cellSize.height = self.view.frame.height / 2
-//            cellSize.width = self.view.frame.width
-//        }
-//        else
-//        {
-//            cellSize.height = self.view.frame.height / 4
-//            cellSize.width = self.view.frame.width / 2.2
-//        }
-//        
         return cellSize
         
     }
