@@ -39,7 +39,8 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
     var returnHeight: CGFloat = CGFloat()
     var max: Int = Int()
     
-    var yArray: [CGFloat] = [CGFloat]()
+    var yArray: [CGFloat] = [CGFloat]() //Remover
+    
     var momentsViews: [MomentView] = [MomentView]()
     var lineTestArray: [JoinLine] = [JoinLine]()
     var junctionTestArray: [Junction] = [Junction]()
@@ -105,17 +106,6 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
     *  MARK: - Notification Methods
     *
     ***/
-    
-//    private func yourNotificationHandler(notice: NSNotification) {
-//        
-//        var image = UIImageView()
-//        
-//        image = notice.object as! UIImage
-//        //        self.organizeMoments(self.point.y, image: self.image)
-//        
-//        self.substituteView(0)
-//        
-//    }
   
      func scrollNotification(notice: NSNotification) {
         
@@ -537,9 +527,9 @@ class TimelineController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         var point = recognizer.locationInView(self.scrollView)
         
-        var index = yArray.count - 1
+        var index = junctionTestArray.count - 1
         
-        if point.y > yArray[0] && point.y < yArray[index] {
+        if point.y > junctionTestArray[0].frame.origin.y && point.y < junctionTestArray[index].frame.origin.y {
             
             self.organizeMoments(point.y)
             
