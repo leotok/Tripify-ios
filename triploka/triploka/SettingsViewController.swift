@@ -50,7 +50,7 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         sideMenuButton.tintColor = UIColor.whiteColor()
-        sideMenuButton.image = UIImage(named: "Menu-25")
+        sideMenuButton.image = UIImage(named: "menuButton")
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
         

@@ -141,7 +141,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
     }
     
     private func setupNavigationController(){
-        var tripify = UIImageView(image: UIImage(named: "TripifyTitle2"))
+        var tripify = UIImageView(image: UIImage(named: "tripifyTitle"))
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "blurMenu"), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.topItem?.titleView = tripify
@@ -154,7 +154,7 @@ class GenericViewController: UIViewController,SWRevealViewControllerDelegate {
         self.view.addGestureRecognizer(revealController.panGestureRecognizer())
         
         sideMenuButton.tintColor = UIColor.whiteColor()
-        sideMenuButton.image = UIImage(named: "Menu-25")
+        sideMenuButton.image = UIImage(named: "menuButton")
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
         

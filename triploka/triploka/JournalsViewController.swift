@@ -83,7 +83,7 @@ class JournalsViewController: UIViewController , FlatImagePickerViewControllerDe
         
         
         sideMenuButton.tintColor = UIColor.whiteColor()
-        sideMenuButton.image = UIImage(named: "Menu-25")
+        sideMenuButton.image = UIImage(named: "menuButton")
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
         
